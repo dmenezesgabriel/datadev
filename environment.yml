@@ -4,5 +4,13 @@ channels:
   - conda-forge
 dependencies:
   - python=3.11
-  - xeus-python
-  - ipycanvas
+  - xeus-python=0.17.2
+  - xeus-javascript=0.4.0
+  - scikit-learn
+  - scipy
+  - pandas
+  - numpy
+  - matplotlib
+  - plotly
+  - jupyterlab-filesystem-access
+  - jupyterlab-open-url-parameter
