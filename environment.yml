@@ -13,4 +13,3 @@ dependencies:
   - matplotlib
   - plotly
   - jupyterlab-filesystem-access
-  - jupyterlab-open-url-parameter
