@@ -9,6 +9,8 @@ COPY build-environment.yml environment.yml ./
 COPY README.md ./
 COPY content ./content
 COPY overrides.json ./overrides.json
+COPY jupyter-lite.json ./jupyter-lite.json
+
 
 # Create build environment and install dependencies
 RUN micromamba create -y -n $ENV_NAME -f build-environment.yml \
