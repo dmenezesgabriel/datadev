@@ -6,7 +6,7 @@ dependencies:
   - python=3.11
   - xeus-python
   - xeus-sqlite
-  - xeus-javascript=0.3.0
+  - xeus-javascript=0.4.0
   - scikit-learn=1.1.3
   - scipy=1.11.1
   - pandas=2.2.3
