@@ -15,8 +15,6 @@ dependencies:
   - plotly=6.1.2
   - ipywidgets=8.1.7
   - rich=14.0.0
-  - jupytext=1.17.2
-  - jupyterlab-language-pack-pt-BR
   # - jupyterlab-open-url-parameter
   # - jupyterlab-filesystem-access
   - pip
