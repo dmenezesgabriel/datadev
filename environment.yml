@@ -20,4 +20,4 @@ dependencies:
   # - jupyterlab-filesystem-access
   - pip
   - pip:
-      - jupyterlite-ai=0.7.0
+      - jupyterlite-ai==0.7.0
