@@ -1,0 +1,4 @@
+{
+    "quarto.path": "./.venv/bin/quarto",
+    "python.defaultInterpreterPath": "./.venv/bin/python3",
+}
