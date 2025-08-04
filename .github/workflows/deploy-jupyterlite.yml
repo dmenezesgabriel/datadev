@@ -27,10 +27,11 @@ jobs:
           cache-environment: true
 
       - name: Build JupyterLite site
+        working-directory: jupyterlite
         shell: bash -l {0}
         run: |
-          cp README.md notebooks/
-          jupyter lite build --contents notebooks --output-dir dist
+          cp ../README.md ../notebooks/
+          jupyter lite build --contents ../notebooks --output-dir ../dist
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
