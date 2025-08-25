@@ -3,10 +3,11 @@ name = "lite-notebooks"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.11"
 dependencies = []
 
 [dependency-groups]
 dev = [
-    "ipykernel>=6.30.0",
+    "ipynb>=0.5.1",
+    "mkdocs-material>=9.6.18",
 ]

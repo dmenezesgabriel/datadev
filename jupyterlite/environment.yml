@@ -1,4 +1,4 @@
-name: xeus-python-kernel
+name: xeus-kernels
 channels:
   - https://repo.mamba.pm/emscripten-forge
   - conda-forge
