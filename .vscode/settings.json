@@ -1,6 +1,14 @@
 {
     "quarto.path": "./.venv/bin/quarto",
     "python.defaultInterpreterPath": "./.venv/bin/python3",
+    "notebook.formatOnSave.enabled": true,
+    "notebook.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+    },
+    "isort.args": [
+        "--profile",
+        "black"
+    ],
     "yaml.schemas": {
         "https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
     },

@@ -1,7 +1,25 @@
 site_name: Lite Notebooks
+site_author: Gabriel Menezes
+site_description: A collection of Jupyter Notebooks for learning and practicing data science and machine learning concepts.
+
+repo_name: dmenezesgabriel/lite-notebooks
+repo_url: https://dmenezesgabriel.github.io/lite-notebooks
+
+copyright: Copyright &copy; 2025 Gabriel Menezes
+
 theme:
-  icon:
-    logo: fontawesome/solid/laptop-code
+  features:
+    - navigation.tabs # Navigation below the header
+    - navigation.top # Navigation at the top of the page
+    - navigation.sections # Section dividers in the navigation
+    - navigation.footer # Content navigation in the footer
+    - search.highlight # Highlight search terms in the page
+    - search.share # Share search results
+    - search.suggest # Suggest search terms as you type
+    - toc.follow # Highlight the current section in the table of contents
+    - content.code.annotate # Annotate code blocks
+    - content.code.copy # Copy code blocks to clipboard
+    - content.tabs.link # Link tabs to URL
   name: material
   font:
     text: Merriweather Sans
@@ -22,10 +40,41 @@ theme:
         name: Light mode
       primary: blue
       accent: deep orange
+  icon:
+    logo: fontawesome/solid/laptop-code
+
+plugins:
+  - blog
+  - search:
+      # Enable language support for Portuguese
+      lang: en, pt
+      # Use a custom separator to better handle special characters and camelCase
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/dmenezesgabriel
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/dmenezesgabriel/
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/dmenezesgabriel
 
 markdown_extensions:
-  - attr_list
-  - admonition
+  - abbr # Abbreviations
+  - attr_list # Allow setting attributes on elements
+  - def_list # Definition lists
+  - footnotes # Footnotes
+  - md_in_html # Allow Markdown inside HTML blocks
+  - admonition # it provides a way to add notes, warnings, tips, and other types of callouts to your Markdown content.
+  - toc:
+      permalink: true # Add a permalink symbol next to each heading in the table of contents
+  - pymdownx.arithmatex:
+      generic: true # Use generic rendering for math
+  - pymdownx.betterem:
+      smart_enable: all # Enable smart emphasis handling
+  - pymdownx.caret # Add support for inserting text with the ^caret^ syntax
+  - pymdownx.details # Add support for collapsible details blocks
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
@@ -33,9 +82,10 @@ markdown_extensions:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.superfences
+  - pymdownx.inlinehilite # Add support for inline code highlighting with the ==highlight== syntax
+  - pymdownx.keys # Add support for keyboard key representation with the ++key++ syntax
+  - pymdownx.snippets # Add support for including snippets of content from other files
+  - pymdownx.superfences # Enhanced fenced code blocks
   - pymdownx.tabbed:
       alternate_style: true
       combine_header_slug: true
@@ -44,3 +94,10 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tasklist:
+      custom_checkbox: true # Use custom checkboxes for task lists
+
+nav:
+  - Home: index.md
+  - Blog:
+      - blog/index.md
