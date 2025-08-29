@@ -1,10 +1,10 @@
 {
     "jupyter-lite-schema-version": 0,
     "jupyter-config-data": {
-        "appUrl": "/lite-notebooks/jupyterlite/",
-        "baseUrl": "/lite-notebooks/jupyterlite/",
-        "fullLabextensionsUrl": "/lite-notebooks/jupyterlite/extensions",
-        "fullStaticUrl": "/lite-notebooks/jupyterlite/build",
+        "appUrl": "./",
+        "baseUrl": "./",
+        "fullLabextensionsUrl": "./extensions",
+        "fullStaticUrl": "./build",
         "disableRTC": true
     }
 }

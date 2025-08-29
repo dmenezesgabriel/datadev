@@ -44,7 +44,7 @@ jobs:
           jupyter lite build \
           --contents ../notebooks \
           --output-dir ../dist/jupyterlite \
-          --base-url /lite-notebooks/jupyterlite/
+          --base-url ./
 
       # ---- Upload Artifact ----
       - name: Upload artifact
