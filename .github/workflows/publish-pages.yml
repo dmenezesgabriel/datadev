@@ -43,8 +43,7 @@ jobs:
           cp ../README.md ../notebooks/
           jupyter lite build \
           --contents ../notebooks \
-          --output-dir ../dist/jupyterlite \
-          --base-url ./
+          --output-dir ../dist/jupyterlite
 
       # ---- Upload Artifact ----
       - name: Upload artifact

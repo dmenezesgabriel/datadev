@@ -1,10 +1,3 @@
 {
     "jupyter-lite-schema-version": 0,
-    "jupyter-config-data": {
-        "appUrl": "./",
-        "baseUrl": "./",
-        "fullLabextensionsUrl": "./extensions",
-        "fullStaticUrl": "./build",
-        "disableRTC": true
-    }
 }
