@@ -1,10 +1,12 @@
-name: Build and Deploy JupyterLite + MkDocs
+name: publish-to-github-pages
 
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: ["*"]
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -39,7 +41,10 @@ jobs:
         shell: bash -l {0}
         run: |
           cp ../README.md ../notebooks/
-          jupyter lite build --contents ../notebooks --output-dir ../dist/jupyterlite
+          jupyter lite build \
+          --contents ../notebooks \
+          --output-dir ../dist/jupyterlite \
+          --base-url /lite-notebooks/jupyterlite/
 
       # ---- Upload Artifact ----
       - name: Upload artifact

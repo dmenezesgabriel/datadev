@@ -1,14 +1,3 @@
 {
-    "jupyter-lite-schema-version": 0,
-    "jupyter-config-data": {
-        "appUrl": "./",
-        "baseUrl": "./",
-        "contentsStorageName": "jupyterlite-contents",
-        "disableRTC": true
-    },
-    "litePluginSettings": {
-        "@jupyterlite/server-extension:settings": {
-            "liteBaseUrl": "/lite-notebooks/jupyterlite/"
-        }
-    }
+    "jupyter-lite-schema-version": 0
 }
