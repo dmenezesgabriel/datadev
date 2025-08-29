@@ -1,4 +1,4 @@
-name: Build and Deploy JupyterLite
+name: Build and Deploy JupyterLite + MkDocs
 
 on:
   push:
@@ -26,17 +26,20 @@ jobs:
           environment-file: jupyterlite/build-environment.yml
           cache-environment: true
 
+      # ---- Build JupyterLite ----
       - name: Build JupyterLite site
         working-directory: jupyterlite
         shell: bash -l {0}
         run: |
           cp ../README.md ../notebooks/
-          jupyter lite build --contents ../notebooks --output-dir ../dist
+          jupyter lite build --contents ../notebooks --output-dir ../dist/jupyterlite
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./dist
+      # ---- Build MkDocs (root) ----
+      - name: Install MkDocs deps
+        run: pip install mkdocs mkdocs-material
+
+      - name: Build MkDocs site
+        run: mkdocs build --site-dir dist
 
   deploy:
     needs: build
