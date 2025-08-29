@@ -26,6 +26,13 @@ jobs:
           environment-file: jupyterlite/build-environment.yml
           cache-environment: true
 
+      # ---- Build MkDocs (root) ----
+      - name: Install MkDocs deps
+        run: pip install mkdocs mkdocs-material
+
+      - name: Build MkDocs site
+        run: mkdocs build --site-dir dist
+
       # ---- Build JupyterLite ----
       - name: Build JupyterLite site
         working-directory: jupyterlite
@@ -33,13 +40,6 @@ jobs:
         run: |
           cp ../README.md ../notebooks/
           jupyter lite build --contents ../notebooks --output-dir ../dist/jupyterlite
-
-      # ---- Build MkDocs (root) ----
-      - name: Install MkDocs deps
-        run: pip install mkdocs mkdocs-material
-
-      - name: Build MkDocs site
-        run: mkdocs build --site-dir dist
 
       # ---- Upload Artifact ----
       - name: Upload artifact
