@@ -1,0 +1,21 @@
+[project]
+name = "mkdocs-jupyter"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "mkdocs>=1.6",
+    "nbconvert>=7.7",
+    "nbformat>=5.9",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mkdocs_jupyter"]
+
+[project.entry-points.'mkdocs.plugins']
+mkdocs_jupyter = "mkdocs_jupyter:HelloWorldPlugin"
