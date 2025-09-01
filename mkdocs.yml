@@ -48,9 +48,10 @@ plugins:
   - blog
   - search:
       # Enable language support for Portuguese
-      lang: en, pt
+      lang: en
       # Use a custom separator to better handle special characters and camelCase
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - mkdocs_jupyter
 
 extra:
   social:
