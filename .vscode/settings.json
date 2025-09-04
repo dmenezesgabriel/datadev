@@ -5,6 +5,12 @@
     "notebook.codeActionsOnSave": {
         "source.organizeImports": "explicit"
     },
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportMissingTypeStubs": "none",
+        "reportUnknownMemberType": "none",
+        "reportUnknownVariableType": "none"
+    },
     "isort.args": [
         "--profile",
         "black"
