@@ -79,7 +79,9 @@ nav:
                   - Cat & Dog Classification: notebooks/python/machine-learning/knn-numpy-classification-cat-dog.ipynb
                   - California Housing Price Regression: notebooks/python/machine-learning/knn-sklearn-regression-california-houses.ipynb
               - Naive Bayes:
-                  - Gaussian classification: notebooks/python/machine-learning/naive-bayes-gaussian-classiffication.ipynb
+                  - Gaussian classification: notebooks/python/machine-learning/naive-bayes-gaussian-classification.ipynb
+                  - Multinomial classification: notebooks/python/machine-learning/naive-bayes-multinomial-classification.ipynb
+
   - Blog:
       - blog/index.md
 
