@@ -2,8 +2,10 @@ import hashlib
 import os
 from pathlib import Path
 
+import html2text
 import nbconvert
 import nbformat
+from markdownify import markdownify as md
 from mkdocs.config import config_options
 from mkdocs.plugins import BasePlugin
 from mkdocs.structure.files import File
@@ -42,6 +44,12 @@ class MkDocsJupyterPlugin(BasePlugin):
             )
         else:
             self.exporter = MarkdownExporter()
+
+        self.exporter.filters["markdownify"] = md
+        # {%- block execute_result scoped -%}
+        # {{ output.data.get('text/html', '') | markdownify -}}
+        # {{ output.data.get('text/plain', '') }}
+        # {%- endblock execute_result -%}
 
         self.notebook_mappings = {}
 
