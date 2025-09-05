@@ -35,3 +35,9 @@ print('The sum is:', result)
 === "ReStructuredText"
 
     This is **ReStructuredText** content.
+
+|            | setosa | versicolor | virginica |
+| ---------- | ------ | ---------- | --------- |
+| setosa     | 10     | 0          | 0         |
+| versicolor | 0      | 9          | 0         |
+| virginica  | 0      | 0          | 11        |

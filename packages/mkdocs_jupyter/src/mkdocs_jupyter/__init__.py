@@ -2,7 +2,6 @@ import hashlib
 import os
 from pathlib import Path
 
-# import html2text
 import nbconvert
 import nbformat
 from markdownify import markdownify as md  # type: ignore
@@ -10,6 +9,21 @@ from mkdocs.config import config_options
 from mkdocs.plugins import BasePlugin
 from mkdocs.structure.files import File
 from nbconvert import MarkdownExporter
+from nbconvert.preprocessors import Preprocessor
+from nbformat.notebooknode import NotebookNode
+
+
+class HtmlOutputToMarkdownProcessor(Preprocessor):
+
+    def preprocess_cell(self, cell: NotebookNode, resources: dict, index: int):
+        if cell.cell_type == "code" and "outputs" in cell:
+            for output in cell.outputs:
+                if "data" in output and "text/html" in output["data"]:
+                    html_content = "".join(output["data"]["text/html"])
+                    markdown_content = md(html_content, strip=["a"])
+                    output["data"]["text/markdown"] = markdown_content
+                    del output["data"]["text/html"]
+        return cell, resources
 
 
 class MkDocsJupyterPlugin(BasePlugin):
@@ -24,32 +38,23 @@ class MkDocsJupyterPlugin(BasePlugin):
 
         template_file = self.config.get("template_file")
 
-        # Get the path to nbconvert's built-in templates from the module's path
         nbconvert_templates_dir = (
             Path(os.path.dirname(nbconvert.__file__)) / "templates"
         )
+        preprocessors_list = [HtmlOutputToMarkdownProcessor]
 
         if template_file:
-            # Resolve the full path to your custom template
             custom_template_path = Path(template_file).resolve()
-
-            # The template_file argument should be the filename, and the directory
-            # should be in extra_template_paths.
             self.exporter = MarkdownExporter(
                 template_file=str(custom_template_path.name),
                 extra_template_paths=[
                     str(custom_template_path.parent),
                     str(nbconvert_templates_dir),
                 ],
+                preprocessors=preprocessors_list,
             )
         else:
-            self.exporter = MarkdownExporter()
-
-        self.exporter.filters["markdownify"] = md
-        # {%- block execute_result scoped -%}
-        # {{ output.data.get('text/html', '') | markdownify -}}
-        # {{ output.data.get('text/plain', '') }}
-        # {%- endblock execute_result -%}
+            self.exporter = MarkdownExporter(preprocessors=preprocessors_list)
 
         self.notebook_mappings = {}
 
@@ -98,8 +103,6 @@ class MkDocsJupyterPlugin(BasePlugin):
                     output_file_path = output_dir / name
                     output_file_path.write_bytes(data)
 
-                    # Add the generated image file to MkDocs' file list.
-                    # The path must be relative to the docs_dir and include the new subdirectory.
                     rel_img_path = str(
                         Path(md_path).parent / output_dir_name / name
                     )

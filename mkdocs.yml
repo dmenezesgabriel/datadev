@@ -76,6 +76,7 @@ extra:
       link: https://twitter.com/dmenezesgabriel
 
 markdown_extensions:
+  - tables
   - abbr # Abbreviations
   - attr_list # Allow setting attributes on elements
   - def_list # Definition lists
