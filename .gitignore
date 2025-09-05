@@ -117,3 +117,6 @@ _output
 
 /.quarto/
 outputs
+
+# plugin generated notebooks
+docs/notebooks

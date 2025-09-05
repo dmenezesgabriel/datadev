@@ -51,7 +51,17 @@ plugins:
       lang: en
       # Use a custom separator to better handle special characters and camelCase
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
-  # - mkdocs_jupyter
+  - mkdocs_jupyter:
+      root_dir: .
+      template_file: templates/jupyter.md.j2
+
+nav:
+  - Home:
+      - index.md
+      - Essentials:
+          - Tuples: notebooks/python/essentials/tuples.ipynb
+  - Blog:
+      - blog/index.md
 
 extra:
   social:
@@ -81,6 +91,7 @@ markdown_extensions:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight:
+      linenums: true
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
@@ -99,7 +110,3 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true # Use custom checkboxes for task lists
 
-nav:
-  - Home: index.md
-  - Blog:
-      - blog/index.md

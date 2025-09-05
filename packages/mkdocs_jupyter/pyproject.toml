@@ -18,4 +18,4 @@ build-backend = "hatchling.build"
 packages = ["src/mkdocs_jupyter"]
 
 [project.entry-points.'mkdocs.plugins']
-mkdocs_jupyter = "mkdocs_jupyter:HelloWorldPlugin"
+mkdocs_jupyter = "mkdocs_jupyter:MkDocsJupyterPlugin"
