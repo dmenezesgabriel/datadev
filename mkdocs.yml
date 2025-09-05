@@ -60,6 +60,9 @@ nav:
       - index.md
       - Essentials:
           - Tuples: notebooks/python/essentials/tuples.ipynb
+      - Machine Learning:
+          - KNN:
+              - Classification: notebooks/python/machine-learning/knn-sklearn-classification-iris.ipynb
   - Blog:
       - blog/index.md
 

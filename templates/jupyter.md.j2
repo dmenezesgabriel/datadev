@@ -11,3 +11,8 @@
 {%- block data_text scoped -%}
 {{ output.data['text/plain'].rstrip() }}
 {%- endblock data_text -%}
+
+{%- block display_data scoped -%}
+{%- set filename = output.metadata.get('filenames', {}).get('image/png', '') -%}
+![{{ filename }}]({{ output_dir_name }}/{{ filename }})
+{%- endblock display_data -%}

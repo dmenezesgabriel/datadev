@@ -1,0 +1,172 @@
+.
+├── docs
+│   ├── assets
+│   ├── blog
+│   │   ├── .authors.yml
+│   │   ├── index.md
+│   │   ├── .meta.yml
+│   │   └── posts
+│   │       └── hello-world.md
+│   ├── index.md
+│   └── notebooks
+│       └── python
+│           ├── essentials
+│           │   ├── images
+│           │   ├── tuples_files
+│           │   └── tuples.md
+│           └── machine-learning
+│               ├── knn-sklearn-classification-iris_files
+│               └── knn-sklearn-classification-iris.md
+├── .github
+│   └── workflows
+│       └── publish-pages.yml
+├── .gitignore
+├── jupyterlite
+│   ├── build-environment.yml
+│   ├── environment.yml
+│   ├── jupyter-lite.json
+│   ├── overrides.json
+│   └── overrides.json.bak
+├── Makefile
+├── mkdocs.yml
+├── .nojekyll
+├── notebooks
+│   ├── docs
+│   │   └── ai.md
+│   ├── js
+│   │   ├── duckdb-wasm.ipynb
+│   │   ├── transformers.ipynb
+│   │   └── webllm.ipynb
+│   ├── pyodide
+│   │   ├── boto3.ipynb
+│   │   ├── duckdb-pyodide.ipynb
+│   │   ├── fastapi.ipynb
+│   │   ├── flask.ipynb
+│   │   ├── lambda.ipynb
+│   │   ├── pyodide-files.ipynb
+│   │   ├── pyodide-http-patch.ipynb
+│   │   ├── python-js-html-magic.ipynb
+│   │   └── transformers-js-py.ipynb
+│   └── python
+│       ├── data-analysis
+│       │   └── numpy.ipynb
+│       ├── essentials
+│       │   ├── classes_and_objects.ipynb
+│       │   ├── decorators.ipynb
+│       │   ├── dictionaries.ipynb
+│       │   ├── functions.ipynb
+│       │   ├── generators.ipynb
+│       │   ├── iterators.ipynb
+│       │   ├── lists.ipynb
+│       │   ├── sets.ipynb
+│       │   └── tuples.ipynb
+│       └── machine-learning
+│           ├── knn-numpy-classification-cat-dog.ipynb
+│           ├── knn-sklearn-classification-iris.ipynb
+│           └── knn-sklearn-regression-california-houses.ipynb
+├── packages
+│   └── mkdocs_jupyter
+│       ├── pyproject.toml
+│       ├── README.md
+│       └── src
+│           └── mkdocs_jupyter
+│               └── __init__.py
+├── pyproject.toml
+├── .python-version
+├── README.md
+├── scripts
+│   └── setup_uv_kernel.py
+├── templates
+│   └── jupyter.md.j2
+├── tree.txt
+├── uv.lock
+└── .vscode
+    └── settings.json
+
+30 directories, 54 files
+.
+├── docs
+│   ├── assets
+│   ├── blog
+│   │   ├── .authors.yml
+│   │   ├── index.md
+│   │   ├── .meta.yml
+│   │   └── posts
+│   │       └── hello-world.md
+│   ├── index.md
+│   └── notebooks
+│       └── python
+│           ├── essentials
+│           │   ├── images
+│           │   ├── tuples_files
+│           │   └── tuples.md
+│           └── machine-learning
+│               ├── knn-sklearn-classification-iris_files
+│               └── knn-sklearn-classification-iris.md
+├── .github
+│   └── workflows
+│       └── publish-pages.yml
+├── .gitignore
+├── jupyterlite
+│   ├── build-environment.yml
+│   ├── environment.yml
+│   ├── jupyter-lite.json
+│   ├── overrides.json
+│   └── overrides.json.bak
+├── Makefile
+├── mkdocs.yml
+├── .nojekyll
+├── notebooks
+│   ├── docs
+│   │   └── ai.md
+│   ├── js
+│   │   ├── duckdb-wasm.ipynb
+│   │   ├── transformers.ipynb
+│   │   └── webllm.ipynb
+│   ├── pyodide
+│   │   ├── boto3.ipynb
+│   │   ├── duckdb-pyodide.ipynb
+│   │   ├── fastapi.ipynb
+│   │   ├── flask.ipynb
+│   │   ├── lambda.ipynb
+│   │   ├── pyodide-files.ipynb
+│   │   ├── pyodide-http-patch.ipynb
+│   │   ├── python-js-html-magic.ipynb
+│   │   └── transformers-js-py.ipynb
+│   └── python
+│       ├── data-analysis
+│       │   └── numpy.ipynb
+│       ├── essentials
+│       │   ├── classes_and_objects.ipynb
+│       │   ├── decorators.ipynb
+│       │   ├── dictionaries.ipynb
+│       │   ├── functions.ipynb
+│       │   ├── generators.ipynb
+│       │   ├── iterators.ipynb
+│       │   ├── lists.ipynb
+│       │   ├── sets.ipynb
+│       │   └── tuples.ipynb
+│       └── machine-learning
+│           ├── knn-numpy-classification-cat-dog.ipynb
+│           ├── knn-sklearn-classification-iris.ipynb
+│           └── knn-sklearn-regression-california-houses.ipynb
+├── packages
+│   └── mkdocs_jupyter
+│       ├── pyproject.toml
+│       ├── README.md
+│       └── src
+│           └── mkdocs_jupyter
+│               └── __init__.py
+├── pyproject.toml
+├── .python-version
+├── README.md
+├── scripts
+│   └── setup_uv_kernel.py
+├── templates
+│   └── jupyter.md.j2
+├── tree.txt
+├── uv.lock
+└── .vscode
+    └── settings.json
+
+30 directories, 54 files
