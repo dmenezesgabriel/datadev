@@ -69,11 +69,16 @@ nav:
           - Decorators: notebooks/python/essentials/decorators.ipynb
           - Classes: notebooks/python/essentials/classes_and_objects.ipynb
 
+      - Data Analysis:
+          - Numpy: notebooks/python/data-analysis/numpy.ipynb
+
       - Machine Learning:
           - KNN:
               - Iris Classification: notebooks/python/machine-learning/knn-sklearn-classification-iris.ipynb
               - Cat & Dog Classification: notebooks/python/machine-learning/knn-numpy-classification-cat-dog.ipynb
               - California Housing Price Regression: notebooks/python/machine-learning/knn-sklearn-regression-california-houses.ipynb
+          - Naive Bayes:
+              - Gaussian classification: notebooks/python/machine-learning/naive-bayes-gaussian-classiffication.ipynb
   - Blog:
       - blog/index.md
 
