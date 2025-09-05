@@ -14,24 +14,29 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          submodules: true
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - name: Setup Python and UV
+        uses: astral-sh/setup-uv@v6
         with:
           python-version: "3.11"
+          # Cache for faster builds.
+          enable-cache: true
 
-      - name: Install micromamba
+      - name: Install micromamba (for JupyterLite)
         uses: mamba-org/setup-micromamba@v1
         with:
           micromamba-version: "1.5.8-0"
           environment-file: jupyterlite/build-environment.yml
           cache-environment: true
 
-      # ---- Build MkDocs (root) ----
-      - name: Install MkDocs deps
-        run: pip install mkdocs mkdocs-material
+      # ---- Install Project Dependencies with UV ----
+      - name: Install MkDocs and other project dependencies
+        run: uv sync --dev
 
+      # ---- Build MkDocs (root) ----
       - name: Build MkDocs site
         run: mkdocs build --site-dir dist
 
