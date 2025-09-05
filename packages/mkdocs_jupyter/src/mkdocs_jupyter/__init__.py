@@ -2,10 +2,10 @@ import hashlib
 import os
 from pathlib import Path
 
-import html2text
+# import html2text
 import nbconvert
 import nbformat
-from markdownify import markdownify as md
+from markdownify import markdownify as md  # type: ignore
 from mkdocs.config import config_options
 from mkdocs.plugins import BasePlugin
 from mkdocs.structure.files import File
