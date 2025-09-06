@@ -86,6 +86,13 @@ nav:
       - blog/index.md
 
 extra:
+  # alternate:
+  #   - name: English
+  #     link: /
+  #     lang: en
+  #   - name: Portuguese
+  #     link: /pt-BR/
+  #     lang: pt
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/dmenezesgabriel
