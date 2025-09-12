@@ -5,6 +5,7 @@
     "notebook.codeActionsOnSave": {
         "source.organizeImports": "explicit"
     },
+    "notebook.lineNumbers": "on",
     "python.analysis.typeCheckingMode": "basic",
     "python.analysis.diagnosticSeverityOverrides": {
         "reportMissingTypeStubs": "none",
