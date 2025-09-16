@@ -1,10 +1,10 @@
 site_name: Lite Notebooks
 site_author: Gabriel Menezes
 site_description: A collection of Jupyter Notebooks for learning and practicing data science and machine learning concepts.
-site_url: https://dmenezesgabriel.github.io/lite-notebooks/
+site_url: https://dmenezesgabriel.github.io/datadev/
 
-repo_name: dmenezesgabriel/lite-notebooks
-repo_url: https://github.com/dmenezesgabriel/lite-notebooks
+repo_name: dmenezesgabriel/datadev
+repo_url: https://github.com/dmenezesgabriel/datadev
 
 copyright: Copyright &copy; 2025 Gabriel Menezes
 

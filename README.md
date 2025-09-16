@@ -2,8 +2,8 @@
 
 see:
 
-- https://dmenezesgabriel.github.io/lite-notebooks
-- https://dmenezesgabriel.github.io/lite-notebooks/jupyterlite/lab/index.html
+- https://dmenezesgabriel.github.io/datadev
+- https://dmenezesgabriel.github.io/datadev/jupyterlite/lab/index.html
 
 ## Docs
 
