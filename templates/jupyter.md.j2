@@ -5,7 +5,10 @@
 {%- endblock traceback_line -%}
 
 {%- block stream -%}
-{{ output.text.rstrip() }}
+{% set lines = output.text.rstrip().split('\n') %}
+{% for line in lines %}
+<p>{{ line }}</p>
+{% endfor %}
 {%- endblock stream -%}
 
 {%- block data_text scoped -%}
