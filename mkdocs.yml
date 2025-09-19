@@ -73,6 +73,7 @@ nav:
           - Data Analysis:
               - Numpy: notebooks/python/data-analysis/numpy.ipynb
               - Pandas: notebooks/python/data-analysis/pandas.ipynb
+              - Matplotlib: notebooks/python/data-analysis/matplotlib.ipynb
 
           - Machine Learning:
               - KNN:
