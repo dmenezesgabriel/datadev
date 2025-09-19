@@ -74,6 +74,7 @@ nav:
               - Numpy: notebooks/python/data-analysis/numpy.ipynb
               - Pandas: notebooks/python/data-analysis/pandas.ipynb
               - Matplotlib: notebooks/python/data-analysis/matplotlib.ipynb
+              - Seaborn: notebooks/python/data-analysis/seaborn.ipynb
 
           - Machine Learning:
               - KNN:
