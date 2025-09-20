@@ -1,4 +1,4 @@
-site_name: Lite Notebooks
+site_name: DataDev
 site_author: Gabriel Menezes
 site_description: A collection of Jupyter Notebooks for learning and practicing data science and machine learning concepts.
 site_url: https://dmenezesgabriel.github.io/datadev/
@@ -69,6 +69,7 @@ nav:
               - Functions: notebooks/python/essentials/functions.ipynb
               - Decorators: notebooks/python/essentials/decorators.ipynb
               - Classes: notebooks/python/essentials/classes_and_objects.ipynb
+              - Logging: notebooks/python/essentials/logging.ipynb
 
           - Data Analysis:
               - Numpy: notebooks/python/data-analysis/numpy.ipynb
