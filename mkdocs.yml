@@ -71,6 +71,9 @@ nav:
               - Classes: notebooks/python/essentials/classes_and_objects.ipynb
               - Logging: notebooks/python/essentials/logging.ipynb
 
+          - Design Patters:
+              - Singleton: notebooks/python/design-patterns/singleton.ipynb
+
           - Data Analysis:
               - Numpy: notebooks/python/data-analysis/numpy.ipynb
               - Pandas: notebooks/python/data-analysis/pandas.ipynb
