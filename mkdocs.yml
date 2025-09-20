@@ -76,6 +76,9 @@ nav:
               - Matplotlib: notebooks/python/data-analysis/matplotlib.ipynb
               - Seaborn: notebooks/python/data-analysis/seaborn.ipynb
 
+          - Database:
+              - SQLite: notebooks/python/database/sqlite.ipynb
+
           - Machine Learning:
               - KNN:
                   - Iris Classification: notebooks/python/machine-learning/knn-sklearn-classification-iris.ipynb
