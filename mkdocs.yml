@@ -70,9 +70,11 @@ nav:
               - Decorators: notebooks/python/essentials/decorators.ipynb
               - Classes: notebooks/python/essentials/classes_and_objects.ipynb
               - Logging: notebooks/python/essentials/logging.ipynb
+              - Process & Threads: notebooks/python/essentials/process-threads.ipynb
 
           - Design Patters:
               - Singleton: notebooks/python/design-patterns/singleton.ipynb
+              - Jupytext: notebooks/python/design-patterns/jupytext.py
 
           - Data Analysis:
               - Numpy: notebooks/python/data-analysis/numpy.ipynb
@@ -91,6 +93,9 @@ nav:
               - Naive Bayes:
                   - Gaussian classification: notebooks/python/machine-learning/naive-bayes-gaussian-classification.ipynb
                   - Multinomial classification: notebooks/python/machine-learning/naive-bayes-multinomial-classification.ipynb
+
+          - WIP:
+              - Jupytext: notebooks/python/wip/jupytext.py
 
   - Blog:
       - blog/index.md

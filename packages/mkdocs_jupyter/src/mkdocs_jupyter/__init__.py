@@ -2,6 +2,7 @@ import hashlib
 import os
 from pathlib import Path
 
+import jupytext  # type: ignore
 import nbconvert
 import nbformat
 from markdownify import markdownify as md  # type: ignore
@@ -20,6 +21,7 @@ class HtmlOutputToMarkdownProcessor(Preprocessor):
             for output in cell.outputs:
                 if "data" in output and "text/html" in output["data"]:
                     html_content = "".join(output["data"]["text/html"])
+                    # Use markdownify to convert HTML output to Markdown
                     markdown_content = md(html_content, strip=["a"])
                     output["data"]["text/markdown"] = markdown_content
                     del output["data"]["text/html"]
@@ -64,9 +66,15 @@ class MkDocsJupyterPlugin(BasePlugin):
                     for k, v in item.items():
                         if isinstance(v, list):
                             walk_nav(v)
-                        elif isinstance(v, str) and v.endswith(".ipynb"):
+                        # Check for both .ipynb and .py files
+                        elif isinstance(v, str) and (
+                            v.endswith(".ipynb") or v.endswith(".py")
+                        ):
+                            # The target Markdown file path is always the original path with .md extension
                             md_path = str(Path(v).with_suffix(".md"))
+                            # Map the resulting .md path back to the original .ipynb or .py file
                             self.notebook_mappings[md_path] = v
+                            # Update the nav item to point to the .md file
                             items[i][k] = md_path
 
         walk_nav(config["nav"])
@@ -77,14 +85,20 @@ class MkDocsJupyterPlugin(BasePlugin):
             nb_full_path = (self.root_dir / nb_path).resolve()
             if not nb_full_path.exists():
                 print(
-                    f"Warning: notebook {nb_path} not found at {nb_full_path}"
+                    f"Warning: notebook/jupytext file {nb_path} not found at {nb_full_path}"
                 )
                 continue
 
             md_full_path = self.docs_dir / md_path
             md_full_path.parent.mkdir(parents=True, exist_ok=True)
 
-            nb_node = nbformat.read(nb_full_path, as_version=4)
+            # --- Jupytext/Notebook reading logic start ---
+            if nb_full_path.suffix == ".py":
+                # Read .py file using jupytext and convert to notebook node
+                nb_node = jupytext.read(nb_full_path)
+            else:  # Must be .ipynb (or other supported by nbformat.read if checked)
+                nb_node = nbformat.read(nb_full_path, as_version=4)
+            # --- Jupytext/Notebook reading logic end ---
 
             nb_name = nb_full_path.stem
             output_dir_name = f"{nb_name}_files"
@@ -154,5 +168,6 @@ class MkDocsJupyterPlugin(BasePlugin):
         for md_path, nb_path in self.notebook_mappings.items():
             nb_full_path = self.root_dir / nb_path
             if nb_full_path.exists():
+                # Watch both .ipynb and .py files
                 server.watch(str(nb_full_path))
         return server
