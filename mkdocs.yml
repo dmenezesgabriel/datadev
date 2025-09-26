@@ -71,6 +71,7 @@ nav:
               - Classes: notebooks/python/essentials/classes_and_objects.ipynb
               - Logging: notebooks/python/essentials/logging.ipynb
               - Process & Threads: notebooks/python/essentials/process-threads.ipynb
+              - Memory Management: notebooks/python/essentials/memory-management.ipynb
 
           - Design Patters:
               - Singleton: notebooks/python/design-patterns/singleton.ipynb
