@@ -95,7 +95,7 @@ nav:
                   - Multinomial classification: notebooks/python/machine-learning/naive-bayes-multinomial-classification.ipynb
 
           - WIP:
-              - Jupytext: notebooks/python/wip/jupytext.py
+              - Flask: notebooks/python/wip/flask.py
 
   - Blog:
       - blog/index.md
