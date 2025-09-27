@@ -75,7 +75,6 @@ nav:
 
           - Design Patters:
               - Singleton: notebooks/python/design-patterns/singleton.ipynb
-              - Jupytext: notebooks/python/design-patterns/jupytext.py
 
           - Data Analysis:
               - Numpy: notebooks/python/data-analysis/numpy.ipynb
