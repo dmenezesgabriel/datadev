@@ -94,8 +94,8 @@ nav:
                   - Gaussian classification: notebooks/python/machine-learning/naive-bayes-gaussian-classification.ipynb
                   - Multinomial classification: notebooks/python/machine-learning/naive-bayes-multinomial-classification.ipynb
 
-          - WIP:
-              - Flask: notebooks/python/wip/flask.py
+          - Web:
+              - Flask: notebooks/python/web/flask/app.py
 
   - Blog:
       - blog/index.md
