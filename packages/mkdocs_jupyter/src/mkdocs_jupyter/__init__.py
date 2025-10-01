@@ -1,5 +1,7 @@
 import hashlib
 import os
+import re
+import shutil
 from pathlib import Path
 
 import jupytext  # type: ignore
@@ -81,6 +83,10 @@ class MkDocsJupyterPlugin(BasePlugin):
         return config
 
     def on_files(self, files, config):
+        # Regex to find the MkDocs include syntax: --8<-- "path/to/file"
+        # Captures the path inside the quotes
+        include_pattern = re.compile(r'--8<--\s*["\']([^"\']+)["\']')
+
         for md_path, nb_path in self.notebook_mappings.items():
             nb_full_path = (self.root_dir / nb_path).resolve()
             if not nb_full_path.exists():
@@ -92,13 +98,11 @@ class MkDocsJupyterPlugin(BasePlugin):
             md_full_path = self.docs_dir / md_path
             md_full_path.parent.mkdir(parents=True, exist_ok=True)
 
-            # --- Jupytext/Notebook reading logic start ---
+            # --- Jupytext/Notebook reading logic ---
             if nb_full_path.suffix == ".py":
-                # Read .py file using jupytext and convert to notebook node
                 nb_node = jupytext.read(nb_full_path)
-            else:  # Must be .ipynb (or other supported by nbformat.read if checked)
+            else:
                 nb_node = nbformat.read(nb_full_path, as_version=4)
-            # --- Jupytext/Notebook reading logic end ---
 
             nb_name = nb_full_path.stem
             output_dir_name = f"{nb_name}_files"
@@ -108,6 +112,7 @@ class MkDocsJupyterPlugin(BasePlugin):
 
             body, resources = self.exporter.from_notebook_node(nb_node)
 
+            # --- Existing Image/Output copying logic ---
             if "outputs" in resources:
                 md_dir = md_full_path.parent
                 output_dir = md_dir / output_dir_name
@@ -131,7 +136,60 @@ class MkDocsJupyterPlugin(BasePlugin):
                             ),
                         )
                     )
+            # --- End of Existing Image/Output copying logic ---
 
+            # --- New File Include Copying Logic Start ---
+            included_files = include_pattern.findall(body)
+
+            for included_file_path_in_md in included_files:
+                # 1. Determine the path relative to the docs_dir
+                # If path starts with "docs/", strip it, otherwise use as is.
+                if included_file_path_in_md.startswith("docs/"):
+                    # Use Path() to handle potential mixed slashes and OS differences
+                    rel_doc_path = Path(included_file_path_in_md[5:])
+                else:
+                    rel_doc_path = Path(included_file_path_in_md)
+
+                # 2. Determine the full *destination* path inside the docs_dir
+                dest_full_path = self.docs_dir / rel_doc_path
+                dest_full_path.parent.mkdir(parents=True, exist_ok=True)
+
+                # 3. Determine the full *source* path (relative to self.root_dir)
+                # Assumes the source file is located at the same path (relative to root_dir)
+                # as the path inside docs_dir (after stripping 'docs/').
+                source_full_path = self.root_dir / rel_doc_path
+
+                if source_full_path.exists():
+                    try:
+                        # Copy the file to the docs_dir structure
+                        shutil.copy2(source_full_path, dest_full_path)
+
+                        # Add the copied file to MkDocs files list
+                        # The path must be relative to the docs_dir
+                        files.append(
+                            File(
+                                path=str(rel_doc_path),
+                                src_dir=str(self.docs_dir),
+                                dest_dir=config["site_dir"],
+                                use_directory_urls=config.get(
+                                    "use_directory_urls", True
+                                ),
+                            )
+                        )
+                        # Optional: Add a print statement for debugging
+                        # print(f"Copied included file: {rel_doc_path}")
+
+                    except Exception as e:
+                        print(
+                            f"Error copying included file {source_full_path}: {e}"
+                        )
+                else:
+                    print(
+                        f"Warning: Included file not found at source: {source_full_path}"
+                    )
+            # --- New File Include Copying Logic End ---
+
+            # --- Rest of the existing logic (hashing, writing body, appending file) ---
             new_hash = hashlib.md5(body.encode("utf-8")).hexdigest()
             existing_hash = None
             if md_full_path.exists():

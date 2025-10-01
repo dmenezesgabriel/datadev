@@ -45,10 +45,17 @@ from flask import Flask, render_template
 
 app = Flask(__name__)  # WSGI compliant application instance
 
+# %% [markdown]
+# We can also serve html templates
+# ```html title='index.html'
+# --8<-- "docs/notebooks/python/web/flask/templates/index.html"
+# ```
 
+
+# %%
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return render_template("index.html")  # root_dir/templates/index.html
 
 
 @app.route("/health")
