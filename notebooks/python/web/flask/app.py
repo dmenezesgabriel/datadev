@@ -99,7 +99,7 @@ def form():
 # - `{%...%}`: Conditions
 # - `{#...#}`: Comments
 #
-#  ```html title='templates/result.html'
+# ```html title='templates/result.html'
 # --8<-- "docs/notebooks/python/web/flask/templates/result.html"
 # ```
 
