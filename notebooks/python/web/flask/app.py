@@ -41,15 +41,18 @@
 
 
 # %%
-from flask import Flask, render_template
+from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__)  # WSGI compliant application instance
 
 # %% [markdown]
-# We can also serve html templates
-# ```html title='index.html'
+# We can also serve html templates:
+# ```html title='templates/index.html'
 # --8<-- "docs/notebooks/python/web/flask/templates/index.html"
 # ```
+
+# %% [markdown]
+# Is needed to define the route that will serve the template:
 
 
 # %%
@@ -58,10 +61,63 @@ def home():
     return render_template("index.html")  # root_dir/templates/index.html
 
 
-@app.route("/health")
+# %% [markdown]
+# GET Route
+
+
+# %%
+@app.route("/health", methods=["GET"])
 def health():
     return {"status": "ok"}
 
+
+# %% [markdown]
+# We can receive inputs from the UI
+# ```html title='templates/form.html'
+# --8<-- "docs/notebooks/python/web/flask/templates/form.html"
+# ```
+
+# %% [markdown]
+# The inputs come from _verbs_ like **POST**, **PUT** and **PATCH**
+
+
+# %%
+@app.route("/form", methods=["GET", "POST"])
+def form():
+    if request.method == "POST":
+        name = request.form["name"]
+        return f"Hello {name} !"
+    return render_template("form.html")
+
+
+# %% [markdown]
+# Dynamic template
+#
+# Jinja2 Templating engine
+#
+# - `{{ }}`: Expressions
+# - `{%...%}`: Conditions
+# - `{#...#}`: Comments
+#
+#  ```html title='templates/result.html'
+# --8<-- "docs/notebooks/python/web/flask/templates/result.html"
+# ```
+
+# %% [markdown]
+# Route with params
+
+
+# %%
+@app.route("/success/<int:score>")
+def success(score):
+    return render_template("result.html", result=score)
+
+
+# %% [markdown]
+# Running the application
+
+
+# %%
 
 if __name__ == "__main__":
     app.run(
