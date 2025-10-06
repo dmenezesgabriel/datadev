@@ -7,46 +7,28 @@
 # %% [markdown]
 # # Streamlit
 
-# %% [markdown]
-# Dependencies
-
-# %%
-# /// script
-# requires-python = ">=3.10"
-# dependencies = [
-#     "streamlit",
-# ]
-# ///
 
 # %% [markdown]
 # Application
 
 # %%
+import altair as alt
+import pandas as pd
 import streamlit as st
+from numpy.random import default_rng as rng
 
-st.write("Hello, World!")
+df = pd.DataFrame(rng(0).standard_normal((60, 3)), columns=["a", "b", "c"])
 
-st.session_state["a"] = "a"
+chart = (
+    alt.Chart(df)
+    .mark_circle()
+    .encode(x="a", y="b", size="c", color="c", tooltip=["a", "b", "c"])
+)
 
-if st.button("rerun"):
-    st.write(st.session_state["a"])
+st.altair_chart(chart)
 
 # %% [markdown]
-# Trick to run with PEP 723 and astral/uv
-
-# %%
-
-if __name__ == "__main__":
-    flag_options = {
-        "browser.serverAddress": "localhost",
-        "server.address": "0.0.0.0",
-        "server.headless": True,
-        "server.runOnSave": True,
-        "server.fileWatcherType": "auto",
-    }
-
-    if "__streamlitmagic__" not in locals():
-        from streamlit.web import bootstrap
-
-        bootstrap.load_config_options(flag_options=flag_options)
-        bootstrap.run(__file__, False, [], flag_options)
+# Run application
+# ```sh
+#  uvx --with plotly streamlit run app.py
+# ```
