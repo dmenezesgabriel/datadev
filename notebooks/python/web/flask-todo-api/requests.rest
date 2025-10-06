@@ -1,0 +1,32 @@
+### https://renatogroffe.medium.com/dicas-de-visual-studio-code-testando-apis-rest-via-scripts-pt-14-7d52c7b4b8af
+
+### Variables
+@apiurl = http://localhost:5000
+
+### GET todos
+GET {{apiurl}}/todos HTTP/1.1
+
+### GET todo by id
+GET {{apiurl}}/todos/1 HTTP/1.1
+
+### POST todos
+POST {{apiurl}}/todos HTTP/1.1
+Content-Type: application/json
+
+{
+   "title":"Task 1",
+   "description":"this is a test task"
+}
+
+### PUT todos
+
+PUT {{apiurl}}/todos/1 HTTP/1.1
+Content-Type: application/json
+
+{
+   "title":"Task 2",
+   "description":"this is a test task"
+}
+
+### DELETE todo by id
+DELETE {{apiurl}}/todos/1 HTTP/1.1

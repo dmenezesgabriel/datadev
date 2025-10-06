@@ -95,7 +95,11 @@ nav:
                   - Multinomial classification: notebooks/python/machine-learning/naive-bayes-multinomial-classification.ipynb
 
           - Web:
-              - Flask: notebooks/python/web/flask/app.py
+              - Flask:
+                  - Hello World: notebooks/python/web/flask-hello-world/app.py
+                  - Todo API: notebooks/python/web/flask-todo-api/app.py
+              - Streamlit:
+                  - Hello World: notebooks/python/web/streamlit-hello-world/app.py
 
   - Blog:
       - blog/index.md
