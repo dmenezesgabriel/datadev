@@ -75,6 +75,7 @@ nav:
 
           - Statistic:
               - Percentile: notebooks/python/statistic/percentile.ipynb
+              - Covariance & Correlation: notebooks/python/statistic/correlation-covariance.ipynb
 
           - Data Analysis:
               - Numpy: notebooks/python/data-analysis/numpy.ipynb
@@ -86,7 +87,10 @@ nav:
               - Singleton: notebooks/python/design-patterns/singleton.ipynb
 
           - Database:
-              - SQLite: notebooks/python/database/sqlite.ipynb
+              - OLTP:
+                  - SQLite: notebooks/python/database/sqlite.ipynb
+              - OLAP:
+                  - DuckDB: notebooks/python/database/duckdb.ipynb
 
           - Machine Learning:
               - KNN:
