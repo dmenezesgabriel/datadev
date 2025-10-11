@@ -73,14 +73,17 @@ nav:
               - Process & Threads: notebooks/python/essentials/process-threads.ipynb
               - Memory Management: notebooks/python/essentials/memory-management.ipynb
 
-          - Design Patters:
-              - Singleton: notebooks/python/design-patterns/singleton.ipynb
+          - Statistic:
+              - Percentile: notebooks/python/statistic/percentile.ipynb
 
           - Data Analysis:
               - Numpy: notebooks/python/data-analysis/numpy.ipynb
               - Pandas: notebooks/python/data-analysis/pandas.ipynb
               - Matplotlib: notebooks/python/data-analysis/matplotlib.ipynb
               - Seaborn: notebooks/python/data-analysis/seaborn.ipynb
+
+          - Design Patters:
+              - Singleton: notebooks/python/design-patterns/singleton.ipynb
 
           - Database:
               - SQLite: notebooks/python/database/sqlite.ipynb
