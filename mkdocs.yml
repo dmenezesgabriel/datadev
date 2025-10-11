@@ -104,9 +104,6 @@ nav:
               - Streamlit:
                   - Hello World: notebooks/python/web/streamlit-hello-world/app.py
 
-      - Typescript:
-          - Deno: notebooks/typescript/deno.ipynb
-
   - Blog:
       - blog/index.md
 
