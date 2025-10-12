@@ -82,6 +82,7 @@ nav:
               - Pandas: notebooks/python/data-analysis/pandas.ipynb
               - Matplotlib: notebooks/python/data-analysis/matplotlib.ipynb
               - Seaborn: notebooks/python/data-analysis/seaborn.ipynb
+              - Altair: notebooks/python/data-analysis/altair.ipynb
 
           - Design Patters:
               - Singleton: notebooks/python/design-patterns/singleton.ipynb
