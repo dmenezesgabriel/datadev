@@ -31,6 +31,7 @@ logging.basicConfig(
 )
 
 logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
 
 
 class HtmlOutputToMarkdownProcessor(Preprocessor):
@@ -77,7 +78,7 @@ class MkDocsJupyterPlugin(BasePlugin):
                     items[index][key] = md_path
 
     def on_config(self, config):
-        logger.info("on_config triggered")
+        logger.debug("on_config triggered")
         self.root_dir = Path(self.config.get("root_dir")).resolve()
         self.docs_dir = Path(config["docs_dir"]).resolve()
 
@@ -108,11 +109,12 @@ class MkDocsJupyterPlugin(BasePlugin):
         return config
 
     def on_files(self, files, config):
-        logger.info("on_files triggered")
+        logger.debug("on_files triggered")
         include_pattern = re.compile(r'--8<--\s*["\']([^"\']+)["\']')
 
         for md_path, nb_path in self.notebook_mappings.items():
             nb_full_path = (self.root_dir / nb_path).resolve()
+            md_full_path = self.docs_dir / md_path
 
             if not nb_full_path.exists():
                 logger.warning(
@@ -121,7 +123,38 @@ class MkDocsJupyterPlugin(BasePlugin):
                 )
                 continue
 
-            md_full_path = self.docs_dir / md_path
+            should_skip_conversion = False
+            if md_full_path.exists():
+                try:
+                    if (
+                        nb_full_path.stat().st_mtime
+                        <= md_full_path.stat().st_mtime
+                    ):
+                        logger.debug(
+                            f"Skipping conversion for {nb_path} (MD is up-to-date)."
+                        )
+                        should_skip_conversion = True
+                except OSError as e:
+                    logger.debug(
+                        f"Could not stat file {nb_full_path} or {md_full_path}: {e}"
+                    )
+                    pass
+
+            if should_skip_conversion:
+                existing_file = files.get_file_from_path(md_path)
+                if not existing_file:
+                    new_file = File(
+                        path=md_path,
+                        src_dir=str(self.docs_dir),
+                        dest_dir=config["site_dir"],
+                        use_directory_urls=config.get(
+                            "use_directory_urls", True
+                        ),
+                    )
+                    files.append(new_file)
+
+                continue
+
             md_full_path.parent.mkdir(parents=True, exist_ok=True)
 
             nb_node = (
@@ -138,7 +171,7 @@ class MkDocsJupyterPlugin(BasePlugin):
 
             body, resources = self.exporter.from_notebook_node(nb_node)
 
-            if not "outputs" in resources:
+            if "outputs" in resources:
                 continue
             md_dir = md_full_path.parent
             output_dir = md_dir / output_dir_name
@@ -152,17 +185,17 @@ class MkDocsJupyterPlugin(BasePlugin):
                     Path(md_path).parent / output_dir_name / name
                 )
 
-                asset_file = files.get_file_from_path(rel_img_path)
-                if asset_file:
-                    files.remove(asset_file)
+            asset_file = files.get_file_from_path(rel_img_path)
+            if asset_file:
+                files.remove(asset_file)
 
-                new_asset_file = File(
-                    path=rel_img_path,
-                    src_dir=str(self.docs_dir),
-                    dest_dir=config["site_dir"],
-                    use_directory_urls=config.get("use_directory_urls", True),
-                )
-                files.append(new_asset_file)
+            new_asset_file = File(
+                path=rel_img_path,
+                src_dir=str(self.docs_dir),
+                dest_dir=config["site_dir"],
+                use_directory_urls=config.get("use_directory_urls", True),
+            )
+            files.append(new_asset_file)
 
             included_files = include_pattern.findall(body)
 
@@ -207,7 +240,6 @@ class MkDocsJupyterPlugin(BasePlugin):
                 md_full_path.write_text(body, encoding="utf-8")
 
             existing_file = files.get_file_from_path(md_path)
-
             if existing_file:
                 files.remove(existing_file)
 
@@ -222,7 +254,7 @@ class MkDocsJupyterPlugin(BasePlugin):
         return files
 
     def on_serve(self, server, config, **kwargs):
-        logger.info("on_serve triggered")
+        logger.debug("on_serve triggered")
         for _, nb_path in self.notebook_mappings.items():
             nb_full_path = self.root_dir / nb_path
 
