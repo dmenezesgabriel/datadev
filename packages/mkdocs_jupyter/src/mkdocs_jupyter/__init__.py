@@ -114,19 +114,22 @@ class MkDocsJupyterPlugin(BasePlugin):
 
         for md_path, nb_path in self.notebook_mappings.items():
             nb_full_path = (self.root_dir / nb_path).resolve()
+
             if not nb_full_path.exists():
-                print(
-                    f"Warning: notebook/jupytext file {nb_path} not found at {nb_full_path}"
+                logger.warning(
+                    f"notebook/jupytext file {nb_path} not found at "
+                    f"{nb_full_path}"
                 )
                 continue
 
             md_full_path = self.docs_dir / md_path
             md_full_path.parent.mkdir(parents=True, exist_ok=True)
 
-            if nb_full_path.suffix == ".py":
-                nb_node = jupytext.read(nb_full_path)
-            else:
-                nb_node = nbformat.read(nb_full_path, as_version=4)
+            nb_node = (
+                jupytext.read(nb_full_path)
+                if nb_full_path.suffix == ".py"
+                else nbformat.read(nb_full_path, as_version=4)
+            )
 
             nb_name = nb_full_path.stem
             output_dir_name = f"{nb_name}_files"
@@ -166,26 +169,28 @@ class MkDocsJupyterPlugin(BasePlugin):
             included_files = include_pattern.findall(body)
 
             for included_file_path_in_md in included_files:
-                if included_file_path_in_md.startswith("docs/"):
-                    rel_doc_path = Path(included_file_path_in_md[5:])
-                else:
-                    rel_doc_path = Path(included_file_path_in_md)
+                rel_doc_path = (
+                    Path(included_file_path_in_md[5:])
+                    if included_file_path_in_md.startswith("docs/")
+                    else Path(included_file_path_in_md)
+                )
 
                 dest_full_path = self.docs_dir / rel_doc_path
                 dest_full_path.parent.mkdir(parents=True, exist_ok=True)
 
                 source_full_path = self.root_dir / rel_doc_path
 
-                if source_full_path.exists():
-                    try:
-                        shutil.copy2(source_full_path, dest_full_path)
-                    except Exception as e:
-                        print(
-                            f"Error copying included file {source_full_path}: {e}"
-                        )
-                else:
+                if not source_full_path.exists():
+                    logger.warning(
+                        f"Included file not found at source: {source_full_path}"
+                    )
+                    continue
+
+                try:
+                    shutil.copy2(source_full_path, dest_full_path)
+                except Exception as e:
                     print(
-                        f"Warning: Included file not found at source: {source_full_path}"
+                        f"Error copying included file {source_full_path}: {e}"
                     )
 
             new_hash = hashlib.md5(body.encode("utf-8")).hexdigest()
