@@ -1,3 +1,7 @@
+"""
+https://www.mkdocs.org/dev-guide/plugins/#events
+"""
+
 import hashlib
 import logging
 import os
@@ -34,7 +38,7 @@ class HtmlOutputToMarkdownProcessor(Preprocessor):
     def preprocess_cell(
         self, cell: NotebookNode, resources: Dict[str, Any], index: int
     ) -> tuple[NotebookNode, Dict[str, Any]]:
-        if cell.cell_type == "code" and "outputs" in cell:
+        if cell.cell_type == "code" and cell.get("outputs"):
             for output in cell.outputs:
                 if "data" in output and "text/html" in output["data"]:
                     html_content = "".join(output["data"]["text/html"])
@@ -42,6 +46,7 @@ class HtmlOutputToMarkdownProcessor(Preprocessor):
                     markdown_content = md(html_content, strip=[anchor_tag])
                     output["data"]["text/markdown"] = markdown_content
                     del output["data"]["text/html"]
+
         return cell, resources
 
 
@@ -144,16 +149,20 @@ class MkDocsJupyterPlugin(BasePlugin):
                         Path(md_path).parent / output_dir_name / name
                     )
 
-                    files.append(
-                        File(
-                            path=rel_img_path,
-                            src_dir=str(self.docs_dir),
-                            dest_dir=config["site_dir"],
-                            use_directory_urls=config.get(
-                                "use_directory_urls", True
-                            ),
-                        )
+                    asset_file = files.get_file_from_path(rel_img_path)
+                    if asset_file:
+                        files.remove(asset_file)
+
+                    new_asset_file = File(
+                        path=rel_img_path,
+                        src_dir=str(self.docs_dir),
+                        dest_dir=config["site_dir"],
+                        use_directory_urls=config.get(
+                            "use_directory_urls", True
+                        ),
                     )
+                    files.append(new_asset_file)
+
             included_files = include_pattern.findall(body)
 
             for included_file_path_in_md in included_files:
@@ -170,17 +179,6 @@ class MkDocsJupyterPlugin(BasePlugin):
                 if source_full_path.exists():
                     try:
                         shutil.copy2(source_full_path, dest_full_path)
-                        files.append(
-                            File(
-                                path=str(rel_doc_path),
-                                src_dir=str(self.docs_dir),
-                                dest_dir=config["site_dir"],
-                                use_directory_urls=config.get(
-                                    "use_directory_urls", True
-                                ),
-                            )
-                        )
-
                     except Exception as e:
                         print(
                             f"Error copying included file {source_full_path}: {e}"
@@ -189,6 +187,7 @@ class MkDocsJupyterPlugin(BasePlugin):
                     print(
                         f"Warning: Included file not found at source: {source_full_path}"
                     )
+
             new_hash = hashlib.md5(body.encode("utf-8")).hexdigest()
             existing_hash = None
 
@@ -204,21 +203,18 @@ class MkDocsJupyterPlugin(BasePlugin):
             if new_hash != existing_hash:
                 md_full_path.write_text(body, encoding="utf-8")
 
-            existing_file = next(
-                (f for f in files if f.src_path == md_path), None
-            )
+            existing_file = files.get_file_from_path(md_path)
 
-            if not existing_file:
-                files.append(
-                    File(
-                        path=md_path,
-                        src_dir=str(self.docs_dir),
-                        dest_dir=config["site_dir"],
-                        use_directory_urls=config.get(
-                            "use_directory_urls", True
-                        ),
-                    )
-                )
+            if existing_file:
+                files.remove(existing_file)
+
+            new_file = File(
+                path=md_path,
+                src_dir=str(self.docs_dir),
+                dest_dir=config["site_dir"],
+                use_directory_urls=config.get("use_directory_urls", True),
+            )
+            files.append(new_file)
 
         return files
 
@@ -226,6 +222,8 @@ class MkDocsJupyterPlugin(BasePlugin):
         logger.info("on_serve triggered")
         for _, nb_path in self.notebook_mappings.items():
             nb_full_path = self.root_dir / nb_path
-            if nb_full_path.exists():
-                server.watch(str(nb_full_path))
+
+            if not nb_full_path.exists():
+                continue
+            server.watch(path=str(nb_full_path))
         return server
