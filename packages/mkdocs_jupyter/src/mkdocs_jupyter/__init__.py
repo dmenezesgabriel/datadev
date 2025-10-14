@@ -63,21 +63,18 @@ class MkDocsJupyterPlugin(BasePlugin):
     notebook_mappings: Dict[str, str]
 
     def _walk_nav(self, items):
-        for i, item in enumerate(items):
+        for index, item in enumerate(items):
             if not isinstance(item, dict):
                 continue
-            for k, v in item.items():
-                if isinstance(v, list):
-                    self._walk_nav(v)
-                if isinstance(v, str) and (
-                    v.endswith(".ipynb") or v.endswith(".py")
+            for key, value in item.items():
+                if isinstance(value, list):
+                    self._walk_nav(value)
+                if isinstance(value, str) and (
+                    value.endswith(".ipynb") or value.endswith(".py")
                 ):
-                    # The target Markdown file path is always the original path with .md extension
-                    md_path = str(Path(v).with_suffix(".md"))
-                    # Map the resulting .md path back to the original .ipynb or .py file
-                    self.notebook_mappings[md_path] = v
-                    # Update the nav item to point to the .md file
-                    items[i][k] = md_path
+                    md_path = str(Path(value).with_suffix(".md"))
+                    self.notebook_mappings[md_path] = value
+                    items[index][key] = md_path
 
     def on_config(self, config):
         logger.info("on_config triggered")
@@ -91,6 +88,7 @@ class MkDocsJupyterPlugin(BasePlugin):
         )
         preprocessors_list = [HtmlOutputToMarkdownProcessor]
 
+        self.exporter = MarkdownExporter(preprocessors=preprocessors_list)
         if template_file:
             custom_template_path = Path(template_file).resolve()
             extra_template_paths = [
@@ -103,10 +101,9 @@ class MkDocsJupyterPlugin(BasePlugin):
                 extra_template_paths=extra_template_paths,
                 preprocessors=preprocessors_list,
             )
-        else:
-            self.exporter = MarkdownExporter(preprocessors=preprocessors_list)
 
         self.notebook_mappings = {}
+
         self._walk_nav(config["nav"])
         return config
 
@@ -190,7 +187,7 @@ class MkDocsJupyterPlugin(BasePlugin):
                 try:
                     shutil.copy2(source_full_path, dest_full_path)
                 except Exception as e:
-                    print(
+                    logger.error(
                         f"Error copying included file {source_full_path}: {e}"
                     )
 
