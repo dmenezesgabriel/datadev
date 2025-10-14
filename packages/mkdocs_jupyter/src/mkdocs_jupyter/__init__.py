@@ -31,7 +31,6 @@ logging.basicConfig(
 )
 
 logger = logging.getLogger()
-logger.setLevel(logging.DEBUG)
 
 
 class HtmlOutputToMarkdownProcessor(Preprocessor):
@@ -64,21 +63,24 @@ class MkDocsJupyterPlugin(BasePlugin):
     notebook_mappings: Dict[str, str]
 
     def _walk_nav(self, items):
-        for index, item in enumerate(items):
+        for i, item in enumerate(items):
             if not isinstance(item, dict):
                 continue
-            for key, value in item.items():
-                if isinstance(value, list):
-                    self._walk_nav(value)
-                if isinstance(value, str) and (
-                    value.endswith(".ipynb") or value.endswith(".py")
+            for k, v in item.items():
+                if isinstance(v, list):
+                    self._walk_nav(v)
+                if isinstance(v, str) and (
+                    v.endswith(".ipynb") or v.endswith(".py")
                 ):
-                    md_path = str(Path(value).with_suffix(".md"))
-                    self.notebook_mappings[md_path] = value
-                    items[index][key] = md_path
+                    # The target Markdown file path is always the original path with .md extension
+                    md_path = str(Path(v).with_suffix(".md"))
+                    # Map the resulting .md path back to the original .ipynb or .py file
+                    self.notebook_mappings[md_path] = v
+                    # Update the nav item to point to the .md file
+                    items[i][k] = md_path
 
     def on_config(self, config):
-        logger.debug("on_config triggered")
+        logger.info("on_config triggered")
         self.root_dir = Path(self.config.get("root_dir")).resolve()
         self.docs_dir = Path(config["docs_dir"]).resolve()
 
@@ -89,7 +91,6 @@ class MkDocsJupyterPlugin(BasePlugin):
         )
         preprocessors_list = [HtmlOutputToMarkdownProcessor]
 
-        self.exporter = MarkdownExporter(preprocessors=preprocessors_list)
         if template_file:
             custom_template_path = Path(template_file).resolve()
             extra_template_paths = [
@@ -102,19 +103,19 @@ class MkDocsJupyterPlugin(BasePlugin):
                 extra_template_paths=extra_template_paths,
                 preprocessors=preprocessors_list,
             )
+        else:
+            self.exporter = MarkdownExporter(preprocessors=preprocessors_list)
 
         self.notebook_mappings = {}
-
         self._walk_nav(config["nav"])
         return config
 
     def on_files(self, files, config):
-        logger.debug("on_files triggered")
+        logger.info("on_files triggered")
         include_pattern = re.compile(r'--8<--\s*["\']([^"\']+)["\']')
 
         for md_path, nb_path in self.notebook_mappings.items():
             nb_full_path = (self.root_dir / nb_path).resolve()
-            md_full_path = self.docs_dir / md_path
 
             if not nb_full_path.exists():
                 logger.warning(
@@ -123,38 +124,7 @@ class MkDocsJupyterPlugin(BasePlugin):
                 )
                 continue
 
-            should_skip_conversion = False
-            if md_full_path.exists():
-                try:
-                    if (
-                        nb_full_path.stat().st_mtime
-                        <= md_full_path.stat().st_mtime
-                    ):
-                        logger.debug(
-                            f"Skipping conversion for {nb_path} (MD is up-to-date)."
-                        )
-                        should_skip_conversion = True
-                except OSError as e:
-                    logger.debug(
-                        f"Could not stat file {nb_full_path} or {md_full_path}: {e}"
-                    )
-                    pass
-
-            if should_skip_conversion:
-                existing_file = files.get_file_from_path(md_path)
-                if not existing_file:
-                    new_file = File(
-                        path=md_path,
-                        src_dir=str(self.docs_dir),
-                        dest_dir=config["site_dir"],
-                        use_directory_urls=config.get(
-                            "use_directory_urls", True
-                        ),
-                    )
-                    files.append(new_file)
-
-                continue
-
+            md_full_path = self.docs_dir / md_path
             md_full_path.parent.mkdir(parents=True, exist_ok=True)
 
             nb_node = (
@@ -171,7 +141,7 @@ class MkDocsJupyterPlugin(BasePlugin):
 
             body, resources = self.exporter.from_notebook_node(nb_node)
 
-            if "outputs" in resources:
+            if not "outputs" in resources:
                 continue
             md_dir = md_full_path.parent
             output_dir = md_dir / output_dir_name
@@ -185,17 +155,17 @@ class MkDocsJupyterPlugin(BasePlugin):
                     Path(md_path).parent / output_dir_name / name
                 )
 
-            asset_file = files.get_file_from_path(rel_img_path)
-            if asset_file:
-                files.remove(asset_file)
+                asset_file = files.get_file_from_path(rel_img_path)
+                if asset_file:
+                    files.remove(asset_file)
 
-            new_asset_file = File(
-                path=rel_img_path,
-                src_dir=str(self.docs_dir),
-                dest_dir=config["site_dir"],
-                use_directory_urls=config.get("use_directory_urls", True),
-            )
-            files.append(new_asset_file)
+                new_asset_file = File(
+                    path=rel_img_path,
+                    src_dir=str(self.docs_dir),
+                    dest_dir=config["site_dir"],
+                    use_directory_urls=config.get("use_directory_urls", True),
+                )
+                files.append(new_asset_file)
 
             included_files = include_pattern.findall(body)
 
@@ -220,7 +190,7 @@ class MkDocsJupyterPlugin(BasePlugin):
                 try:
                     shutil.copy2(source_full_path, dest_full_path)
                 except Exception as e:
-                    logger.error(
+                    print(
                         f"Error copying included file {source_full_path}: {e}"
                     )
 
@@ -240,6 +210,7 @@ class MkDocsJupyterPlugin(BasePlugin):
                 md_full_path.write_text(body, encoding="utf-8")
 
             existing_file = files.get_file_from_path(md_path)
+
             if existing_file:
                 files.remove(existing_file)
 
@@ -254,7 +225,7 @@ class MkDocsJupyterPlugin(BasePlugin):
         return files
 
     def on_serve(self, server, config, **kwargs):
-        logger.debug("on_serve triggered")
+        logger.info("on_serve triggered")
         for _, nb_path in self.notebook_mappings.items():
             nb_full_path = self.root_dir / nb_path
 
