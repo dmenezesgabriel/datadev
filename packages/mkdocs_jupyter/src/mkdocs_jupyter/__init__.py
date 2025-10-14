@@ -40,12 +40,13 @@ class HtmlOutputToMarkdownProcessor(Preprocessor):
     ) -> tuple[NotebookNode, Dict[str, Any]]:
         if cell.cell_type == "code" and cell.get("outputs"):
             for output in cell.outputs:
-                if "data" in output and "text/html" in output["data"]:
-                    html_content = "".join(output["data"]["text/html"])
-                    anchor_tag = "a"
-                    markdown_content = md(html_content, strip=[anchor_tag])
-                    output["data"]["text/markdown"] = markdown_content
-                    del output["data"]["text/html"]
+                if not ("data" in output and "text/html" in output["data"]):
+                    continue
+                html_content = "".join(output["data"]["text/html"])
+                anchor_tag = "a"
+                markdown_content = md(html_content, strip=[anchor_tag])
+                output["data"]["text/markdown"] = markdown_content
+                del output["data"]["text/html"]
 
         return cell, resources
 
@@ -63,19 +64,20 @@ class MkDocsJupyterPlugin(BasePlugin):
 
     def _walk_nav(self, items):
         for i, item in enumerate(items):
-            if isinstance(item, dict):
-                for k, v in item.items():
-                    if isinstance(v, list):
-                        self._walk_nav(v)
-                    elif isinstance(v, str) and (
-                        v.endswith(".ipynb") or v.endswith(".py")
-                    ):
-                        # The target Markdown file path is always the original path with .md extension
-                        md_path = str(Path(v).with_suffix(".md"))
-                        # Map the resulting .md path back to the original .ipynb or .py file
-                        self.notebook_mappings[md_path] = v
-                        # Update the nav item to point to the .md file
-                        items[i][k] = md_path
+            if not isinstance(item, dict):
+                continue
+            for k, v in item.items():
+                if isinstance(v, list):
+                    self._walk_nav(v)
+                if isinstance(v, str) and (
+                    v.endswith(".ipynb") or v.endswith(".py")
+                ):
+                    # The target Markdown file path is always the original path with .md extension
+                    md_path = str(Path(v).with_suffix(".md"))
+                    # Map the resulting .md path back to the original .ipynb or .py file
+                    self.notebook_mappings[md_path] = v
+                    # Update the nav item to point to the .md file
+                    items[i][k] = md_path
 
     def on_config(self, config):
         logger.info("on_config triggered")
