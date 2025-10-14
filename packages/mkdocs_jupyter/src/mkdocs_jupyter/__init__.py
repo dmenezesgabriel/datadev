@@ -141,32 +141,31 @@ class MkDocsJupyterPlugin(BasePlugin):
 
             body, resources = self.exporter.from_notebook_node(nb_node)
 
-            if "outputs" in resources:
-                md_dir = md_full_path.parent
-                output_dir = md_dir / output_dir_name
-                output_dir.mkdir(parents=True, exist_ok=True)
+            if not "outputs" in resources:
+                continue
+            md_dir = md_full_path.parent
+            output_dir = md_dir / output_dir_name
+            output_dir.mkdir(parents=True, exist_ok=True)
 
-                for name, data in resources["outputs"].items():
-                    output_file_path = output_dir / name
-                    output_file_path.write_bytes(data)
+            for name, data in resources["outputs"].items():
+                output_file_path = output_dir / name
+                output_file_path.write_bytes(data)
 
-                    rel_img_path = str(
-                        Path(md_path).parent / output_dir_name / name
-                    )
+                rel_img_path = str(
+                    Path(md_path).parent / output_dir_name / name
+                )
 
-                    asset_file = files.get_file_from_path(rel_img_path)
-                    if asset_file:
-                        files.remove(asset_file)
+                asset_file = files.get_file_from_path(rel_img_path)
+                if asset_file:
+                    files.remove(asset_file)
 
-                    new_asset_file = File(
-                        path=rel_img_path,
-                        src_dir=str(self.docs_dir),
-                        dest_dir=config["site_dir"],
-                        use_directory_urls=config.get(
-                            "use_directory_urls", True
-                        ),
-                    )
-                    files.append(new_asset_file)
+                new_asset_file = File(
+                    path=rel_img_path,
+                    src_dir=str(self.docs_dir),
+                    dest_dir=config["site_dir"],
+                    use_directory_urls=config.get("use_directory_urls", True),
+                )
+                files.append(new_asset_file)
 
             included_files = include_pattern.findall(body)
 
