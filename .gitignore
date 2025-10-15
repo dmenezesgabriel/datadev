@@ -125,3 +125,4 @@ docs/notebooks
 *.db
 *.log
 *.sqlite
+tmp.md

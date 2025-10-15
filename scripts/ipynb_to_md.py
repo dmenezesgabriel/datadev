@@ -4,9 +4,9 @@ from nbconvert import MarkdownExporter
 from nbconvert.preprocessors import Preprocessor
 from nbformat.notebooknode import NotebookNode
 
-template = Path("./templates/jupyter.md.j2")
-notebook = Path("./notebooks/python/statistic/percentile.ipynb")
-notebook_output = Path("nb.md")
+template = Path("templates/jupyter.md.j2")
+notebook = Path("notebooks/python/data-analysis/altair.ipynb")
+notebook_output = Path("tmp.md")
 import nbformat
 
 # Load notebook

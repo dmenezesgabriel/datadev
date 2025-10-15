@@ -7,6 +7,10 @@
 {%- set filename = output.metadata.get('filenames', {}).get('image/png', '') -%}
 ![{{ filename }}]({{ output_dir_name }}/{{ filename }})
 {%- endblock display_data -%}
+{%- elif output.output_type == 'execute_result' and 'application/vnd.vegalite.v5+json' in output.data -%}
+```vegalite linenums='0'
+{{ output.data['application/vnd.vegalite.v5+json'] | tojson }}
+```
 {%- else -%}
 <div class="result" markdown>
 ```linenums='0'
