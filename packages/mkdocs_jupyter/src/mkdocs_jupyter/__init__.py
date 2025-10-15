@@ -40,13 +40,42 @@ class HtmlOutputToMarkdownProcessor(Preprocessor):
     ) -> tuple[NotebookNode, Dict[str, Any]]:
         if cell.cell_type == "code" and cell.get("outputs"):
             for output in cell.outputs:
-                if not ("data" in output and "text/html" in output["data"]):
-                    continue
-                html_content = "".join(output["data"]["text/html"])
-                anchor_tag = "a"
-                markdown_content = md(html_content, strip=[anchor_tag])
-                output["data"]["text/markdown"] = markdown_content
-                del output["data"]["text/html"]
+                if (
+                    "data" in output
+                    and "text/html" in output["data"]
+                    and "table" in output["data"]["text/html"]
+                ):
+                    html_content = "".join(output["data"]["text/html"])
+                    anchor_tag = "a"
+                    markdown_content = md(html_content, strip=[anchor_tag])
+                    output["data"]["text/markdown"] = markdown_content
+                    del output["data"]["text/html"]
+                elif (
+                    "data" in output
+                    and output.output_type
+                    in ("execute_result", "display_data")
+                    and "text/plain" in output["data"]
+                ):
+                    plain_text = "".join(output["data"]["text/plain"])
+                    fenced_code_block = (
+                        "<div class='result' markdown>\n"
+                        f"``` linenums='0'\n{plain_text}\n```"
+                        "\n</div>"
+                    )
+                    output["data"]["text/markdown"] = fenced_code_block
+
+                if (
+                    "data" in output
+                    and "application/vnd.vegalite.v5+json" in output["data"]
+                ):
+                    json_content = output["data"][
+                        "application/vnd.vegalite.v5+json"
+                    ]
+                    markdown_content = (
+                        f"```vegalite linenums='0'\n{json_content}\n```"
+                    )
+                    output["data"]["text/markdown"] = markdown_content
+                    del output["data"]["application/vnd.vegalite.v5+json"]
 
         return cell, resources
 
