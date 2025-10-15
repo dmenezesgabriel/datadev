@@ -1,6 +1,5 @@
 {% extends 'markdown/index.md.j2' %}
 
-
 {%- block traceback_line -%}
 {{ line.rstrip() | strip_ansi }}
 {%- endblock traceback_line -%}
@@ -20,19 +19,3 @@
 {%- set filename = output.metadata.get('filenames', {}).get('image/png', '') -%}
 ![{{ filename }}]({{ output_dir_name }}/{{ filename }})
 {%- endblock display_data -%}
-
-
-{%- block execute_result scoped -%}
-{%- if output.output_type == 'execute_result' and 'application/vnd.vegalite.v5+json' in output.data -%}
-```vegalite linenums='0'
-{{ output.data['application/vnd.vegalite.v5+json'] | tojson }}
-```
-{%- elif output.output_type == 'execute_result' and 'text/html' in output.data -%}
-{{ output.data['text/html'] }}
-{%- elif output.output_type == 'execute_result' and 'text/plain' in output.data -%}
-<div class="result" markdown>
-```linenums='0'
-{{ output.data['text/plain'] }}
-```
-{%- endif %}
-{%- endblock execute_result -%}
