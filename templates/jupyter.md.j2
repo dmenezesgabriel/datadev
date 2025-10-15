@@ -1,31 +1,38 @@
 {% extends 'markdown/index.md.j2' %}
 
-{%- block output_group -%}
-{%- for output in cell.outputs -%}
-{%- if output.output_type == 'display_data' and 'image/png' in output.data -%}
+
+{%- block traceback_line -%}
+{{ line.rstrip() | strip_ansi }}
+{%- endblock traceback_line -%}
+
+{%- block stream -%}
+{% set lines = output.text.rstrip().split('\n') %}
+{% for line in lines %}
+<p>{{ line }}</p>
+{% endfor %}
+{%- endblock stream -%}
+
+{%- block data_text scoped -%}
+{{ output.data['text/plain'].rstrip() }}
+{%- endblock data_text -%}
+
 {%- block display_data scoped -%}
 {%- set filename = output.metadata.get('filenames', {}).get('image/png', '') -%}
 ![{{ filename }}]({{ output_dir_name }}/{{ filename }})
 {%- endblock display_data -%}
-{%- elif output.output_type == 'execute_result' and 'application/vnd.vegalite.v5+json' in output.data -%}
+
+
+{%- block execute_result scoped -%}
+{%- if output.output_type == 'execute_result' and 'application/vnd.vegalite.v5+json' in output.data -%}
 ```vegalite linenums='0'
 {{ output.data['application/vnd.vegalite.v5+json'] | tojson }}
 ```
-{%- else -%}
+{%- elif output.output_type == 'execute_result' and 'text/html' in output.data -%}
+{{ output.data['text/html'] }}
+{%- elif output.output_type == 'execute_result' and 'text/plain' in output.data -%}
 <div class="result" markdown>
 ```linenums='0'
-{%- if output.output_type == 'stream' %}
-{{ output.text.rstrip() }}
-{%- elif output.output_type == 'error' %}
-{{ super() }}
-{%- else %}
-{{ output.data['text/plain'].rstrip() }}
-{%- endif %}
+{{ output.data['text/plain'] }}
 ```
-</div>
-{%- endif -%}
-{%- endfor -%}
-{%- endblock output_group -%}
-
-{%- block output_area_prompt -%}
-{%- endblock output_area_prompt -%}
+{%- endif %}
+{%- endblock execute_result -%}

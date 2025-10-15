@@ -5,7 +5,7 @@ from nbconvert.preprocessors import Preprocessor
 from nbformat.notebooknode import NotebookNode
 
 template = Path("templates/jupyter.md.j2")
-notebook = Path("notebooks/python/data-analysis/altair.ipynb")
+notebook = Path("notebooks/python/data-analysis/pandas.ipynb")
 notebook_output = Path("tmp.md")
 import nbformat
 

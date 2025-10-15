@@ -126,3 +126,4 @@ docs/notebooks
 *.log
 *.sqlite
 tmp.md
+test.ipynb
