@@ -3,6 +3,7 @@ https://www.mkdocs.org/dev-guide/plugins/#events
 """
 
 import hashlib
+import json
 import logging
 import os
 import re
@@ -73,7 +74,7 @@ class HtmlOutputToMarkdownProcessor(Preprocessor):
                         "application/vnd.vegalite.v5+json"
                     ]
                     markdown_content = (
-                        f"```vegalite linenums='0'\n{json_content}\n```"
+                        f"```vegalite \n{json.dumps(json_content)}\n```"
                     )
                     output["data"]["text/markdown"] = markdown_content
                     del output["data"]["application/vnd.vegalite.v5+json"]

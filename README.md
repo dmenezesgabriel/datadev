@@ -18,6 +18,8 @@ see:
 To view the documentation locally, run:
 
 ```sh
+uv build --all-packages
+uv sync
 mkdocs serve
 ```
 

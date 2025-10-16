@@ -54,6 +54,9 @@ plugins:
   - mkdocs_jupyter:
       root_dir: .
       template_file: templates/jupyter.md.j2
+  - mkdocs_vegalite:
+      use_data_path: True
+      data_path: ""
 
 nav:
   - Home:
@@ -166,10 +169,18 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tasklist:
       custom_checkbox: true # Use custom checkboxes for task lists
+  - pymdownx.superfences:
+      custom_fences:
+        - name: vegalite
+          class: vegalite
+          format: !!python/name:mkdocs_vegalite.fence_vegalite
 
 extra_javascript:
   - javascript/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  - https://cdn.jsdelivr.net/npm/vega@5
+  - https://cdn.jsdelivr.net/npm/vega-lite@5
+  - https://cdn.jsdelivr.net/npm/vega-embed@6
 
 extra_css:
   - css/styles.css
