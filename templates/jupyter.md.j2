@@ -9,9 +9,13 @@
 
 {%- block stream -%}
 {% set lines = output.text.rstrip().split('\n') %}
+<div class='result' markdown>
+```linenums='0'
 {% for line in lines %}
-<p>{{ line }}</p>
+{{ line }}
 {% endfor %}
+```
+</div>
 {%- endblock stream -%}
 
 {%- block data_text scoped -%}

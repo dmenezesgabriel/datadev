@@ -55,6 +55,7 @@ class HtmlOutputToMarkdownProcessor(Preprocessor):
                     and output.output_type
                     in ("execute_result", "display_data")
                     and "text/plain" in output["data"]
+                    and "text/latex" not in output["data"]
                 ):
                     plain_text = "".join(output["data"]["text/plain"])
                     fenced_code_block = (
