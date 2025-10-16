@@ -48,7 +48,7 @@ app = Flask(__name__)  # WSGI compliant application instance
 # %% [markdown]
 # We can also serve html templates:
 # ```html title='templates/index.html'
-# --8<-- "docs/notebooks/python/web/flask/templates/index.html"
+# --8<-- "docs/notebooks/python/web/flask-hello-world/templates/index.html"
 # ```
 
 # %% [markdown]
@@ -74,7 +74,7 @@ def health():
 # %% [markdown]
 # We can receive inputs from the UI
 # ```html title='templates/form.html'
-# --8<-- "docs/notebooks/python/web/flask/templates/form.html"
+# --8<-- "docs/notebooks/python/web/flask-hello-world/templates/form.html"
 # ```
 
 # %% [markdown]
@@ -100,7 +100,7 @@ def form():
 # - `{#...#}`: Comments
 #
 # ```html title='templates/result.html'
-# --8<-- "docs/notebooks/python/web/flask/templates/result.html"
+# --8<-- "docs/notebooks/python/web/flask-hello-world/templates/result.html"
 # ```
 
 # %% [markdown]

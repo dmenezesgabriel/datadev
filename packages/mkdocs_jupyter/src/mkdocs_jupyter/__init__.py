@@ -153,7 +153,6 @@ class MkDocsJupyterPlugin(BasePlugin):
                     f"notebook/jupytext file {nb_path} not found at "
                     f"{nb_full_path}"
                 )
-                continue
 
             md_full_path = self.docs_dir / md_path
             md_full_path.parent.mkdir(parents=True, exist_ok=True)
@@ -216,7 +215,6 @@ class MkDocsJupyterPlugin(BasePlugin):
                     logger.warning(
                         f"Included file not found at source: {source_full_path}"
                     )
-                    continue
 
                 try:
                     shutil.copy2(source_full_path, dest_full_path)
