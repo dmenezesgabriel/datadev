@@ -106,6 +106,12 @@ nav:
                   - Gaussian classification: notebooks/python/machine-learning/naive-bayes-gaussian-classification.ipynb
                   - Multinomial classification: notebooks/python/machine-learning/naive-bayes-multinomial-classification.ipynb
 
+          - Generative AI:
+              - Usage: notebooks/python/generative-ai/basic-usage.ipynb
+              - Structured Output: notebooks/python/generative-ai/basic-structured-output.ipynb
+              - Tools: notebooks/python/generative-ai/basic-tools.ipynb
+              - Retrieval: notebooks/python/generative-ai/basic-retrieval.ipynb
+
           - Web:
               - Flask:
                   - Hello World: notebooks/python/web/flask-hello-world/app.py

@@ -127,3 +127,4 @@ docs/notebooks
 *.sqlite
 tmp.md
 test.ipynb
+.env
