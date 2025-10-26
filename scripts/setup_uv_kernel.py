@@ -25,7 +25,7 @@ def main():
     parser.add_argument(
         "--versions",
         nargs="+",
-        default=["3.13", "3.12"],
+        default=["3.13", "3.12", "3.11"],
         help="Python versions to configure (default: 3.13 3.12)",
     )
 
