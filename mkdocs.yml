@@ -55,6 +55,7 @@ plugins:
 nav:
   - Home:
       - index.md
+  - Notebooks:
       - Python:
           - Essentials:
               - Lists: notebooks/python/essentials/lists.ipynb
