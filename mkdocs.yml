@@ -23,24 +23,18 @@ theme:
     - content.tabs.link # Link tabs to URL
   name: material
   font:
-    text: Merriweather Sans
-    code: Red Hat Mono
+    text: Outfit
+    code: Fira Code
   palette:
     # Dark Mode
-    - scheme: slate
-      toggle:
-        icon: material/weather-sunny
-        name: Dark mode
-      primary: green
-      accent: deep purple
-
-    # Light Mode
     - scheme: default
       toggle:
         icon: material/weather-night
+        name: Dark mode
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
         name: Light mode
-      primary: blue
-      accent: deep orange
   icon:
     logo: fontawesome/solid/laptop-code
 

@@ -1,18 +1,80 @@
-/* Body text */
-.md-content {
-  font-family: "Merriweather", Georgia, serif;
-  font-weight: 300;
-  line-height: 1.6; /* improves readability */
-  font-size: 16px; /* comfortable for long reading */
+@import url(https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Fira+Code:wght@300..700&display=swap);
+
+:root {
+  --base-radius: 0.6rem;
+  --heading-font-weight: 500;
+  --heading-font-sizes: 40px, 32px, 24px;
 }
 
-/* Headings */
+/* === LIGHT THEME === */
+[data-md-color-scheme="default"] {
+  --md-default-bg-color: #f4f3ed;
+  --md-default-fg-color: #3d3a2a;
+  --md-code-bg-color: #ecebe4;
+  --md-primary-fg-color: #bb5a38;
+  --md-accent-fg-color: #3d3a2a;
+  --md-default-bg-color: #f4f3ed;
+  --md-default-fg-color: #3d3a2a;
+  --md-code-bg-color: #ecebe4;
+  --md-border-color: #d3d2ca;
+}
+
+[data-md-color-scheme="default"] .md-sidebar {
+  background-color: #e8e7dd;
+}
+
+/* === DARK THEME === */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #ae5630;
+  --md-accent-fg-color: #e5e5e2;
+  --md-default-bg-color: #2a2a28;
+  --md-default-fg-color: #e5e5e2;
+  --md-code-bg-color: #232322;
+  --md-border-color: #343330;
+}
+
+.md-content,
+.md-typeset {
+  font-family: "Outfit", sans-serif;
+  color: var(--md-default-fg-color);
+}
+
+code,
+pre,
+.md-typeset code {
+  font-family: "Fira Code", monospace;
+  background-color: var(--md-code-bg-color);
+}
+
 .md-typeset h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Roboto", "Helvetica", Arial, sans-serif;
-  font-weight: 500;
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+  font-family: "Outfit", sans-serif;
+  font-weight: var(--heading-font-weight);
+  line-height: 1.2;
+}
+
+.md-typeset h1 {
+  font-size: 40px;
+}
+.md-typeset h2 {
+  font-size: 32px;
+}
+.md-typeset h3 {
+  font-size: 24px;
+}
+
+a {
+  color: var(--md-accent-fg-color);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.md-sidebar__scrollwrap {
+  background-color: var(--md-default-bg-color);
 }
