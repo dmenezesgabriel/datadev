@@ -92,6 +92,7 @@ class MkDocsJupyterPlugin(BasePlugin):
     docs_dir: Path
     exporter: MarkdownExporter
     notebook_mappings: Dict[str, str]
+    cache_dir: Path
 
     def _walk_nav(self, items):
         for i, item in enumerate(items):
@@ -110,10 +111,49 @@ class MkDocsJupyterPlugin(BasePlugin):
                     # Update the nav item to point to the .md file
                     items[i][k] = md_path
 
+    def _get_source_hash(self, nb_full_path: Path) -> str:
+        """Get hash of source notebook file for cache validation"""
+        try:
+            mtime = nb_full_path.stat().st_mtime
+            size = nb_full_path.stat().st_size
+            return hashlib.md5(f"{mtime}:{size}".encode()).hexdigest()
+        except Exception:
+            return ""
+
+    def _read_cache(self, cache_file: Path) -> Dict[str, Any]:
+        """Read cache metadata"""
+        if not cache_file.exists():
+            return {}
+        try:
+            return json.loads(cache_file.read_text())
+        except Exception:
+            return {}
+
+    def _write_cache(self, cache_file: Path, data: Dict[str, Any]):
+        """Write cache metadata"""
+        cache_file.parent.mkdir(parents=True, exist_ok=True)
+        cache_file.write_text(json.dumps(data))
+
+    def _register_file(self, files, path, config):
+        """Register a file with MkDocs if not already registered"""
+        existing_file = files.get_file_from_path(path)
+        if existing_file:
+            return existing_file
+
+        new_file = File(
+            path=path,
+            src_dir=str(self.docs_dir),
+            dest_dir=config["site_dir"],
+            use_directory_urls=config.get("use_directory_urls", True),
+        )
+        files.append(new_file)
+        return new_file
+
     def on_config(self, config):
         logger.info("on_config triggered")
         self.root_dir = Path(self.config.get("root_dir")).resolve()
         self.docs_dir = Path(config["docs_dir"]).resolve()
+        self.cache_dir = self.docs_dir / ".notebook_cache"
 
         template_file = self.config.get("template_file")
 
@@ -153,10 +193,45 @@ class MkDocsJupyterPlugin(BasePlugin):
                     f"notebook/jupytext file {nb_path} not found at "
                     f"{nb_full_path}"
                 )
+                continue
+
+            # Check cache before expensive operations
+            source_hash = self._get_source_hash(nb_full_path)
+            cache_file = (
+                self.cache_dir
+                / f"{hashlib.md5(str(nb_full_path).encode()).hexdigest()}.json"
+            )
+            cache_data = self._read_cache(cache_file)
 
             md_full_path = self.docs_dir / md_path
+
+            # Skip processing if source unchanged and output exists
+            if (
+                cache_data.get("source_hash") == source_hash
+                and md_full_path.exists()
+            ):
+                logger.info(f"Skipping unchanged notebook: {nb_path}")
+
+                # Register markdown file (let MkDocs handle it normally)
+                self._register_file(files, md_path, config)
+
+                # Register cached output files only if they don't exist
+                nb_name = nb_full_path.stem
+                output_dir_name = f"{nb_name}_files"
+                for output_file_name in cache_data.get("output_files", []):
+                    rel_img_path = str(Path(md_path).parent / output_file_name)
+                    # Only register if file actually exists and not already registered
+                    output_file_path = self.docs_dir / rel_img_path
+                    if output_file_path.exists():
+                        self._register_file(files, rel_img_path, config)
+
+                continue
+
+            logger.info(f"Processing notebook: {nb_path}")
+
             md_full_path.parent.mkdir(parents=True, exist_ok=True)
 
+            # Read notebook once
             nb_node = (
                 jupytext.read(nb_full_path)
                 if nb_full_path.suffix == ".py"
@@ -171,32 +246,29 @@ class MkDocsJupyterPlugin(BasePlugin):
 
             body, resources = self.exporter.from_notebook_node(nb_node)
 
-            if not "outputs" in resources:
-                continue
-            md_dir = md_full_path.parent
-            output_dir = md_dir / output_dir_name
-            output_dir.mkdir(parents=True, exist_ok=True)
+            output_files = []
+            if "outputs" in resources:
+                md_dir = md_full_path.parent
+                output_dir = md_dir / output_dir_name
+                output_dir.mkdir(parents=True, exist_ok=True)
 
-            for name, data in resources["outputs"].items():
-                output_file_path = output_dir / name
-                output_file_path.write_bytes(data)
+                for name, data in resources["outputs"].items():
+                    output_file_path = output_dir / name
+                    output_file_path.write_bytes(data)
 
-                rel_img_path = str(
-                    Path(md_path).parent / output_dir_name / name
-                )
+                    rel_img_path = str(
+                        Path(md_path).parent / output_dir_name / name
+                    )
+                    output_files.append(f"{output_dir_name}/{name}")
 
-                asset_file = files.get_file_from_path(rel_img_path)
-                if asset_file:
-                    files.remove(asset_file)
+                    # Remove old file reference and add new one
+                    asset_file = files.get_file_from_path(rel_img_path)
+                    if asset_file:
+                        files.remove(asset_file)
 
-                new_asset_file = File(
-                    path=rel_img_path,
-                    src_dir=str(self.docs_dir),
-                    dest_dir=config["site_dir"],
-                    use_directory_urls=config.get("use_directory_urls", True),
-                )
-                files.append(new_asset_file)
+                    self._register_file(files, rel_img_path, config)
 
+            # Process includes
             included_files = include_pattern.findall(body)
 
             for included_file_path_in_md in included_files:
@@ -215,41 +287,33 @@ class MkDocsJupyterPlugin(BasePlugin):
                     logger.warning(
                         f"Included file not found at source: {source_full_path}"
                     )
+                    continue
 
                 try:
                     shutil.copy2(source_full_path, dest_full_path)
                 except Exception as e:
-                    print(
+                    logger.error(
                         f"Error copying included file {source_full_path}: {e}"
                     )
 
-            new_hash = hashlib.md5(body.encode("utf-8")).hexdigest()
-            existing_hash = None
+            # Write markdown file
+            md_full_path.write_text(body, encoding="utf-8")
 
-            if md_full_path.exists():
-                try:
-                    existing_content = md_full_path.read_text(encoding="utf-8")
-                    existing_hash = hashlib.md5(
-                        existing_content.encode("utf-8")
-                    ).hexdigest()
-                except Exception:
-                    existing_hash = None
+            # Update cache
+            self._write_cache(
+                cache_file,
+                {
+                    "source_hash": source_hash,
+                    "output_files": output_files,
+                },
+            )
 
-            if new_hash != existing_hash:
-                md_full_path.write_text(body, encoding="utf-8")
-
+            # Register markdown file
             existing_file = files.get_file_from_path(md_path)
-
             if existing_file:
                 files.remove(existing_file)
 
-            new_file = File(
-                path=md_path,
-                src_dir=str(self.docs_dir),
-                dest_dir=config["site_dir"],
-                use_directory_urls=config.get("use_directory_urls", True),
-            )
-            files.append(new_file)
+            self._register_file(files, md_path, config)
 
         return files
 

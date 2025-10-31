@@ -90,7 +90,7 @@ a:hover {
   width: 100%;
   height: 100%;
   object-fit: cover; /* Keeps proportions and fills */
-  filter: brightness(0.8); /* Subtle dark overlay for readability */
+  filter: brightness(0.95); /* Subtle dark overlay for readability */
 }
 
 .hero-overlay {
