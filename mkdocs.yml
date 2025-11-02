@@ -55,8 +55,12 @@ plugins:
 nav:
   - Home:
       - index.md
-  - AI:
+
+  - Notes:
       - Professions: ai-professions.md
+      - LLMOps: llmops.md
+      - AI Agents: ai-agents.md
+
   - Recipes:
       - Python:
           - Essentials:
@@ -104,7 +108,7 @@ nav:
                   - Multinomial classification: notebooks/python/machine-learning/naive-bayes-multinomial-classification.ipynb
 
           - Generative AI:
-              - Usage: notebooks/python/generative-ai/basic-usage.ipynb
+              - Introduction: notebooks/python/generative-ai/basic-usage.ipynb
               - Structured Output: notebooks/python/generative-ai/basic-structured-output.ipynb
               - Tools: notebooks/python/generative-ai/basic-tools.ipynb
               - Retrieval: notebooks/python/generative-ai/basic-retrieval.ipynb
