@@ -55,7 +55,9 @@ plugins:
 nav:
   - Home:
       - index.md
-  - Notebooks:
+  - AI:
+      - Professions: ai-professions.md
+  - Recipes:
       - Python:
           - Essentials:
               - Lists: notebooks/python/essentials/lists.ipynb
@@ -164,11 +166,6 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
       combine_header_slug: true
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tasklist:
       custom_checkbox: true # Use custom checkboxes for task lists
   - pymdownx.superfences:
@@ -176,6 +173,9 @@ markdown_extensions:
         - name: vegalite
           class: vegalite
           format: !!python/name:mkdocs_vegalite.fence_vegalite
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
 
 extra_javascript:
   - javascript/mathjax.js
