@@ -2,7 +2,7 @@ jupyterlab:
 	uv run --with jupyter jupyter lab
 
 docs-dev:
-	uv run -m mkdocs serve
+	uv run mkdocs serve
 
 tree:
 	tree -L 5\
