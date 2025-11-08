@@ -112,6 +112,7 @@ nav:
               - Structured Output: notebooks/python/generative-ai/basic-structured-output.ipynb
               - Tools: notebooks/python/generative-ai/basic-tools.ipynb
               - Retrieval: notebooks/python/generative-ai/basic-retrieval.ipynb
+              - Agent: notebooks/python/generative-ai/basic-agent.ipynb
 
           - Web:
               - Flask:
