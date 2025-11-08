@@ -168,6 +168,12 @@ Evaluate inherent properties without "**golden**" answers
 - Format compliance
 - Safety and toxicity
 
+## Are you succeeding?
+
+- You can deploy changes confidently
+- Failures are caught before users see them
+- You understand your systems behavior
+
 ## References
 
 - [Dave Ebbelaar - Why Most AI Projects Fail and How to Fix It](https://www.youtube.com/watch?v=a3SMraZWNNs&t=18s)
