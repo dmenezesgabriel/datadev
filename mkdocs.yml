@@ -58,10 +58,13 @@ nav:
 
   - Notes:
       - Professions: ai-professions.md
-      - LLMOps: llmops.md
+      - LLMs:
+          - Introduction: llm-basics.md
+          - Evaluation: llm-evals.md
+          - LLMOps: llm-ops.md
       - AI Agents: ai-agents.md
 
-  - Recipes:
+  - Cookbook:
       - Python:
           - Essentials:
               - Lists: notebooks/python/essentials/lists.ipynb

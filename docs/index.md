@@ -11,7 +11,7 @@ hide:
   <div class="hero-overlay">
     <h1 class="hero-title">DataDev</h1>
     <a href="notebooks/python/essentials/lists/" class="md-button hero-button">
-      Go to Recipes
+      Go to Cookbook
     </a>
   </div>
 </div>
