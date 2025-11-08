@@ -116,6 +116,7 @@ nav:
               - Tools: notebooks/python/generative-ai/basic-tools.ipynb
               - Retrieval: notebooks/python/generative-ai/basic-retrieval.ipynb
               - Agent: notebooks/python/generative-ai/basic-agent.ipynb
+              - LLM Eval Unit Testing: notebooks/python/generative-ai/llm-eval-unit-test.ipynb
 
           - Web:
               - Flask:
