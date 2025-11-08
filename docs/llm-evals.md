@@ -111,6 +111,63 @@ Real user experiments to measure business impact
 - Run: Major releases
 - Cost: High
 
+#### When to use A/B Tests
+
+- System is mature and stable
+- You want to measure real user impact
+- Testing significant changes
+- Need business metric validation
+- Comparing different approaches
+
+#### What to measure
+
+- User satisfaction scores
+- Task completion rates
+- Time to resolution
+- User engagement metrics
+- Business outcomes (sales, retention)
+
+#### Example: Prompt Comparison
+
+**Hypothesis**: A more conversational prompt will improve user satisfaction
+
+Setup:
+
+- Control (A): Formal, direct responses
+- Treatment (B): Conversational, empathetic tone
+
+Results and metrics:
+
+**Metrics**:
+
+- User satisfaction rating (1-5)
+- Conversation completion rate
+- Follow-up questions needed
+
+**Result**: Treatment B increases satisfaction by 15% with no decrease in accuracy
+
+## Types of Evaluation Metrics
+
+### Reference-Based
+
+Compare LLM output against known "**golden**" answers
+
+- Exact string matches
+- Semantic similarity
+- Code execution results
+- SQL query correctness
+- Structured data validation
+
+### Reference-Free
+
+Evaluate inherent properties without "**golden**" answers
+
+- Tone appropriateness
+- Length constraints
+- No hallucination
+- Format compliance
+- Safety and toxicity
+
 ## References
 
 - [Dave Ebbelaar - Why Most AI Projects Fail and How to Fix It](https://www.youtube.com/watch?v=a3SMraZWNNs&t=18s)
