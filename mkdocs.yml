@@ -123,6 +123,7 @@ nav:
                   - Stdio Client: notebooks/python/generative-ai/llm-standalone-mcp/stdio-client.ipynb
                   - SSE Client: notebooks/python/generative-ai/llm-standalone-mcp/sse-client.ipynb
                   - Streamable HTTP Client: notebooks/python/generative-ai/llm-standalone-mcp/streamable-http-client.ipynb
+                  - LLM MCP Integration: notebooks/python/generative-ai/llm-mcp-integration/llm-integration-client.ipynb
 
           - Web:
               - Flask:

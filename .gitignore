@@ -129,3 +129,5 @@ tmp.md
 test.ipynb
 .env
 .notebook_cache
+
+*.duckdb
