@@ -46,6 +46,12 @@ Some times preferred instead of tools why it can be a little difficult to unders
 
 Things may go wrong. APIs will be down, LLMs will hallucinate and rate limits will hit you. You need try/catch blocks, retry logic with backoff, and fallback responses when stuff breaks. This is just standard error handling that you'd implement in any production system.
 
+### 7. Feedback
+
+**HITL (Human in the loop)**
+
+Human approval because some decisions are too important or complex for full automation. Like sending e-mails or making purchases. Add approval steps where humans can review and approve/reject before execution. This is just a basic approval workflow like you'd build for any app.
+
 ## AI Agents vs. Workflows
 
 | Feature                       | 🟢 Agent                                 | 🔴 Workflow                                    |
@@ -56,6 +62,6 @@ Things may go wrong. APIs will be down, LLMs will hallucinate and rate limits wi
 
 ## References
 
-- [Video - building-effective-agents, Anthropic](https://www.anthropic.com/engineering/building-effective-agents)
-- [Video - How to Build Reliable AI Agents](https://www.youtube.com/watch?v=T1Lowy1mnEg&t=478s)
-- [Video - Most devs don't understand what agents are](https://www.youtube.com/watch?v=AtYtuVTZCQU)
+- [Article - building-effective-agents, Anthropic](https://www.anthropic.com/engineering/building-effective-agents)
+- [Video - How to Build Reliable AI Agents, Dave Ebbelaar](https://www.youtube.com/watch?v=T1Lowy1mnEg&t=478s)
+- [Video - Most devs don't understand what agents are, Matt Pocock](https://www.youtube.com/watch?v=AtYtuVTZCQU)

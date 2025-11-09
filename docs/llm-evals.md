@@ -176,5 +176,5 @@ Evaluate inherent properties without "**golden**" answers
 
 ## References
 
-- [Video - Why Most AI Projects Fail and How to Fix It](https://www.youtube.com/watch?v=a3SMraZWNNs&t=18s)
+- [Video - Why Most AI Projects Fail and How to Fix It, Dave Ebbelaar](https://www.youtube.com/watch?v=a3SMraZWNNs&t=18s)
 - [Docs - MLFlow LLM Evaluation Examples](https://mlflow.org/docs/2.9.1/llms/llm-evaluate/notebooks/index.html)

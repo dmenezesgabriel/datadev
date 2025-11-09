@@ -10,4 +10,4 @@
 
 ## References
 
-- [Video - How to Build Reliable AI Agents](https://www.youtube.com/watch?v=T1Lowy1mnEg&t=478s)
+- [Video - How to Build Reliable AI Agents, Dave Ebbelaar](https://www.youtube.com/watch?v=T1Lowy1mnEg&t=478s)
