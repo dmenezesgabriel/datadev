@@ -111,12 +111,12 @@ nav:
                   - Multinomial classification: notebooks/python/machine-learning/naive-bayes-multinomial-classification.ipynb
 
           - Generative AI:
-              - Introduction: notebooks/python/generative-ai/basic-usage.ipynb
-              - Structured Output: notebooks/python/generative-ai/basic-structured-output.ipynb
-              - Tools: notebooks/python/generative-ai/basic-tools.ipynb
-              - Retrieval: notebooks/python/generative-ai/basic-retrieval.ipynb
-              - Agent: notebooks/python/generative-ai/basic-agent.ipynb
-              - LLM Eval Unit Testing: notebooks/python/generative-ai/llm-eval-unit-test.ipynb
+              - Completion: notebooks/python/generative-ai/llm-completion.ipynb
+              - Structured Output: notebooks/python/generative-ai/llm-structured-output.ipynb
+              - Tools: notebooks/python/generative-ai/llm-tools.ipynb
+              - Retrieval: notebooks/python/generative-ai/llm-retrieval.ipynb
+              - Evaluation - Unit Testing: notebooks/python/generative-ai/evaluation-unit-test.ipynb
+              - Agent: notebooks/python/generative-ai/agent.ipynb
 
           - Web:
               - Flask:
