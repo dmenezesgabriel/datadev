@@ -7,74 +7,92 @@
 # ///
 
 import argparse
+from collections.abc import AsyncIterator
+from contextlib import asynccontextmanager
+from dataclasses import dataclass
 from typing import Any
 
 import duckdb  # type: ignore
-from mcp.server.fastmcp import FastMCP  # type: ignore
+from mcp.server.fastmcp import Context, FastMCP  # type: ignore
+
+DB_PATH = "database.duckdb"
+
+
+@dataclass
+class AppContext:
+    db: duckdb.DuckDBPyConnection
+
+
+@asynccontextmanager
+async def app_lifespan(server: FastMCP) -> AsyncIterator[AppContext]:
+    db = duckdb.connect(DB_PATH)
+    try:
+        yield AppContext(db=db)
+    finally:
+        db.close()
+
 
 mcp = FastMCP(
     name="DuckDB",
     host="0.0.0.0",
     port=8333,
     stateless_http=True,
+    lifespan=app_lifespan,
 )
 
-DB_PATH = "database.duckdb"
-
-
-def get_connection() -> duckdb.DuckDBPyConnection:
-    return duckdb.connect(DB_PATH)
-
 
 @mcp.tool()
-def list_tables() -> list[dict[str, Any]]:
+def list_tables(ctx: Context) -> list[dict[str, Any]]:
     """List all tables in the database"""
-    with get_connection() as conn:
-        result = conn.execute("SHOW TABLES").fetchall()
-        return [{"name": row[0]} for row in result]
+    result = ctx.request_context.lifespan_context.db.execute(
+        "SHOW TABLES"
+    ).fetchall()
+    return [{"name": row[0]} for row in result]
 
 
 @mcp.tool()
-def create_table(table_name: str, columns: str) -> str:
+def create_table(ctx: Context, table_name: str, columns: str) -> str:
     """Create a new table. columns should be SQL column definitions like 'id INTEGER, name VARCHAR, amount DECIMAL(10,2)'"""
-    with get_connection() as conn:
-        conn.execute(f"CREATE TABLE {table_name} ({columns})")
-        return f"Table {table_name} created"
+    ctx.request_context.lifespan_context.db.execute(
+        f"CREATE TABLE {table_name} ({columns})"
+    )
+    return f"Table {table_name} created"
 
 
 @mcp.tool()
-def insert_data(table_name: str, columns: str, values: str) -> str:
+def insert_data(
+    ctx: Context, table_name: str, columns: str, values: str
+) -> str:
     """Insert data into table. columns like 'name, amount' and values like \"'Product A', 100.50\" """
-    with get_connection() as conn:
-        conn.execute(f"INSERT INTO {table_name} ({columns}) VALUES ({values})")
-        return f"Data inserted into {table_name}"
+    ctx.request_context.lifespan_context.db.execute(
+        f"INSERT INTO {table_name} ({columns}) VALUES ({values})"
+    )
+    return f"Data inserted into {table_name}"
 
 
 @mcp.tool()
-def query_data(sql: str) -> list[dict[str, Any]]:
+def query_data(ctx: Context, sql: str) -> list[dict[str, Any]]:
     """Execute SELECT query and return results"""
-    with get_connection() as conn:
-        result = conn.execute(sql).fetchall()
-        columns = [desc[0] for desc in conn.description]
-        return [dict(zip(columns, row)) for row in result]
+    db = ctx.request_context.lifespan_context.db
+    result = db.execute(sql).fetchall()
+    columns = [desc[0] for desc in db.description]
+    return [dict(zip(columns, row)) for row in result]
 
 
 @mcp.tool()
-def create_table_from_csv(table_name: str, csv_url: str) -> str:
+def create_table_from_csv(ctx: Context, table_name: str, csv_url: str) -> str:
     """Create a table from a CSV URL. csv_url should be an HTTP(S) URL to a CSV file"""
-    with get_connection() as conn:
-        conn.execute(
-            f"CREATE TABLE {table_name} AS SELECT * FROM read_csv('{csv_url}')"
-        )
-        return f"Table {table_name} created from {csv_url}"
+    ctx.request_context.lifespan_context.db.execute(
+        f"CREATE TABLE {table_name} AS SELECT * FROM read_csv('{csv_url}')"
+    )
+    return f"Table {table_name} created from {csv_url}"
 
 
 @mcp.tool()
-def drop_table(table_name: str) -> str:
+def drop_table(ctx: Context, table_name: str) -> str:
     """Drop a table from the database"""
-    with get_connection() as conn:
-        conn.execute(f"DROP TABLE {table_name}")
-        return f"Table {table_name} dropped"
+    ctx.request_context.lifespan_context.db.execute(f"DROP TABLE {table_name}")
+    return f"Table {table_name} dropped"
 
 
 if __name__ == "__main__":
