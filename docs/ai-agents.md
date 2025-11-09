@@ -18,7 +18,7 @@ response["`Generated response`"]
 user --> llm --> response
 ```
 
-- [Cookbook - LLM Completion](/notebooks/python/generative-ai/llm-completion.md)
+- [Cookbook - LLM Completion](./notebooks/python/generative-ai/llm-completion.md)
 
 ### 2. Memory
 
@@ -31,6 +31,10 @@ The LLM call itself is limited just to text, but you want to do more than that, 
 ### 4. Validation
 
 LLMs are probabilistic and can produce inconsistent outputs, make sure that the LLM return structured output A.K.A JSON format that matches your expected schema. If does not you can send it back to the LLM to fix it. Most commonly used tools are **Pydantic** (Python) and **Zod**: (Javascript).
+
+### 5. Control
+
+You don't want your LLM making every decision. Use deterministic control flows like if/else statements and routing logic. This is normal business logic written in any kind of application.
 
 ## AI Agents vs. Workflows
 
