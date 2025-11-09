@@ -116,6 +116,7 @@ nav:
               - Tools: notebooks/python/generative-ai/llm-tools.ipynb
               - Retrieval: notebooks/python/generative-ai/llm-retrieval.ipynb
               - Evaluation - Unit Testing: notebooks/python/generative-ai/evaluation-unit-test.ipynb
+              - Workflow - Control: notebooks/python/generative-ai/workflow-control.ipynb
               - Agent: notebooks/python/generative-ai/agent.ipynb
 
           - Web:

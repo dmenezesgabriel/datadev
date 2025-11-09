@@ -38,6 +38,8 @@ LLMs are probabilistic and can produce inconsistent outputs, make sure that the 
 
 You don't want your LLM making every decision. Use deterministic control flows like if/else statements and routing logic. This is normal business logic written in any kind of application.
 
+- [Cookbook - Workflow COntrol](./notebooks/python/generative-ai/workflow-control.md)
+
 ## AI Agents vs. Workflows
 
 | Feature                       | 🟢 Agent                                 | 🔴 Workflow                                    |
