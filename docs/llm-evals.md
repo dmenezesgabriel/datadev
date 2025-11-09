@@ -59,6 +59,8 @@ def test_ticket_categorization():
     assert result.category == "billing"
 ```
 
+- [Cookbook - Evaluation - Unit Testing](./notebooks/python/generative-ai/evaluation-unit-test.md)
+
 #### When to use
 
 - Data cleaning and validation
