@@ -28,6 +28,8 @@ LLMs don't remember anything from previous messages. Without memory, each intera
 
 The LLM call itself is limited just to text, but you want to do more than that, such as API calls and interact with databases.
 
+- [Cookbook - LLM Tools](./notebooks/python/generative-ai/llm-tools.md)
+
 ### 4. Validation
 
 LLMs are probabilistic and can produce inconsistent outputs, make sure that the LLM return structured output A.K.A JSON format that matches your expected schema. If does not you can send it back to the LLM to fix it. Most commonly used tools are **Pydantic** (Python) and **Zod**: (Javascript).
