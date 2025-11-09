@@ -18,7 +18,7 @@ response["`Generated response`"]
 user --> llm --> response
 ```
 
-- [Notebook](notebooks/python/generative-ai/llm-completion.ipynb)
+- [Cookbook - LLM Completion](/notebooks/python/generative-ai/llm-completion.md)
 
 ### 2. Memory
 
