@@ -118,6 +118,8 @@ nav:
               - Retrieval: notebooks/python/generative-ai/llm-retrieval.ipynb
               - Evaluation - Unit Testing: notebooks/python/generative-ai/evaluation-unit-test.ipynb
               - Control Flow: notebooks/python/generative-ai/llm-control-flow.ipynb
+              - Knowledge:
+                  - Extraction (Docling): notebooks/python/generative-ai/knowledge/extraction.ipynb
               - Agent: notebooks/python/generative-ai/agent.ipynb
               - MCP:
                   - Stdio Client: notebooks/python/generative-ai/llm-standalone-mcp/stdio-client.ipynb

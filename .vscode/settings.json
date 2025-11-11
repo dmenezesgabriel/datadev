@@ -10,7 +10,8 @@
     "python.analysis.diagnosticSeverityOverrides": {
         "reportMissingTypeStubs": "none",
         "reportUnknownMemberType": "none",
-        "reportUnknownVariableType": "none"
+        "reportUnknownVariableType": "none",
+        "reportMissingImports": "none"
     },
     "isort.args": [
         "--profile",
