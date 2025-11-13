@@ -89,6 +89,7 @@ nav:
           - Data Analysis:
               - Numpy: notebooks/python/data-analysis/numpy.ipynb
               - Pandas: notebooks/python/data-analysis/pandas.ipynb
+              - DuckDB: notebooks/python/data-analysis/duckdb.ipynb
               - Matplotlib: notebooks/python/data-analysis/matplotlib.ipynb
               - Seaborn: notebooks/python/data-analysis/seaborn.ipynb
               - Altair: notebooks/python/data-analysis/altair.ipynb
@@ -97,10 +98,7 @@ nav:
               - Singleton: notebooks/python/design-patterns/singleton.ipynb
 
           - Database:
-              - OLTP:
-                  - SQLite: notebooks/python/database/sqlite.ipynb
-              - OLAP:
-                  - DuckDB: notebooks/python/database/duckdb.ipynb
+              - SQLite: notebooks/python/database/sqlite.ipynb
 
           - Machine Learning:
               - KNN:
