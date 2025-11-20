@@ -82,8 +82,15 @@ nav:
               - Memory Management: notebooks/python/essentials/memory-management.ipynb
 
           - Data Structures:
-              - Stack: notebooks/python/data-structures/stack.ipynb
               - Queue: notebooks/python/data-structures/queue.ipynb
+              - Stack: notebooks/python/data-structures/stack.ipynb
+              - Linked List: notebooks/python/data-structures/linked-list.ipynb
+
+          - Design Patters:
+              - Singleton: notebooks/python/design-patterns/singleton.ipynb
+
+          - Databases:
+              - SQLite: notebooks/python/database/sqlite.ipynb
 
           - Statistic:
               - Percentile: notebooks/python/statistic/percentile.ipynb
@@ -97,12 +104,6 @@ nav:
               - Matplotlib: notebooks/python/data-analysis/matplotlib.ipynb
               - Seaborn: notebooks/python/data-analysis/seaborn.ipynb
               - Altair: notebooks/python/data-analysis/altair.ipynb
-
-          - Design Patters:
-              - Singleton: notebooks/python/design-patterns/singleton.ipynb
-
-          - Database:
-              - SQLite: notebooks/python/database/sqlite.ipynb
 
           - Machine Learning:
               - KNN:
