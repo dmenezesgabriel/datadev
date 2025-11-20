@@ -93,18 +93,20 @@ nav:
           - Databases:
               - SQLite: notebooks/python/database/sqlite.ipynb
 
+          - Probability:
+              - Distribution Functions: notebooks/python/probability/distribution-functions.ipynb
+              - Bernoulli Distribution: notebooks/python/probability/bernoulli-distribution.ipynb
+              - Binomial Distribution: notebooks/python/probability/binomial-distribution.ipynb
+              - Poisson Distribution: notebooks/python/probability/poisson-distribution.ipynb
+              - Normal Distribution: notebooks/python/probability/normal-distribution.ipynb
+              - Log Normal Distribution: notebooks/python/probability/log-normal-distribution.ipynb
+              - Pareto Distribution: notebooks/python/probability/pareto-distribution.ipynb
+              - Central Limit Theorem: notebooks/python/probability/central-limit-theorem.ipynb
+              - Estimates: notebooks/python/probability/estimates.ipynb
+
           - Statistic:
               - Percentile: notebooks/python/statistic/percentile.ipynb
               - Covariance & Correlation: notebooks/python/statistic/correlation-covariance.ipynb
-              - Probability: notebooks/python/statistic/probability.ipynb
-              - Bernoulli Distribution: notebooks/python/statistic/bernoulli-distribution.ipynb
-              - Binomial Distribution: notebooks/python/statistic/binomial-distribution.ipynb
-              - Poisson Distribution: notebooks/python/statistic/poisson-distribution.ipynb
-              - Normal Distribution: notebooks/python/statistic/normal-distribution.ipynb
-              - Log Normal Distribution: notebooks/python/statistic/log-normal-distribution.ipynb
-              - Pareto Distribution: notebooks/python/statistic/pareto-distribution.ipynb
-              - Central Limit Theorem: notebooks/python/statistic/central-limit-theorem.ipynb
-              - Estimates: notebooks/python/statistic/estimates.ipynb
 
           - Data Analysis:
               - Numpy: notebooks/python/data-analysis/numpy.ipynb
