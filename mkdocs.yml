@@ -83,6 +83,7 @@ nav:
 
           - Data Structures:
               - Stack: notebooks/python/data-structures/stack.ipynb
+              - Queue: notebooks/python/data-structures/queue.ipynb
 
           - Statistic:
               - Percentile: notebooks/python/statistic/percentile.ipynb
