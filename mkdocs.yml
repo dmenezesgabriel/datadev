@@ -82,9 +82,10 @@ nav:
               - Memory Management: notebooks/python/essentials/memory-management.ipynb
 
           - Data Structures:
+              - Singly Linked List: notebooks/python/data-structures/singly-linked-list.ipynb
+              - Doubly Linked List: notebooks/python/data-structures/doubly-linked-list.ipynb
               - Queue: notebooks/python/data-structures/queue.ipynb
               - Stack: notebooks/python/data-structures/stack.ipynb
-              - Linked List: notebooks/python/data-structures/linked-list.ipynb
 
           - Design Patters:
               - Singleton: notebooks/python/design-patterns/singleton.ipynb
