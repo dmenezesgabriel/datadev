@@ -104,9 +104,13 @@ nav:
               - Central Limit Theorem: notebooks/python/probability/central-limit-theorem.ipynb
               - Estimates: notebooks/python/probability/estimates.ipynb
 
-          - Statistic:
-              - Percentile: notebooks/python/statistic/percentile.ipynb
-              - Covariance & Correlation: notebooks/python/statistic/correlation-covariance.ipynb
+          - Descriptive Statistic:
+              - Percentile: notebooks/python/descriptive-statistic/percentile.ipynb
+              - Covariance & Correlation: notebooks/python/descriptive-statistic/correlation-covariance.ipynb
+
+          - Inferential Statistic:
+              - Hypothesis Testing: notebooks/python/inferential-statistic/hypothesis-testing.ipynb
+              - P Value: notebooks/python/inferential-statistic/p-value.ipynb
 
           - Data Analysis:
               - Numpy: notebooks/python/data-analysis/numpy.ipynb
