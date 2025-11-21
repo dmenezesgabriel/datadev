@@ -89,6 +89,7 @@ nav:
 
           - Design Patters:
               - Singleton: notebooks/python/design-patterns/singleton.ipynb
+              - Multiton: notebooks/python/design-patterns/multiton.ipynb
 
           - Databases:
               - SQLite: notebooks/python/database/sqlite.ipynb
