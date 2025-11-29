@@ -94,6 +94,17 @@ nav:
           - Databases:
               - SQLite: notebooks/python/database/sqlite.ipynb
 
+          - Data Analysis:
+              - Numpy: notebooks/python/data-analysis/numpy.ipynb
+              - Pandas: notebooks/python/data-analysis/pandas.ipynb
+              - DuckDB: notebooks/python/data-analysis/duckdb.ipynb
+              - Matplotlib: notebooks/python/data-analysis/matplotlib.ipynb
+              - Seaborn: notebooks/python/data-analysis/seaborn.ipynb
+              - Altair: notebooks/python/data-analysis/altair.ipynb
+
+          - Linear Algebra:
+              - Linear Algebra: notebooks/python/linear-algebra/linear-algebra.ipynb
+
           - Probability:
               - Distribution Functions: notebooks/python/probability/distribution-functions.ipynb
               - Bernoulli Distribution: notebooks/python/probability/bernoulli-distribution.ipynb
@@ -112,14 +123,6 @@ nav:
           - Inferential Statistic:
               - Hypothesis Testing: notebooks/python/inferential-statistic/hypothesis-testing.ipynb
               - P Value: notebooks/python/inferential-statistic/p-value.ipynb
-
-          - Data Analysis:
-              - Numpy: notebooks/python/data-analysis/numpy.ipynb
-              - Pandas: notebooks/python/data-analysis/pandas.ipynb
-              - DuckDB: notebooks/python/data-analysis/duckdb.ipynb
-              - Matplotlib: notebooks/python/data-analysis/matplotlib.ipynb
-              - Seaborn: notebooks/python/data-analysis/seaborn.ipynb
-              - Altair: notebooks/python/data-analysis/altair.ipynb
 
           - Machine Learning:
               - KNN:
