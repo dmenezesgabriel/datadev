@@ -126,6 +126,7 @@ nav:
               - P Value: notebooks/python/inferential-statistic/p-value.ipynb
 
           - Machine Learning:
+              - Car price prediction: notebooks/python/machine-learning/predicting-car-price.ipynb
               - KNN:
                   - Iris Classification: notebooks/python/machine-learning/knn-sklearn-classification-iris.ipynb
                   - Cat & Dog Classification: notebooks/python/machine-learning/knn-numpy-classification-cat-dog.ipynb

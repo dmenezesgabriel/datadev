@@ -131,3 +131,4 @@ test.ipynb
 .notebook_cache
 
 *.duckdb
+*.csv
