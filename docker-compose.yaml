@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  datadev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: datadev
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/app:delegated
+      - datadev_data:/root/.local/share/jupyter
+    environment:
+      JUPYTER_TOKEN: "" # no token, optional
+      JUPYTER_ENABLE_LAB: "yes"
+    command: >
+      jupyter-lab
+      --ip=0.0.0.0
+      --port=8888
+      --no-browser
+      --allow-root
+
+volumes:
+  datadev_data:

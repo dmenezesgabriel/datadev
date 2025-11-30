@@ -1,3 +1,6 @@
+# ============================
+#       BUILDER STAGE
+# ============================
 FROM python:3.11-slim AS builder
 
 RUN apt-get update && \
@@ -8,17 +11,27 @@ RUN apt-get update && \
         libcairo2-dev \
         libpango1.0-dev \
         ffmpeg \
-        && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/*
 
-RUN pip install uv
+RUN pip install --no-cache-dir uv
 
 WORKDIR /app
+
 COPY pyproject.toml .
+COPY scripts ./scripts
 
-RUN uv venv --system --python $(which python)
-ENV VIRTUAL_ENV=/app/.venv
-ENV PATH="/app/.venv/bin:$PATH"
+COPY packages ./packages
 
+RUN mkdir -p /opt/python && \
+    uv pip install --no-cache-dir --prefix=/opt/python . --group dev
+
+RUN uv run scripts/setup_uv_kernel.py
+
+COPY . .
+
+# ============================
+#       RUNTIME STAGE
+# ============================
 FROM python:3.11-slim AS runtime
 
 RUN apt-get update && \
@@ -31,11 +44,11 @@ RUN apt-get update && \
 
 WORKDIR /app
 
-COPY --from=builder /app/.venv /app/.venv
-COPY pyproject.toml .
+COPY --from=builder /opt/python /usr/local
 
-ENV VIRTUAL_ENV=/app/.venv
-ENV PATH="/app/.venv/bin:$PATH"
+COPY . .
+
+ENV PATH="/usr/local/bin:${PATH}"
 
 EXPOSE 8888
 
