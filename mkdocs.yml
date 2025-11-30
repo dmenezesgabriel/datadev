@@ -57,6 +57,7 @@ nav:
       - index.md
 
   - Notes:
+      - CRISP-DM: docs/crisp-dm.md
       - Professions: ai-professions.md
       - LLMs:
           - Introduction: llm-basics.md
