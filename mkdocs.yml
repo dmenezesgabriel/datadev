@@ -103,7 +103,7 @@ nav:
               - Altair: notebooks/python/data-analysis/altair.ipynb
 
           - Linear Algebra:
-              - Vector & Matrix: notebooks/python/linear-algebra/linear-algebra.ipynb
+              - Vector & Matrix: notebooks/python/linear-algebra/vectors-matrix.ipynb
 
           - Probability:
               - Distribution Functions: notebooks/python/probability/distribution-functions.ipynb
