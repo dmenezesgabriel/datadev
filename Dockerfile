@@ -3,8 +3,6 @@
 # ============================
 FROM python:3.11-slim AS builder
 
-ENV PATH="/opt/python/bin:${PATH}"
-
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         build-essential \
@@ -13,8 +11,10 @@ RUN apt-get update && \
         libcairo2-dev \
         libpango1.0-dev \
         ffmpeg \
+        curl \
     && rm -rf /var/lib/apt/lists/*
 
+# Install uv using pip (more reliable in Docker)
 RUN pip install --no-cache-dir uv
 
 WORKDIR /app
@@ -23,28 +23,15 @@ COPY pyproject.toml .
 COPY scripts ./scripts
 COPY packages ./packages
 
-# Install project base dependencies
+# Install project dependencies and dev dependencies
 RUN mkdir -p /opt/python && \
-    uv pip install --no-cache-dir --prefix=/opt/python .
-
-# Install dev dependency group
-RUN uv pip install --no-cache-dir --prefix=/opt/python $(uv pip list --project --group dev --format=freeze) && \
-    uv pip install --no-cache-dir --prefix=/opt/python ipykernel
-
-RUN uv run scripts/setup_uv_kernel.py
-
-COPY . .
-
-RUN mkdir -p /opt/kernels && \
-    cp -r /root/.local/share/jupyter/kernels/* /opt/kernels/
+    uv pip install --no-cache-dir --prefix=/opt/python --group dev .
 
 
 # ============================
 #           RUNTIME
 # ============================
 FROM python:3.11-slim AS runtime
-
-ENV PATH="/opt/python/bin:/usr/local/bin:${PATH}"
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -54,13 +41,23 @@ RUN apt-get update && \
         ffmpeg \
     && rm -rf /var/lib/apt/lists/*
 
+# Install uv using pip
+RUN pip install --no-cache-dir uv
+
 WORKDIR /app
 
+# Copy installed Python packages from builder
 COPY --from=builder /opt/python /opt/python
 
-COPY --from=builder /opt/kernels /root/.local/share/jupyter/kernels
+# Set PATH and PYTHONPATH to use installed packages
+ENV PATH="/opt/python/bin:/usr/local/bin:${PATH}"
+ENV PYTHONPATH="/opt/python/lib/python3.11/site-packages:${PYTHONPATH}"
 
+# Copy the entire application
 COPY . .
+
+# Setup kernels in runtime stage (needs uv available)
+RUN python scripts/setup_uv_kernel.py
 
 EXPOSE 8888
 
