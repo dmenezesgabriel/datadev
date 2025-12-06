@@ -10,8 +10,16 @@ use on jupyter notebook cell to install a package:
 """
 import argparse
 import json
+import logging
 import shutil
 from pathlib import Path
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+)
+logger = logging.getLogger(__name__)
 
 UV = shutil.which("uv")
 assert UV is not None, "uv not found in PATH"
@@ -70,10 +78,12 @@ def main():
             encoding="utf-8",
         )
 
-        print(f"Kernel configured for Python {version} at: {kernel_file}")
+        logger.info(
+            f"Kernel configured for Python {version} at: {kernel_file}"
+        )
 
-    print("\nRefresh your list of kernels to see them.")
-    print(
+    logger.info("Refresh your list of kernels to see them.")
+    logger.info(
         "Note: Kernels use isolated environments and will install ipykernel on first use."
     )
 
