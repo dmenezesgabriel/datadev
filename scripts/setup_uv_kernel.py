@@ -26,7 +26,7 @@ def main():
         "--versions",
         nargs="+",
         default=["3.13", "3.12", "3.11"],
-        help="Python versions to configure (default: 3.13 3.12)",
+        help="Python versions to configure (default: 3.13 3.12 3.11)",
     )
 
     args = parser.parse_args()
@@ -38,8 +38,12 @@ def main():
 
         kernel_file.parent.mkdir(parents=True, exist_ok=True)
 
-        kernel_config = {  # type: ignore
-            "env": {"PATH": "${PATH}:" + UV_DIR},
+        kernel_config = {
+            "env": {
+                "PATH": "${PATH}:" + UV_DIR,
+                # Critical: Unset PYTHONPATH to prevent importing from host system
+                "PYTHONPATH": "",
+            },
             "argv": [
                 UV,
                 "run",
@@ -67,7 +71,11 @@ def main():
         )
 
         print(f"Kernel configured for Python {version} at: {kernel_file}")
-        print("Refresh your list of kernels, to see it")
+
+    print("\nRefresh your list of kernels to see them.")
+    print(
+        "Note: Kernels use isolated environments and will install ipykernel on first use."
+    )
 
 
 if __name__ == "__main__":
