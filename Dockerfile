@@ -1,7 +1,9 @@
 # ============================
-#       BUILDER STAGE
+#          BUILDER
 # ============================
 FROM python:3.11-slim AS builder
+
+ENV PATH="/opt/python/bin:${PATH}"
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -19,20 +21,30 @@ WORKDIR /app
 
 COPY pyproject.toml .
 COPY scripts ./scripts
-
 COPY packages ./packages
 
+# Install project base dependencies
 RUN mkdir -p /opt/python && \
-    uv pip install --no-cache-dir --prefix=/opt/python . --group dev
+    uv pip install --no-cache-dir --prefix=/opt/python .
+
+# Install dev dependency group
+RUN uv pip install --no-cache-dir --prefix=/opt/python $(uv pip list --project --group dev --format=freeze) && \
+    uv pip install --no-cache-dir --prefix=/opt/python ipykernel
 
 RUN uv run scripts/setup_uv_kernel.py
 
 COPY . .
 
+RUN mkdir -p /opt/kernels && \
+    cp -r /root/.local/share/jupyter/kernels/* /opt/kernels/
+
+
 # ============================
-#       RUNTIME STAGE
+#           RUNTIME
 # ============================
 FROM python:3.11-slim AS runtime
+
+ENV PATH="/opt/python/bin:/usr/local/bin:${PATH}"
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -44,11 +56,11 @@ RUN apt-get update && \
 
 WORKDIR /app
 
-COPY --from=builder /opt/python /usr/local
+COPY --from=builder /opt/python /opt/python
+
+COPY --from=builder /opt/kernels /root/.local/share/jupyter/kernels
 
 COPY . .
-
-ENV PATH="/usr/local/bin:${PATH}"
 
 EXPOSE 8888
 

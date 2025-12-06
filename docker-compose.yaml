@@ -10,9 +10,8 @@ services:
       - "8888:8888"
     volumes:
       - .:/app:delegated
-      - datadev_data:/root/.local/share/jupyter
     environment:
-      JUPYTER_TOKEN: "" # no token, optional
+      JUPYTER_TOKEN: ""
       JUPYTER_ENABLE_LAB: "yes"
     command: >
       jupyter-lab
@@ -20,6 +19,3 @@ services:
       --port=8888
       --no-browser
       --allow-root
-
-volumes:
-  datadev_data:
