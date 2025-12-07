@@ -2,7 +2,7 @@ services:
   datadev:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.jupyter
     container_name: datadev
     ports:
       - "8888:8888"
