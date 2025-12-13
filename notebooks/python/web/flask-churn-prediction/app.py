@@ -64,35 +64,138 @@ with open(model_path, "rb") as f_in:
 
 
 # %%
+from marshmallow import Schema, fields, validate
+
+
 class ChurnRequestSchema(Schema):
     gender = fields.Str(
         required=True,
-        metadata={"enum": ["male", "female"]},
         validate=validate.OneOf(["male", "female"]),
+        metadata={"enum": ["male", "female"]},
     )
-    seniorcitizen = fields.Int(required=True)
-    partner = fields.Str(required=True)
-    dependents = fields.Str(required=True)
 
-    phoneservice = fields.Str(required=True)
-    multiplelines = fields.Str(required=True)
-    internetservice = fields.Str(required=True)
+    seniorcitizen = fields.Int(
+        required=True,
+        validate=validate.OneOf([0, 1]),
+        metadata={"enum": [0, 1]},
+    )
 
-    onlinesecurity = fields.Str(required=True)
-    onlinebackup = fields.Str(required=True)
-    deviceprotection = fields.Str(required=True)
-    techsupport = fields.Str(required=True)
+    partner = fields.Str(
+        required=True,
+        validate=validate.OneOf(["yes", "no"]),
+        metadata={"enum": ["yes", "no"]},
+    )
 
-    streamingtv = fields.Str(required=True)
-    streamingmovies = fields.Str(required=True)
+    dependents = fields.Str(
+        required=True,
+        validate=validate.OneOf(["yes", "no"]),
+        metadata={"enum": ["yes", "no"]},
+    )
 
-    contract = fields.Str(required=True)
-    paperlessbilling = fields.Str(required=True)
-    paymentmethod = fields.Str(required=True)
+    # --- Phone ---
+    phoneservice = fields.Str(
+        required=True,
+        validate=validate.OneOf(["yes", "no"]),
+        metadata={"enum": ["yes", "no"]},
+    )
 
-    tenure = fields.Int(required=True)
-    monthlycharges = fields.Float(required=True)
-    totalcharges = fields.Float(required=True)
+    multiplelines = fields.Str(
+        required=True,
+        validate=validate.OneOf(["yes", "no", "no_phone_service"]),
+        metadata={"enum": ["yes", "no", "no_phone_service"]},
+    )
+
+    internetservice = fields.Str(
+        required=True,
+        validate=validate.OneOf(["dsl", "fiber_optic", "no"]),
+        metadata={"enum": ["dsl", "fiber_optic", "no"]},
+    )
+
+    onlinesecurity = fields.Str(
+        required=True,
+        validate=validate.OneOf(["yes", "no", "no_internet_service"]),
+        metadata={"enum": ["yes", "no", "no_internet_service"]},
+    )
+
+    onlinebackup = fields.Str(
+        required=True,
+        validate=validate.OneOf(["yes", "no", "no_internet_service"]),
+        metadata={"enum": ["yes", "no", "no_internet_service"]},
+    )
+
+    deviceprotection = fields.Str(
+        required=True,
+        validate=validate.OneOf(["yes", "no", "no_internet_service"]),
+        metadata={"enum": ["yes", "no", "no_internet_service"]},
+    )
+
+    techsupport = fields.Str(
+        required=True,
+        validate=validate.OneOf(["yes", "no", "no_internet_service"]),
+        metadata={"enum": ["yes", "no", "no_internet_service"]},
+    )
+
+    streamingtv = fields.Str(
+        required=True,
+        validate=validate.OneOf(["yes", "no", "no_internet_service"]),
+        metadata={"enum": ["yes", "no", "no_internet_service"]},
+    )
+
+    streamingmovies = fields.Str(
+        required=True,
+        validate=validate.OneOf(["yes", "no", "no_internet_service"]),
+        metadata={"enum": ["yes", "no", "no_internet_service"]},
+    )
+
+    contract = fields.Str(
+        required=True,
+        validate=validate.OneOf(["month-to-month", "one_year", "two_year"]),
+        metadata={"enum": ["month-to-month", "one_year", "two_year"]},
+    )
+
+    paperlessbilling = fields.Str(
+        required=True,
+        validate=validate.OneOf(["yes", "no"]),
+        metadata={"enum": ["yes", "no"]},
+    )
+
+    paymentmethod = fields.Str(
+        required=True,
+        validate=validate.OneOf(
+            [
+                "bank_transfer",
+                "credit_card",
+                "electronic_check",
+                "mailed_check",
+            ]
+        ),
+        metadata={
+            "enum": [
+                "bank_transfer",
+                "credit_card",
+                "electronic_check",
+                "mailed_check",
+            ]
+        },
+    )
+
+    tenure = fields.Int(
+        required=True,
+        validate=validate.Range(min=0),
+        metadata={"minimum": 0},
+    )
+
+    monthlycharges = fields.Float(
+        required=True,
+        validate=validate.Range(min=0),
+        metadata={"minimum": 0},
+    )
+
+    totalcharges = fields.Float(
+        required=True,
+        validate=validate.Range(min=0),
+        metadata={"minimum": 0},
+    )
 
 
 class ChurnResponseSchema(Schema):
@@ -134,7 +237,7 @@ class ChurnPrediction(MethodView):
             "streamingmovies": "no",
             "contract": "month-to-month",
             "paperlessbilling": "yes",
-            "paymentmethod": "eletronic_check",
+            "paymentmethod": "electronic_check",
             "tenure": 1,
             "monthlycharges": 29.85,
             "totalcharges": 29.85,
@@ -148,7 +251,7 @@ class ChurnPrediction(MethodView):
 
         X = dict_vectorizer.transform([customer])
         y_pred = model.predict_proba(X)[0, 1]
-        churn = prob >= 0.5
+        churn = y_pred >= 0.5
 
         return {
             "churn_probability": float(y_pred),
