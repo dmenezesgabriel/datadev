@@ -57,7 +57,7 @@ artifacts_path = Path("../../machine-learning/artifacts/")
 model_path = artifacts_path / "predicting-customer-churn/model_C=10.bin"
 
 with open(model_path, "rb") as f_in:
-    loaded_dict_vectorizer, loaded_model = pickle.load(f_in)
+    dict_vectorizer, model = pickle.load(f_in)
 
 # %% [markdown]
 # Marshmallow schemas
@@ -98,12 +98,6 @@ class ChurnRequestSchema(Schema):
 class ChurnResponseSchema(Schema):
     churn_probability = fields.Float()
     churn = fields.Bool()
-
-
-class RequestErrorSchema(Schema):
-    error = fields.Str()
-    message = fields.Str()
-    details = fields.Dict()
 
 
 # %% [markdown]
@@ -152,12 +146,13 @@ class ChurnPrediction(MethodView):
         Predict customer churn
         """
 
-        X = loaded_dict_vectorizer.transform([customer])
-        prob = loaded_model.predict_proba(X)[0, 1]
+        X = dict_vectorizer.transform([customer])
+        y_pred = model.predict_proba(X)[0, 1]
+        churn = prob >= 0.5
 
         return {
-            "churn_probability": float(prob),
-            "churn": bool(prob >= 0.5),
+            "churn_probability": float(y_pred),
+            "churn": bool(churn),
         }
 
 
