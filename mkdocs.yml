@@ -156,6 +156,7 @@ nav:
               - Flask:
                   - Hello World: notebooks/python/web/flask-hello-world/app.py
                   - Todo API: notebooks/python/web/flask-todo-api/app.py
+                  - Churn Prediction API: notebooks/python/web/flask-churn-prediction/app.py
               - Streamlit:
                   - Hello World: notebooks/python/web/streamlit-hello-world/app.py
 
