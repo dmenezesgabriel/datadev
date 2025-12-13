@@ -160,11 +160,15 @@ api.register_blueprint(blp)
 
 # %% [markdown]
 # Run app
-# ```sh
-# uv run app.py
-# ```
 
 # %%
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+# %% [markdown]
+# Run app command
+#
+# ```sh
+# uv run app.py
+# ```
