@@ -160,6 +160,7 @@ api.register_blueprint(blp)
 
 # %% [markdown]
 # Run app
+# uv run app.py
 
 # %%
 
