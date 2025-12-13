@@ -64,9 +64,6 @@ with open(model_path, "rb") as f_in:
 
 
 # %%
-from marshmallow import Schema, fields, validate
-
-
 class ChurnRequestSchema(Schema):
     gender = fields.Str(
         required=True,
