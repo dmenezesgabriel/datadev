@@ -92,7 +92,6 @@ class ChurnRequestSchema(Schema):
         metadata={"enum": ["yes", "no"]},
     )
 
-    # --- Phone ---
     phoneservice = fields.Str(
         required=True,
         validate=validate.OneOf(["yes", "no"]),
