@@ -1,0 +1,25 @@
+{
+    "name": "datadev",
+    "dockerComposeFile": "../docker-compose.yaml",
+    "service": "datadev",
+    "workspaceFolder": "/app",
+    "shutdownAction": "stopCompose",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-toolsai.jupyter",
+                "ms-azuretools.vscode-docker"
+            ],
+            "settings": {
+                "python.defaultInterpreterPath": "/opt/python/bin/python",
+                "jupyter.serverType": "local"
+            }
+        }
+    },
+    "postCreateCommand": "uv pip list",
+    "forwardPorts": [
+        8888
+    ]
+}

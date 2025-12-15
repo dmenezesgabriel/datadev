@@ -56,8 +56,8 @@ COPY --from=builder /opt/python /opt/python
 ENV PATH="/opt/python/bin:/usr/local/bin:${PATH}"
 ENV PYTHONPATH="/opt/python/lib/python3.11/site-packages:${PYTHONPATH}"
 
-# Copy the entire application
-COPY . .
+# Copy the entire repository
+# COPY . .
 
 # Setup kernels - unset PYTHONPATH to avoid conflicts
 RUN env -u PYTHONPATH python scripts/setup_uv_kernel.py

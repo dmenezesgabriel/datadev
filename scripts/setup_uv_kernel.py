@@ -73,6 +73,10 @@ def main():
             "metadata": {"debugger": True},
         }
 
+        if kernel_file.exists():
+            logger.info(f"Kernel already exists: uv-{version}")
+            continue
+
         kernel_file.write_text(
             json.dumps(kernel_config, indent=2, ensure_ascii=False),
             encoding="utf-8",
