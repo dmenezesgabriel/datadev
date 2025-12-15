@@ -57,14 +57,15 @@ ENV PATH="/opt/python/bin:/usr/local/bin:${PATH}"
 ENV PYTHONPATH="/opt/python/lib/python3.11/site-packages:${PYTHONPATH}"
 
 # Copy the entire repository
-# COPY . .
+COPY . .
 
 # Setup kernels - unset PYTHONPATH to avoid conflicts
-RUN env -u PYTHONPATH python scripts/setup_uv_kernel.py
+# RUN env -u PYTHONPATH python scripts/setup_uv_kernel.py
 
 EXPOSE 8888
 
-# Change working directory for notebooks to avoid sys.path issues
-WORKDIR /workspace
+COPY scripts/entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["jupyter-lab", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root", "--notebook-dir=/app"]

@@ -12,6 +12,7 @@ import argparse
 import json
 import logging
 import shutil
+import sys
 from pathlib import Path
 
 logging.basicConfig(
@@ -39,7 +40,8 @@ def main():
 
     args = parser.parse_args()
 
-    kernel_base = Path.home() / ".local" / "share" / "jupyter" / "kernels"
+    # kernel_base = Path.home() / ".local" / "share" / "jupyter" / "kernels"
+    kernel_base = Path(sys.prefix) / "share" / "jupyter" / "kernels"
 
     for version in args.versions:
         kernel_file = kernel_base / f"uv-{version}" / "kernel.json"
