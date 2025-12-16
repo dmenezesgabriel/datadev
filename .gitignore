@@ -133,3 +133,6 @@ test.ipynb
 *.duckdb
 *.csv
 *.bin
+
+# mlflow
+mlruns
