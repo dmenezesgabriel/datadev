@@ -57,14 +57,25 @@ nav:
       - index.md
 
   - Notes:
-      - CRISP-DM: crisp-dm.md
+      - Data Engineering:
+          - Types of data: data-engineering-types-of-data.md
+          - Properties of data: data-engineering-properties-of-data.md
+          - Storage Solutions: data-engineering-data-storage-solutions.md
+          - ETL: data-engineering-etl.md
+
+      - Data Science:
+          - CRISP-DM: crisp-dm.md
+
+      - MLOps: ml-ops.md
+
       - Professions: ai-professions.md
-      - LLMs:
+
+      - Generative AI:
           - Introduction: llm-basics.md
           - Evaluation: llm-evals.md
           - LLMOps: llm-ops.md
           - MCP: llm-mcp.md
-      - AI Agents: ai-agents.md
+          - AI Agents: ai-agents.md
 
   - Cookbook:
       - Python:
