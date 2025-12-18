@@ -7,3 +7,8 @@ ETL stands for Extract, Transform, Load. It is a data integration process used t
 2. **Transform**: Once the data is extracted, it undergoes a series of transformations to clean, format, and structure it according to the requirements of the target system. This may involve data cleansing, normalization, aggregation, and enrichment to ensure data quality and consistency.
 
 3. **Load**: The final step involves loading the transformed data into the target data warehouse or database. This can be done in bulk or incrementally, depending on the use case and system capabilities.
+
+Tool Examples:
+
+- AWS Glue
+- Apache Airflow
