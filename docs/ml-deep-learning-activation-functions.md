@@ -55,5 +55,5 @@ It is used in the output layer for multi-class classification problems. It conve
 - For multiple classification problems, use Softmax in the output layer.
 - RNNs often use Tanh
 - For everything else, start with ReLU
-- If ReLU is not working well, try Leaky ReLU
+- If ReLU is not working well, try Leaky ReLU, then PReLU or Maxout
 - Swish for really deep networks
