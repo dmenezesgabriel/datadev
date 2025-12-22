@@ -62,13 +62,44 @@ nav:
           - Properties of data: data-engineering-properties-of-data.md
           - Storage Solutions: data-engineering-data-storage-solutions.md
           - ETL: data-engineering-etl.md
+          - Sources: data-engineering-data-sources.md
+          - Relational Databases:
+              - Databases: data-engineering-relational-databases.md
+              - SQL Commands: data-engineering-sql-coomands.md
+          - Data Lake:
+              - Layers: data-engineering-data-lake-layers.md
 
-      - Data Science:
+      - Machine Learning:
           - CRISP-DM: crisp-dm.md
-
-      - MLOps: ml-ops.md
-
-      - Professions: ai-professions.md
+          - Features Engineering:
+              - Features: ml-features.md
+              - Missing data: ml-feature-engineering-missing-data.md
+              - Encoding: ml-feature-engineering-encoding.md
+              - Handling outliers: ml-feature-engineering-encoding.md
+              - Normalization & Scaling: ml-feature-engineering-normalization-scaling.md
+              - Binning: ml-feature-engineering-binning.md
+              - Shuffling: ml-feature-engineering-shuffling.md
+              - Unbalanced data: ml-feature-engineering-unbalanced-data.md
+              - PCA: ml-feature-engineering-pca.md
+          - Algorithms:
+              - KNN: ml-algorithms-knn.md
+              - K-Means: ml-algorithms-k-means.md
+              - TD-IDF: ml-algorithms-tf-idf.md
+          - Ensembles:
+              - Ensemble methods: ml-ensemble-methods.md
+              - XGBoost: ml-algorithms-xgboost.md
+              - LightGBM: ml-algorithms-lightgbm.md
+          - Deep Learning:
+              - Activation Functions: ml-deep-learning-activation-functions.md
+              - Convolutional Neural Networks: ml-deep-learning-cnn.md
+              - Recurrent Neural Networks: ml-deep-learning-rnn.md
+              - Parameter Tunning: ml-deep-learning-tunning.md
+          - Model Training:
+              - Regularization: ml-regularization.md
+          - Evaluation:
+              - Confusion Matrix: ml-confusion-matrix.md
+              - Metrics: ml-metrics.md
+          - MLOps: ml-ops.md
 
       - Generative AI:
           - Introduction: llm-basics.md
@@ -76,6 +107,8 @@ nav:
           - LLMOps: llm-ops.md
           - MCP: llm-mcp.md
           - AI Agents: ai-agents.md
+
+      - Professions: ai-professions.md
 
   - Cookbook:
       - Python:

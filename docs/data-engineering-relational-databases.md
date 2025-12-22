@@ -12,4 +12,4 @@ Databases store information related to some fact or process.
 
 - Database Files
 - Database Management System (DBMS)
-- Query Language
+- Query Language (SQL)
