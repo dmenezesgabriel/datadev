@@ -139,6 +139,9 @@ nav:
           - Databases:
               - SQLite: notebooks/python/database/sqlite.ipynb
 
+          - Data Engineering:
+              - Spark: notebooks/python/data-engineering/spark.ipynb
+
           - Data Analysis:
               - Numpy: notebooks/python/data-analysis/numpy.ipynb
               - Pandas: notebooks/python/data-analysis/pandas.ipynb
