@@ -96,12 +96,14 @@ nav:
               - Parameter Tunning: ml-deep-learning-tunning.md
           - Model Training:
               - Regularization: ml-regularization.md
+              - Hyperparameter Tuning: ml-hyperparameter-tuning.md
           - Evaluation:
               - Confusion Matrix: ml-confusion-matrix.md
               - Metrics: ml-metrics.md
           - MLOps: ml-ops.md
 
       - Generative AI:
+          - Transformers: llm-transformers.md
           - Introduction: llm-basics.md
           - Evaluation: llm-evals.md
           - LLMOps: llm-ops.md
