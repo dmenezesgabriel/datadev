@@ -30,5 +30,6 @@
     ],
     "markdown.styles": [
         ".vscode/markdown/style.css"
-    ]
+    ],
+    "jupyter.allowUnauthorizedRemoteConnection": true
 }

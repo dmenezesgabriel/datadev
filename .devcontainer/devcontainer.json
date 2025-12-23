@@ -41,6 +41,8 @@
     },
     "postCreateCommand": "uv pip list",
     "forwardPorts": [
-        8888
+        8888,
+        8889,
+        4040
     ]
 }

@@ -18,3 +18,19 @@ services:
       --no-browser
       --allow-root
       --notebook-dir=/app
+
+  glue:
+    image: amazon/aws-glue-libs:glue_libs_4.0.0_image_01
+    container_name: glue-jupyter
+    ports:
+      - "8889:8888"
+      - "4040:4040"
+    volumes:
+      - .:/home/glue_user/workspace/jupyter_workspace
+      - ~/.aws:/home/glue_user/.aws:ro
+    working_dir: /home/glue_user/workspace
+    environment:
+      AWS_PROFILE: default
+      DISABLE_SSL: true
+    command: >
+      /home/glue_user/jupyter/jupyter_start.sh
