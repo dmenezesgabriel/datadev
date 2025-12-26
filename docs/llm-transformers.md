@@ -40,3 +40,19 @@ So once is possible to parallelize the training is possible to train the neural 
 - Translation
 - Code generation
 - Text generation
+
+## Transfer Learning (Fine Tuning)
+
+- Add additional training data to the model
+- Freeze specific layers, re-train others
+- Add a new layer on top of the pre-trained model
+
+## Glossary
+
+- Tokens: numerical representations of words or parts of words
+- Embeddings: mathematical representations (vectors) that encode the "meaning" of a token
+- Top P: Threshold probability for token to be included in the output (higher the top P, more random result will be)
+- Top K: Alternate to `Top P`, where K is the amber of possible token candidates to be included in the output (Higher the K, more random will be, because there are more choices to choose from)
+- Temperature: Level of randomness in selecting next word output from the tokens
+- Context window: The number of tokens a LLM can process at once
+- Max tokens: Limit for total number of tokens (input or output)
