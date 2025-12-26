@@ -2,6 +2,10 @@
     "name": "datadev",
     "dockerComposeFile": "../docker-compose.yaml",
     "service": "datadev",
+    // "runServices": [
+    //     "datadev",
+    //     "localstack"
+    // ],
     "workspaceFolder": "/app",
     "shutdownAction": "stopCompose",
     "customizations": {
@@ -43,6 +47,7 @@
     "forwardPorts": [
         8888,
         8889,
-        4040
+        4040,
+        4566
     ]
 }

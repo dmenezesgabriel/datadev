@@ -214,6 +214,9 @@ nav:
               - Streamlit:
                   - Hello World: notebooks/python/web/streamlit-hello-world/app.py
 
+          - Infrastructure As Code:
+              - Terraform Resource: notebooks/python/iac/terraform-resource/terraform-resource.ipynb
+
   - Blog:
       - blog/index.md
 
