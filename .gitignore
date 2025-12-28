@@ -188,3 +188,7 @@ mlartifacts
 # ML Zoomcamp
 notebooks/python/machine-learning/data/fashion-classification
 *.png
+
+
+# Keras
+*.h5

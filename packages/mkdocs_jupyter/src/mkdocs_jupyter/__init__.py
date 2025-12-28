@@ -33,6 +33,8 @@ logging.basicConfig(
 
 logger = logging.getLogger()
 
+ANSI_ESCAPE_RE = re.compile(r"\x1B\[[0-9;]*[A-Za-z]")
+
 
 class HtmlOutputToMarkdownProcessor(Preprocessor):
 
@@ -69,12 +71,20 @@ class HtmlOutputToMarkdownProcessor(Preprocessor):
                         if isinstance(plain_data, list)
                         else plain_data
                     )
+
+                    plain_text = ANSI_ESCAPE_RE.sub("", plain_text)
+
                     fenced_code_block = (
                         "<div class='result' markdown>\n"
                         f"``` linenums='0'\n{plain_text}\n```"
                         "\n</div>"
                     )
                     output["data"]["text/markdown"] = fenced_code_block
+
+                elif output.output_type == "stream":
+                    text = output["text"]
+                    text = "".join(text) if isinstance(text, list) else text
+                    output["text"] = ANSI_ESCAPE_RE.sub("", text)
 
                 if (
                     "data" in output
