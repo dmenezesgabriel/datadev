@@ -40,6 +40,30 @@ flowchart
 
 ### Machine Learning Problem Framing
 
+- Stablish Machine Learning roles and responsibilities
+- Prepare an profile template
+  - Document resources required
+- Establish model improvement strategies
+  - Experiments
+  - Hyper-parameter optimization
+- Establish a lineage tracker system
+  - Pipelines
+  - Feature Store
+  - Model Registry
+- Establish feedback loops across ML lifecycle phases
+  - Model monitoring
+- Review fairness and expandability
+- Design data encryption and obfuscation
+  - PII
+  - Masking
+- Use APIs to abstract changes from model breaking application consumption
+  - API Gateway
+- Adopt a machine learning microservice strategy
+  - Serverless functions
+  - Serverless containers
+- Define relevant evaluation metrics
+- Identify if machine learning is the right solution
+
 ```mermaid
 flowchart
 
@@ -69,17 +93,16 @@ B --> C
 C --> D
 D --> E
 E --> F
-F --> G
-G --> H
-G --> |Performance Feedback loop|B
+F --> |Detect Drift, etc|G
+G --> |Run monitoring on schedule|H
+G --> |Performance Feedback loop Ex: Adjust bias|B
+G --> |Active Learning Loop Ex: New data|D
 A --> |Store artifacts|I
-D --> I
+D --> |Store Model Version|I
 I --> |Fetch Artifacts|E
-C --> J
+C --> |Store Features|J
 J --> |Copy to Offline|K
 K --> |Batch Inference|E
 J --> |Fetch Features|D
 K --> |Fetch Features|D
-
-
 ```
