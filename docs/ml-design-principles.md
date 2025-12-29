@@ -158,3 +158,89 @@ K --> |Fetch Features|D
 - Feature Transformation: Normalization, Encoding, etc
 - Feature Creation: Transform the features you have in another ways
 - Feature Extraction: Extract information from an address field
+
+### Model Development: Training and Tuning
+
+- Automate operations through MLOps and CI/CD
+- Establish reliable packaging patterns to access approved public libraries
+  - Container registry
+- Secured governed Machine Learning environment
+- Encrypted service communications
+- Protect against data poisoning threats
+- Enable CI/CD/CT automation with traceability
+- Ensure feature consistency across training and inference
+- Establish data bias detection and mitigation
+- Optimize training and inference instance types
+- Establish a model performance evaluation pipeline
+  - Model Registry
+- Establish feature statistics
+  - Model monitoring
+  - Experiments
+- Perform a performance trade-off analysis
+  - Accuracy vs complexity
+  - Bias vs variance
+  - Precision vs recall
+  - Tests with experiments
+- Detect performance issues hen using transfer learning
+- Select optimal computing instance size
+- Use managed build environments
+- Select local training for small scale experiments
+- Select an optimal ML framework (PyTorch, Tensorflow, scikit-learn)
+- Use automated machine learning
+- Use distributed training
+- Stop cloud resources when not in use
+- Start training with small datasets
+- Use warm-start and checkpointing hyperparameter tuning
+- Define sustainable performance criteria
+- Select energy-efficient algorithms
+- Archive or delete unnecessary training artifacts
+- Use efficient model tuning methods
+  - Bayesian or hyperband, not random or grid search
+  - Limit concurrent training jobs
+  - Tune only most important hyperparameters
+
+### Deployment
+
+- Establish deployment environment metrics
+  - Event buses
+  - Topics
+  - Monitoring tools
+- Protect against adversarial and malicious activities
+- Use an appropriate deployment and testing strategy
+  - Blue/Green deployments
+  - Canary deployments
+  - linear deployments
+  - A/B Testing
+- Evaluate cloud vs edge options
+- Choose an optimal deployment in the cloud
+  - Real-time, serverless, asynchronous, batch
+- Right-size model hosting instance
+- ALign SLAs
+  - Latency vs serverless/batch/asynchronous deployments
+
+### Monitoring
+
+- Enable model observability and tracking
+- Synchronize architecture and configuration, and check for skew across environments
+- Restrict access to intended legitimate consumers
+  - Secure inference endpoints
+- Monitor human interactions with data for anomalous activity
+- Allow for automatic scaling of the model endpoint
+- Ensure a recoverable endpoint with a managed version control
+  - Git
+  - Container Registry
+- Evaluate model explainability
+- Evaluate data drift
+- Monitor, detect and handler model performance degradation
+- Establish an automated re-training framework
+  - jenkins
+  - github actions
+  - aws step functions
+- Review updated data/features for retraining
+- Include human-in-the-loop monitoring
+- Monitor usage and costs by ML activity
+- Monitor return on investment for ML models
+- Monitor endpoint usage and right-size the instance
+- Measure material efficiency
+  - Measure provisioned resources / business outcome
+- Retrain only when necessary

@@ -96,7 +96,7 @@ nav:
               - Convolutional Neural Networks: ml-deep-learning-cnn.md
               - Recurrent Neural Networks: ml-deep-learning-rnn.md
               - Parameter Tunning: ml-deep-learning-tunning.md
-          - Model Training:
+          - Model Tuning:
               - Regularization: ml-regularization.md
               - Hyperparameter Tuning: ml-hyperparameter-tuning.md
           - Evaluation:
