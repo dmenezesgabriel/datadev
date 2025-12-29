@@ -42,7 +42,11 @@ RUN apt-get update && \
         git \
         zsh \
         tmux \
+        curl \
     && rm -rf /var/lib/apt/lists/*
+
+# Install Oh my Zsh
+RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 # Install uv using pip
 RUN pip install --no-cache-dir uv
