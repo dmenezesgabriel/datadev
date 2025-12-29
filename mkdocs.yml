@@ -71,15 +71,17 @@ nav:
 
       - Machine Learning:
           - CRISP-DM: crisp-dm.md
-          - Features Engineering:
-              - Features: ml-features.md
+          - Design Principles: docs/ml-design-principles.md
+          - Data Preprocessing:
               - Missing data: ml-feature-engineering-missing-data.md
-              - Encoding: ml-feature-engineering-encoding.md
               - Handling outliers: ml-feature-engineering-encoding.md
               - Normalization & Scaling: ml-feature-engineering-normalization-scaling.md
+              - Unbalanced data: ml-feature-engineering-unbalanced-data.md
+          - Features Engineering:
+              - Features: ml-features.md
+              - Encoding: ml-feature-engineering-encoding.md
               - Binning: ml-feature-engineering-binning.md
               - Shuffling: ml-feature-engineering-shuffling.md
-              - Unbalanced data: ml-feature-engineering-unbalanced-data.md
               - PCA: ml-feature-engineering-pca.md
           - Algorithms:
               - KNN: ml-algorithms-knn.md
