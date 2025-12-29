@@ -31,5 +31,323 @@
     "markdown.styles": [
         ".vscode/markdown/style.css"
     ],
-    "jupyter.allowUnauthorizedRemoteConnection": true
+    "jupyter.allowUnauthorizedRemoteConnection": true,
+    // ========================================================================
+    // General
+    // ========================================================================
+    "breadcrumbs.enabled": false,
+    "workbench.editor.enablePreview": false,
+    // Telemetry
+    "telemetry.editStats.details.enabled": false,
+    "telemetry.editStats.enabled": false,
+    "telemetry.editStats.showDecorations": false,
+    "telemetry.editStats.showStatusBar": false,
+    "telemetry.feedback.enabled": false,
+    "redhat.telemetry.enabled": false,
+    //  Window
+    "window.zoomLevel": 0,
+    "window.commandCenter": false,
+    "workbench.layoutControl.enabled": false,
+    "window.title": "${folderName}/${activeEditorShort}",
+    // Fonts
+    "editor.fontFamily": "'JetBrains Mono', monospace",
+    "editor.fontSize": 14,
+    "editor.lineHeight": 1.8,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    //  Editor
+    "editor.codeLens": false,
+    "editor.accessibilitySupport": "off",
+    "editor.copyWithSyntaxHighlighting": false,
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [
+        80,
+        120
+    ],
+    "editor.renderLineHighlight": "gutter",
+    "editor.fontLigatures": true,
+    "editor.semanticHighlighting.enabled": false,
+    "editor.minimap.enabled": false,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    },
+    "editor.suggestSelection": "first",
+    "editor.guides.bracketPairs": true,
+    "editor.guides.highlightActiveIndentation": true,
+    "editor.guides.bracketPairsHorizontal": "active",
+    "editor.suggestOnTriggerCharacters": true,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.inlineSuggest.enabled": true,
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "editor.quickSuggestions": {
+        "comments": "on",
+        "strings": "on",
+        "other": "on"
+    },
+    "editor.autoClosingBrackets": "always",
+    // Startup
+    "workbench.startupEditor": "newUntitledFile",
+    // Explorer
+    "explorer.compactFolders": false,
+    "explorer.sortOrder": "foldersNestsFiles",
+    "workbench.activityBar.location": "default",
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.patterns": {
+        "tsconfig.json": "tsconfig.*.json",
+        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb",
+        ".env": ".env*",
+        ".prettierrc": ".prettier*",
+        "eslint.config.mjs": ".eslint*"
+    },
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    //  Search
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/env": true,
+        "**/venv": true
+    },
+    // Tabs
+    "workbench.editor.labelFormat": "short",
+    // "workbench.editor.showTabs": "none",
+    // Terminal
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.fontFamily": "'JetBrains Mono', monospace",
+    "terminal.integrated.gpuAcceleration": "on",
+    "terminal.integrated.profiles.linux": {
+        "bash": {
+            "path": "bash",
+            "icon": "terminal-bash"
+        },
+        "zsh": {
+            "path": "zsh",
+            "icon": "terminal-bash"
+        }
+    },
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.automationProfile.linux": {
+        "path": "tmux",
+        "args": [
+            "new-session",
+            "-A",
+            "-s",
+            "vscode:${workspaceFolder}"
+        ]
+    },
+    // Files
+    "files.trimTrailingWhitespace": true,
+    "files.associations": {
+        ".env.*": "dotenv",
+        ".prettierrc": "json",
+        "*.css": "css",
+        ".dev.vars": "dotenv",
+        "*.mdx": "markdown"
+    },
+    // Emmet
+    "emmet.triggerExpansionOnTab": true,
+    "emmet.excludeLanguages": [],
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact",
+        "mdx": "javascriptreact",
+        "vue-html": "html",
+        "markdown": "html",
+        "svelte": "html"
+    },
+    "emmet.syntaxProfiles": {
+        "javascript": "jsx",
+        "mdx": "jsx"
+    },
+    // Security
+    "security.workspace.trust.untrustedFiles": "newWindow",
+    // Javascript
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "javascript.suggest.autoImports": true,
+    "javascript.autoClosingTags": true,
+    // Typescript
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "typescript.suggest.autoImports": true,
+    "typescript.autoClosingTags": true,
+    "typescript.preferences.preferTypeOnlyAutoImports": true,
+    // HTML
+    "html.format.wrapAttributes": "force-expand-multiline",
+    "html.format.wrapLineLength": 80,
+    "html.autoClosingTags": true,
+    //  Python
+    "black-formatter.args": [
+        "--line-length",
+        "79"
+    ],
+    // Languages
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[python]": {
+        "editor.detectIndentation": false,
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": "explicit",
+            "source.organizeImports": "explicit"
+        },
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true
+    },
+    "[sql]": {
+        "editor.detectIndentation": false,
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true
+    },
+    "[yaml]": {
+        "editor.detectIndentation": false,
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true,
+        "editor.autoIndent": "advanced"
+    },
+    "[yml]": {
+        "editor.detectIndentation": false,
+        "editor.tabSize": 2,
+        "editor.insertSpaces": false,
+        "editor.autoIndent": "advanced"
+    },
+    "[dockercompose]": {
+        "editor.autoIndent": "advanced"
+    },
+    "[html]": {
+        "editor.detectIndentation": false,
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true,
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[jsp]": {
+        "editor.detectIndentation": false,
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true
+        // "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[trex]": {
+        "editor.detectIndentation": false,
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[tag]": {
+        "editor.detectIndentation": false,
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[xml]": {
+        "editor.detectIndentation": false,
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true,
+    },
+    "[javascript]": {
+        "editor.detectIndentation": false,
+        "editor.tabSize": 2,
+        "prettier.printWidth": 80,
+        "editor.insertSpaces": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "prettier.bracketSameLine": false,
+        "prettier.bracketSpacing": true,
+    },
+    "[typescript]": {
+        "editor.detectIndentation": false,
+        // Editor
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true
+    },
+    "[terraform][terraform-vars]": {
+        "editor.defaultFormatter": "hashicorp.terraform",
+        "editor.formatOnSave": false,
+        "editor.codeActionsOnSave": {
+            "source.formatAll.terraform": "explicit"
+        }
+    },
+    // Spelling
+    "cSpell.language": ",pt,pt_BR,en_US",
+    "cSpell.enabled": true,
+    "cSpell.enabledFileTypes": {
+        "asciidoc": true,
+        "c": true,
+        "cpp": true,
+        "csharp": true,
+        "css": true,
+        "git-commit": true,
+        "go": true,
+        "graphql": true,
+        "handlebars": true,
+        "haskell": true,
+        "html": true,
+        "jade": true,
+        "java": true,
+        "javascript": true,
+        "javascriptreact": true,
+        "json": true,
+        "jsonc": true,
+        "latex": true,
+        "less": true,
+        "markdown": true,
+        "md": true,
+        "php": true,
+        "plaintext": true,
+        "python": true,
+        "pug": true,
+        "restructuredtext": true,
+        "rust": true,
+        "scala": true,
+        "scss": true,
+        "text": true,
+        "typescript": true,
+        "typescriptreact": true,
+        "yaml": true,
+        "yml": true,
+        "ipynb": true,
+        "jupyter": true
+    },
+    "cSpell.enabledSchemes": {
+        "file:": true,
+        "gist:": true,
+        "sftp:": true,
+        "untitled:": true,
+        "ipynb": true
+    },
+    // Git
+    "git.ignoreMissingGitWarning": true,
+    // Prettier
+    "prettier.printWidth": 80,
+    // Notebook
+    "notebook.diff.overviewRuler": true,
+    // Misc
+    "git.openRepositoryInParentFolders": "never",
+    "terminal.integrated.env.linux": {},
+    "explorer.confirmDragAndDrop": false,
+    "chat.agent.enabled": true,
+    "github.copilot.nextEditSuggestions.enabled": false,
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": true,
+        "scminput": false,
+        "typescriptreact": true,
+        "python": false,
+        "typescript": false
+    },
+    "workbench.iconTheme": "catppuccin-macchiato",
+    "workbench.colorTheme": "Catppuccin Macchiato",
+    "editor.unicodeHighlight.ambiguousCharacters": false
 }

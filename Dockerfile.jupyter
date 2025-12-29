@@ -41,6 +41,7 @@ RUN apt-get update && \
         ffmpeg \
         git \
         zsh \
+        tmux \
     && rm -rf /var/lib/apt/lists/*
 
 # Install uv using pip
