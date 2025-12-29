@@ -63,6 +63,9 @@ flowchart
   - Serverless containers
 - Define relevant evaluation metrics
 - Identify if machine learning is the right solution
+- Consider AI services and pre-trained models
+
+**Architecture**:
 
 ```mermaid
 flowchart
@@ -106,3 +109,38 @@ K --> |Batch Inference|E
 J --> |Fetch Features|D
 K --> |Fetch Features|D
 ```
+
+### Data Processing
+
+- Profile data to improve quality
+  - Data wrangling
+  - Data exploration
+- Create tracking and version control mechanisms
+  - Model Registry
+  - Experiments
+  - Code versioning on Git
+- Ensure least privilege access
+- Secure data and modeling environment
+
+#### Data Collection
+
+- Label: Set target variable values
+- Ingest: Can be stream, batch or other methods
+- Aggregate: Data can come from multiple sources
+
+#### Data Preparation
+
+**Data Preprocessing**:
+
+- Clean: Missing data & Outliers
+- Partition: Partition by dimension to efficient access
+- Scale: Should use a distributed system like spark?
+- Unbias & Balance: Deal with over representation of classes
+- Augment: Add new or additional data
+
+**Feature Engineering**:
+
+- Feature Selection: Which features are most important
+- Feature Transformation: Normalization, Encoding, etc
+- Feature Creation: Transform the features you have in another ways
+- Feature Extraction: Extract information from an address field
