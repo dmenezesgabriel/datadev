@@ -121,6 +121,20 @@ K --> |Fetch Features|D
   - Code versioning on Git
 - Ensure least privilege access
 - Secure data and modeling environment
+- Protect sensitive data
+- Enforce data lineage
+- Keep relevant data
+  - Remove PII
+- Use a data Catalogue
+- Use a data pipeline
+- Automate managing data changes (MLOps)
+- Use a modern data architecture (data lake)
+- Use managed data labeling
+- Use data wrangler tools for interactive analysis
+- Enable feature reusability
+  - Feature Store
+- Minimize Idle resources
+- Implement data lifecycle policies
 
 #### Data Collection
 
