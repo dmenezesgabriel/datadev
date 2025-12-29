@@ -205,7 +205,7 @@ nav:
                   - SSE Client: notebooks/python/generative-ai/llm-standalone-mcp/sse-client.ipynb
                   - Streamable HTTP Client: notebooks/python/generative-ai/llm-standalone-mcp/streamable-http-client.ipynb
                   - LLM MCP Integration: notebooks/python/generative-ai/llm-mcp-integration/llm-integration-client.ipynb
-
+              - Transformers: notebooks/python/generative-ai/transformers.ipynb
           - Web:
               - Flask:
                   - Hello World: notebooks/python/web/flask-hello-world/app.py
