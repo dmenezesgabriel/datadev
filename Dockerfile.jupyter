@@ -39,6 +39,8 @@ RUN apt-get update && \
         libpango-1.0-0 \
         libpangocairo-1.0-0 \
         ffmpeg \
+        git \
+        zsh \
     && rm -rf /var/lib/apt/lists/*
 
 # Install uv using pip
