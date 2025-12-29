@@ -71,7 +71,7 @@ nav:
 
       - Machine Learning:
           - CRISP-DM: crisp-dm.md
-          - Design Principles: docs/ml-design-principles.md
+          - Design Principles: ml-design-principles.md
           - Data Preprocessing:
               - Missing data: ml-feature-engineering-missing-data.md
               - Handling outliers: ml-feature-engineering-encoding.md
