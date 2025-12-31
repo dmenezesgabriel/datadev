@@ -36,7 +36,8 @@
                 "redhat.vscode-yaml",
                 "mikestead.dotenv",
                 "tamasfe.even-better-toml",
-                "ms-vscode-remote.remote-containers"
+                "ms-vscode-remote.remote-containers",
+                "google.colab"
             ],
             "settings": {
                 "python.defaultInterpreterPath": "/opt/python/bin/python",
