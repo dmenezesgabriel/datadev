@@ -35,7 +35,8 @@
                 "shardulm94.trailing-spaces",
                 "redhat.vscode-yaml",
                 "mikestead.dotenv",
-                "tamasfe.even-better-toml"
+                "tamasfe.even-better-toml",
+                "ms-vscode-remote.remote-containers"
             ],
             "settings": {
                 "python.defaultInterpreterPath": "/opt/python/bin/python",
