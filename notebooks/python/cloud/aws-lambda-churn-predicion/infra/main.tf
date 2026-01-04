@@ -23,6 +23,7 @@ data "aws_region" "current" {}
 resource "aws_ecr_repository" "lambda_repo" {
   name                 = "churn-prediction-lambda"
   image_tag_mutability = "MUTABLE"
+  force_delete         = true
 
   image_scanning_configuration {
     scan_on_push = true

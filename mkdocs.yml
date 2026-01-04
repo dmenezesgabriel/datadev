@@ -220,6 +220,9 @@ nav:
           - Infrastructure As Code:
               - Terraform Resource: notebooks/python/iac/terraform-resource/terraform-resource.ipynb
 
+          - Cloud:
+              - AWS Lambda Churn Prediction: notebooks/python/cloud/aws-lambda-churn-predicion/aws-lambda-churn-prediction.ipynb
+
   - Blog:
       - blog/index.md
 

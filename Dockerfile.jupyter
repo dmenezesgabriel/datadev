@@ -43,6 +43,7 @@ RUN apt-get update && \
         zsh \
         tmux \
         curl \
+        graphviz \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Oh my Zsh
