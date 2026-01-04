@@ -193,3 +193,8 @@ notebooks/python/machine-learning/data/fashion-classification
 
 # Keras
 *.h5
+
+# ONNX
+*.index
+*.pb
+*.data-*

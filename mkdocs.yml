@@ -222,6 +222,7 @@ nav:
 
           - Cloud:
               - AWS Lambda Churn Prediction: notebooks/python/cloud/aws-lambda-churn-predicion/aws-lambda-churn-prediction.ipynb
+              - AWS Lambda Fashion Classification: notebooks/python/cloud/aws-lambda-fashion-classification/aws-lambda-fashion-classification.ipynb
 
   - Blog:
       - blog/index.md
