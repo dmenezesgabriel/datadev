@@ -180,6 +180,7 @@ terraform.rc
 *.duckdb
 *.csv
 *.bin
+*.zip
 
 # mlflow
 mlruns
