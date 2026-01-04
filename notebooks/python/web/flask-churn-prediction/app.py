@@ -5,6 +5,9 @@
 # ---
 
 # %% [markdown]
+# - [Notebook](notebooks/python/machine-learning/churn-prediction.md)
+
+# %% [markdown]
 # Install packages
 
 # %%
