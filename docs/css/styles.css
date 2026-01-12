@@ -126,7 +126,7 @@ h1 .hero-title {
   color: #f0f0ef;
 }
 
-/* .md-typeset pre > code {
-  max-height: 5rem;
+.md-typeset .highlight {
+  max-height: 20rem;
   overflow-y: auto;
-} */
+}
