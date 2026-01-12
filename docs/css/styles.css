@@ -126,7 +126,7 @@ h1 .hero-title {
   color: #f0f0ef;
 }
 
-.result {
+code .md-code__content {
   max-height: 300px;
   overflow-y: auto;
 }
