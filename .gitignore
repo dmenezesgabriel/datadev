@@ -181,6 +181,7 @@ terraform.rc
 *.csv
 *.bin
 *.zip
+*.parquet
 
 # mlflow
 mlruns

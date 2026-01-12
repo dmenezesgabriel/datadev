@@ -1,5 +1,7 @@
 # MLOps
 
+MLOps is a set of practices to put Machine Learning into production
+
 ![Machine Learning Lifecycle](./images/ml-lifecycle.png)
 
 - [cd4ml](https://martinfowler.com/articles/cd4ml.html)
