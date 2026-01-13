@@ -102,7 +102,10 @@ nav:
           - Evaluation:
               - Confusion Matrix: ml-confusion-matrix.md
               - Metrics: ml-metrics.md
-          - MLOps: ml-ops.md
+          - MLOps:
+              - Lifecycle: ml-ops.md
+              # - Maturity:
+              - MLflow: mlflow.md
 
       - Generative AI:
           - Transformers: llm-transformers.md
@@ -193,6 +196,7 @@ nav:
                   - Multinomial classification: notebooks/python/machine-learning/naive-bayes-multinomial-classification.ipynb
           - MLOps:
               - Mlflow: notebooks/python/mlops/mlfow/mlfow.ipynb
+              - Taxi Trip Duration: notebooks/python/machine-learning/taxi-trip-duration.ipynb
 
           - Generative AI:
               - Completion: notebooks/python/generative-ai/llm-completion.ipynb

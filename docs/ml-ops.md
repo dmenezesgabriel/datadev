@@ -67,3 +67,4 @@ This is important to keep reproducibility and organization of the project
 - [cd4ml](https://martinfowler.com/articles/cd4ml.html)
 - [mlops-continuous-delivery-and-automation-pipelines-in-machine-learning](https://docs.cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning)
 - [wellarchitected-machine-learning](https://docs.aws.amazon.com/pdfs/wellarchitected/latest/machine-learning-lens/wellarchitected-machine-learning-lens.pdf#machine-learning-lens)
+- [machine-learning-model-management](https://neptune.ai/blog/machine-learning-model-management)
