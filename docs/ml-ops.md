@@ -38,7 +38,7 @@ MLOps is a set of practices to put Machine Learning into production
 
 ### 4: Full MLOps automation
 
-- Continuous training
+- Continuous training, model is automatically retrained and deployed
 
 ## References
 
