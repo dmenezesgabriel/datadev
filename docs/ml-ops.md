@@ -40,6 +40,27 @@ MLOps is a set of practices to put Machine Learning into production
 
 - Continuous training, model is automatically retrained and deployed
 
+## Experiment tracking
+
+Experiment tracking is the process of keeping track of all the relevant information from an ML experiment, which includes:
+
+- Source code
+- Environment
+- Data
+- Model
+- Hyperparameters
+- Metrics
+
+This is important to keep reproducibility and organization of the project
+
+### Concepts
+
+- ML experiment: the process of building a model
+- Experiment run: each trial in an ML experiment
+- Run artifact: any file that is associated with an ML run
+- Experiment metadata
+- Different from A/B testing (also called experimenting)
+
 ## References
 
 - [mlops-maturity-model](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/mlops-maturity-model)
