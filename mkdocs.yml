@@ -201,7 +201,8 @@ nav:
                   - Mlflow: notebooks/python/mlops/model-registry/mlfow.ipynb
               - Training Pipeline:
                   - Taxi Trip Duration: notebooks/python/mlops/model-registry/taxi-trip-duration.ipynb
-              # - Deployment:
+              - Deployment:
+                  - Churn Prediction FastAPI: notebooks/python/mlops/deployment-fastapi-churn-prediction/churn-prediction.ipynb
 
           - Generative AI:
               - Completion: notebooks/python/generative-ai/llm-completion.ipynb
