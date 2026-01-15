@@ -14,3 +14,22 @@ Automatically logs extra information about the run like:
 - Version of the code (git commit)
 - Start and end time
 - Author
+
+## Backend store
+
+- Local file system
+- SQLAlchemy compatible database (MySQL, Postgres, SQLite, etc)
+
+## Artifact store
+
+- Local file system
+- Amazon S3
+- Azure Blob Storage
+- Google Cloud Storage
+- HDFS
+
+## MLflow Tracking API
+
+- No tracking server: logs to local file system
+- Localhost
+- Remote server

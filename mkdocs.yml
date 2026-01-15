@@ -105,6 +105,7 @@ nav:
           - MLOps:
               - Lifecycle: ml-ops.md
               # - Maturity:
+              - Pipelines: ml-pipelines.md
               - MLflow: mlflow.md
 
       - Generative AI:
