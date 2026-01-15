@@ -197,8 +197,11 @@ nav:
                   - Gaussian classification: notebooks/python/machine-learning/naive-bayes-gaussian-classification.ipynb
                   - Multinomial classification: notebooks/python/machine-learning/naive-bayes-multinomial-classification.ipynb
           - MLOps:
-              - Mlflow: notebooks/python/mlops/mlfow/mlfow.ipynb
-              - Taxi Trip Duration: notebooks/python/mlops/mlfow/taxi-trip-duration.ipynb
+              - Model Registry:
+                  - Mlflow: notebooks/python/mlops/model-registry/mlfow.ipynb
+              - Training Pipeline:
+                  - Taxi Trip Duration: notebooks/python/mlops/model-registry/taxi-trip-duration.ipynb
+              # - Deployment:
 
           - Generative AI:
               - Completion: notebooks/python/generative-ai/llm-completion.ipynb
