@@ -127,7 +127,7 @@ def train_model(X_train, y_train, X_val, y_val, dv):
         logger.info("📦 Logging model to MLflow")
         mlflow.xgboost.log_model(
             booster,
-            artifact_path="models_mlflow",
+            name="models_mlflow",
             input_example=X_train[:10],
         )
 
@@ -154,6 +154,7 @@ def run(year, month):
     run_id = train_model(X_train, y_train, X_val, y_val, dv)
 
     logger.info("🎯 MLflow run_id: %s", run_id)
+
     return run_id
 
 
