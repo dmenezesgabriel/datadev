@@ -45,10 +45,51 @@ services:
       - DOCKER_HOST=unix:///var/run/docker.sock
       - AWS_DEFAULT_REGION=us-east-1
       - LOCALSTACK_HOST=localstack
+      - AWS_ACCESS_KEY_ID=test
+      - AWS_SECRET_ACCESS_KEY=test
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - "./localstack/init-aws.sh:/etc/localstack/init/ready.d/init-aws.sh"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:4566/health"]
       interval: 10s
       timeout: 5s
       retries: 3
+
+  mlflow-db:
+    image: postgres:18-alpine3.22
+    container_name: mlflow-postgres
+    environment:
+      POSTGRES_USER: mlflow
+      POSTGRES_PASSWORD: mlflow
+      POSTGRES_DB: mlflow
+    ports:
+      - "5432:5432"
+    volumes:
+      - mlflow_pgdata:/var/lib/postgresql/data
+
+  mlflow:
+    build:
+      context: .
+      dockerfile: Dockerfile.mlflow
+    container_name: mlflow
+    depends_on:
+      - mlflow-db
+      - localstack
+    ports:
+      - "5000:5000"
+    environment:
+      MLFLOW_TRACKING_URI: postgresql://mlflow:mlflow@mlflow-db:5432/mlflow
+      AWS_ACCESS_KEY_ID: test
+      AWS_SECRET_ACCESS_KEY: test
+      AWS_DEFAULT_REGION: us-east-1
+      MLFLOW_S3_ENDPOINT_URL: http://localstack:4566
+    command: >
+      mlflow server
+      --host 0.0.0.0
+      --port 5000
+      --backend-store-uri postgresql://mlflow:mlflow@mlflow-db:5432/mlflow
+      --artifacts-destination s3://mlflow-artifacts
+
+volumes:
+  mlflow_pgdata:
