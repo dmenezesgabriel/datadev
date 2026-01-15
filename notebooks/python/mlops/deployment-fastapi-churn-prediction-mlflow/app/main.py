@@ -1,17 +1,24 @@
+import os
+
+os.environ["MLFLOW_TRACKING_URI"] = "http://localhost:5000"
+
+os.environ["AWS_ACCESS_KEY_ID"] = "test"
+os.environ["AWS_SECRET_ACCESS_KEY"] = "test"
+os.environ["AWS_DEFAULT_REGION"] = "us-east-1"
+os.environ["MLFLOW_S3_ENDPOINT_URL"] = "http://localhost:4566"
+os.environ["AWS_EC2_METADATA_DISABLED"] = "true"
+
 from typing import Literal
 
 import mlflow
 import uvicorn
 from fastapi import FastAPI
-from mlflow.tracking import MlflowClient
 from pydantic import BaseModel, Field
 
-MLFLOW_TRACKING_URI = "http://mlflow:5000"
-
-mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
-
-RUN_ID = "7c9f5938dcdc4db39cde2ca7d62b2c72"
-logged_model = f"runs:/{RUN_ID}/model"
+logged_model = (
+    "s3://mlflow-artifacts/"
+    "1/models/m-7d4c17c93dd641ada9dbba8bc5698eff/artifacts"
+)
 
 model = mlflow.pyfunc.load_model(logged_model)
 

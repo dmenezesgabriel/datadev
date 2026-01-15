@@ -18,6 +18,8 @@ services:
       --no-browser
       --allow-root
       --notebook-dir=/app
+    networks:
+      - datadev-net
 
   glue:
     image: amazon/aws-glue-libs:glue_libs_4.0.0_image_01
@@ -34,9 +36,12 @@ services:
       DISABLE_SSL: true
     command: >
       /home/glue_user/jupyter/jupyter_start.sh
+    networks:
+      - datadev-net
 
   localstack:
     image: localstack/localstack:latest
+    container_name: localstack
     ports:
       - "4566:4566"
     environment:
@@ -55,6 +60,8 @@ services:
       interval: 10s
       timeout: 5s
       retries: 3
+    networks:
+      - datadev-net
 
   mlflow-db:
     image: postgres:18-alpine3.22
@@ -67,6 +74,8 @@ services:
       - "5432:5432"
     volumes:
       - mlflow_pgdata:/var/lib/postgresql/data
+    networks:
+      - datadev-net
 
   mlflow:
     build:
@@ -90,6 +99,12 @@ services:
       --port 5000
       --backend-store-uri postgresql://mlflow:mlflow@mlflow-db:5432/mlflow
       --artifacts-destination s3://mlflow-artifacts
+    networks:
+      - datadev-net
 
 volumes:
   mlflow_pgdata:
+
+networks:
+  datadev-net:
+    driver: bridge
