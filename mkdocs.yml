@@ -105,8 +105,9 @@ nav:
           - MLOps:
               - Lifecycle: ml-ops.md
               # - Maturity:
-              - Pipelines: ml-pipelines.md
               - MLflow: mlflow.md
+              - Pipelines: ml-pipelines.md
+              - Model Deployment: ml-model-deployment.md
 
       - Generative AI:
           - Transformers: llm-transformers.md
@@ -197,7 +198,7 @@ nav:
                   - Multinomial classification: notebooks/python/machine-learning/naive-bayes-multinomial-classification.ipynb
           - MLOps:
               - Mlflow: notebooks/python/mlops/mlfow/mlfow.ipynb
-              - Taxi Trip Duration: notebooks/python/mlops/mlflow/taxi-trip-duration.ipynb
+              - Taxi Trip Duration: notebooks/python/mlops/mlfow/taxi-trip-duration.ipynb
 
           - Generative AI:
               - Completion: notebooks/python/generative-ai/llm-completion.ipynb
