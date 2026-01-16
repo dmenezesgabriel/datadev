@@ -1,56 +1,165 @@
 @import url(https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Fira+Code:wght@300..700&display=swap);
 
+/* === GLOBAL SCHEMATIC VARIABLES === */
 :root {
-  --base-radius: 0.6rem;
+  --base-radius: 4px;
   --heading-font-weight: 500;
-  --heading-font-sizes: 40px, 32px, 24px;
+  --grid-size: 30px;
 }
 
-/* === LIGHT THEME === */
+/* === LIGHT THEME (Linear "Paper" Style) === */
 [data-md-color-scheme="default"] {
-  --md-default-bg-color: #f4f3ed;
+  --md-default-bg-color: #ffffff;
   --md-default-fg-color: #3d3a2a;
-  --md-code-bg-color: #ecebe4;
+  --md-code-bg-color: #f8f8f7;
   --md-primary-fg-color: #bb5a38;
   --md-accent-fg-color: #3d3a2a;
-  --md-default-bg-color: #f4f3ed;
-  --md-default-fg-color: #3d3a2a;
-  --md-code-bg-color: #ecebe4;
-  --md-border-color: #d3d2ca;
+  --md-border-color: #e0e0e0;
+  --grid-dot-color: rgba(0, 0, 0, 0.05);
 }
 
-/* === DARK THEME === */
+/* === DARK THEME (Linear "Terminal" Style) === */
 [data-md-color-scheme="slate"] {
+  --md-default-bg-color: #000000; /* Absolute black for schematic contrast */
+  --md-default-fg-color: #e5e5e2;
+  --md-code-bg-color: #0a0a0a;
   --md-primary-fg-color: #ae5630;
   --md-accent-fg-color: #e5e5e2;
-  --md-default-bg-color: #2a2a28;
-  --md-default-fg-color: #e5e5e2;
-  --md-code-bg-color: #232322;
-  --md-border-color: #343330;
+  --md-border-color: #262626;
+  --grid-dot-color: rgba(255, 255, 255, 0.07);
 }
 
+/* === GLOBAL BACKGROUND GRID === */
+body {
+  background-image: radial-gradient(var(--grid-dot-color) 1px, transparent 0);
+  background-size: var(--grid-size) var(--grid-size);
+  background-attachment: fixed;
+}
+
+/* === HEADER & NAVBAR VISIBILITY FIXES === */
+.md-header {
+  background-color: var(--md-default-bg-color) !important;
+  border-bottom: 1px solid var(--md-border-color) !important;
+  box-shadow: none !important;
+  color: var(--md-default-fg-color) !important;
+}
+
+.md-header__button,
+.md-header__title,
+.md-header__topic,
+.md-header__inner {
+  color: var(--md-default-fg-color) !important;
+}
+
+.md-search__input::placeholder {
+  color: var(--md-default-fg-color);
+  opacity: 0.6;
+}
+.md-search__icon {
+  color: var(--md-default-fg-color) !important;
+}
+
+/* Horizontal Navbar (Tabs) */
+.md-tabs {
+  background-color: var(--md-primary-fg-color) !important;
+  border-bottom: 1px solid var(--md-border-color);
+}
+.md-tabs__link {
+  color: rgba(255, 255, 255, 0.7) !important;
+  opacity: 1 !important;
+}
+.md-tabs__link--active,
+.md-tabs__link:hover {
+  color: #ffffff !important;
+}
+
+/* === SCHEMATIC CONTENT BOX === */
+.md-content__inner {
+  position: relative;
+  border: 1px solid var(--md-border-color);
+  background: var(--md-default-bg-color);
+  margin-top: 2rem !important;
+  padding: 2rem !important;
+  border-radius: var(--base-radius);
+  box-shadow: none !important;
+}
+
+.md-content__inner::before {
+  content: "+";
+  position: absolute;
+  top: -11px;
+  left: -7px;
+  font-family: "Fira Code", monospace;
+  color: var(--md-primary-fg-color);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* === CODE BLOCK & SCROLL FIXES === */
+.md-typeset .highlight {
+  margin: 1.5em 0;
+  border: 1px solid var(--md-border-color);
+  background-color: var(--md-code-bg-color) !important;
+  border-radius: var(--base-radius);
+  overflow: hidden; /* Contains the scrollbar within the border radius */
+}
+
+.md-typeset .highlight pre {
+  margin: 0;
+  padding: 0.75rem 0;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  display: block;
+  width: 100%;
+}
+
+.md-typeset .highlight code {
+  font-family: "Fira Code", monospace;
+  background-color: transparent !important;
+  border: none !important;
+  /* padding: 0 !important; */
+  display: table-cell !important; /* Preserves line-number sync */
+  white-space: pre; /* Prevents text wrapping to allow scrolling */
+}
+
+.md-typeset .linenos {
+  padding: 0 0.75rem !important;
+  border-right: 1px solid var(--md-border-color);
+  color: var(--md-default-fg-color);
+  opacity: 0.35;
+  position: sticky; /* Keeps line numbers visible while scrolling horizontally */
+  left: 0;
+  background-color: var(--md-code-bg-color);
+  z-index: 1;
+}
+
+/* === RESULT BOX SCROLLING & PADDING === */
+.md-typeset .result {
+  border: 1px solid var(--md-border-color);
+  border-radius: var(--base-radius);
+  margin: 1em 0;
+  overflow: hidden;
+}
+
+.md-typeset .result .md-code__content {
+  padding: 0.8rem 1.2rem !important; /* Vertical and Horizontal padding */
+  overflow-x: auto; /* Enables horizontal scroll for results */
+  display: block;
+  white-space: pre; /* Ensures content doesn't wrap and cut off */
+}
+
+/* === TYPOGRAPHY & SIDEBARS === */
 .md-content,
 .md-typeset {
   font-family: "Outfit", sans-serif;
   color: var(--md-default-fg-color);
 }
 
-code,
-pre,
-.md-typeset code {
-  font-family: "Fira Code", monospace;
-  background-color: var(--md-code-bg-color);
-}
-
 .md-typeset h1,
 .md-typeset h2,
-.md-typeset h3,
-.md-typeset h4,
-.md-typeset h5,
-.md-typeset h6 {
+.md-typeset h3 {
   font-family: "Outfit", sans-serif;
   font-weight: var(--heading-font-weight);
-  line-height: 1.2;
+  color: var(--md-default-fg-color);
 }
 
 .md-typeset h1 {
@@ -59,74 +168,36 @@ pre,
 .md-typeset h2 {
   font-size: 32px;
 }
-.md-typeset h3 {
-  font-size: 24px;
+
+.md-sidebar--primary {
+  border-right: 1px solid var(--md-border-color);
+}
+.md-sidebar--secondary {
+  border-left: 1px solid var(--md-border-color);
+}
+.md-sidebar,
+.md-footer {
+  box-shadow: none !important;
 }
 
+/* Custom Scrollbar Style (Linear Aesthetic) */
+::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--md-border-color);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* === LINKS === */
 a {
-  color: var(--md-accent-fg-color);
+  color: var(--md-primary-fg-color);
   text-decoration: none;
 }
 a:hover {
   text-decoration: underline;
-}
-
-.md-sidebar__scrollwrap {
-  background-color: var(--md-default-bg-color);
-}
-
-.hero-container {
-  position: relative;
-  height: 100vh; /* Full screen height */
-  width: 100%;
-  overflow: hidden;
-}
-
-.hero-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Keeps proportions and fills */
-  /* filter: brightness(0.95); Subtle dark overlay for readability */
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: var(--md-default-fg-color);
-}
-
-h1 .hero-title {
-  font-family: "Outfit", sans-serif;
-  font-size: 4rem;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-}
-
-.hero-button {
-  font-size: 1.1rem;
-  padding: 0.75rem 2rem;
-  border-radius: var(--base-radius);
-}
-
-.md-typeset .md-button:hover,
-.md-typeset .md-button:focus {
-  background-color: #bb5a38;
-  border-color: #bb5a38;
-  color: #f0f0ef;
-}
-
-/* Light and dark theme tweaks */
-[data-md-color-scheme="slate"] .hero-title {
-  color: #f0f0ef;
-}
-[data-md-color-scheme="default"] .hero-title {
-  color: #f0f0ef;
-}
-
-.md-typeset .highlight {
-  max-height: 20rem;
-  overflow-y: auto;
 }
