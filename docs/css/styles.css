@@ -95,41 +95,15 @@ body {
   font-size: 1.2rem;
 }
 
-/* === CODE BLOCK & SCROLL FIXES === */
 .md-typeset .highlight {
-  margin: 1.5em 0;
   border: 1px solid var(--md-border-color);
   background-color: var(--md-code-bg-color) !important;
   border-radius: var(--base-radius);
-  overflow: hidden; /* Contains the scrollbar within the border radius */
-}
-
-.md-typeset .highlight pre {
-  margin: 0;
-  padding: 0.75rem 0;
-  overflow-x: auto; /* Enables horizontal scrolling */
-  display: block;
-  width: 100%;
+  margin: 1em 0;
 }
 
 .md-typeset .highlight code {
   font-family: "Fira Code", monospace;
-  background-color: transparent !important;
-  border: none !important;
-  /* padding: 0 !important; */
-  display: table-cell !important; /* Preserves line-number sync */
-  white-space: pre; /* Prevents text wrapping to allow scrolling */
-}
-
-.md-typeset .linenos {
-  padding: 0 0.75rem !important;
-  border-right: 1px solid var(--md-border-color);
-  color: var(--md-default-fg-color);
-  opacity: 0.35;
-  position: sticky; /* Keeps line numbers visible while scrolling horizontally */
-  left: 0;
-  background-color: var(--md-code-bg-color);
-  z-index: 1;
 }
 
 /* === RESULT BOX SCROLLING & PADDING === */
