@@ -1,13 +1,4 @@
 import os
-
-os.environ["MLFLOW_TRACKING_URI"] = "http://localhost:5000"
-
-os.environ["AWS_ACCESS_KEY_ID"] = "test"
-os.environ["AWS_SECRET_ACCESS_KEY"] = "test"
-os.environ["AWS_DEFAULT_REGION"] = "us-east-1"
-os.environ["MLFLOW_S3_ENDPOINT_URL"] = "http://localhost:4566"
-os.environ["AWS_EC2_METADATA_DISABLED"] = "true"
-
 from typing import Literal
 
 import mlflow
@@ -15,12 +6,11 @@ import uvicorn
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
 
-logged_model = (
-    "s3://mlflow-artifacts/"
-    "1/models/m-7d4c17c93dd641ada9dbba8bc5698eff/artifacts"
-)
+RUN_ID = os.getenv("RUN_ID")
 
-model = mlflow.pyfunc.load_model(logged_model)
+logged_model = f"s3://mlflow-artifacts/1/models/m-{RUN_ID}/artifacts"
+
+model = mlflow.sklearn.load_model(logged_model)
 
 
 class Customer(BaseModel):
@@ -58,16 +48,14 @@ class PredictResponse(BaseModel):
 app = FastAPI(title="customer-churn-prediction")
 
 
-def predict_single(customer):
-    result = model.predict_proba(customer)[0, 1]
-
-    return float(result)
+def predict_single(customer: dict) -> float:
+    proba = model.predict_proba([customer])[0, 1]
+    return float(proba)
 
 
 @app.post("/predict")
 def predict(customer: Customer) -> PredictResponse:
     prob = predict_single(customer.model_dump())
-
     return PredictResponse(churn_probability=prob, churn=prob >= 0.5)
 
 
