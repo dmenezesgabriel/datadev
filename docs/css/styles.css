@@ -7,7 +7,7 @@
   --grid-size: 30px;
 }
 
-/* === LIGHT THEME (Linear "Paper" Style) === */
+/* === THEME COLORS === */
 [data-md-color-scheme="default"] {
   --md-default-bg-color: #ffffff;
   --md-default-fg-color: #3d3a2a;
@@ -18,9 +18,8 @@
   --grid-dot-color: rgba(0, 0, 0, 0.05);
 }
 
-/* === DARK THEME (Linear "Terminal" Style) === */
 [data-md-color-scheme="slate"] {
-  --md-default-bg-color: #000000; /* Absolute black for schematic contrast */
+  --md-default-bg-color: #000000;
   --md-default-fg-color: #e5e5e2;
   --md-code-bg-color: #0a0a0a;
   --md-primary-fg-color: #ae5630;
@@ -36,7 +35,92 @@ body {
   background-attachment: fixed;
 }
 
-/* === HEADER & NAVBAR VISIBILITY FIXES === */
+/* === HERO SECTION & SKETCH ANIMATION === */
+.hero-container {
+  position: relative;
+  min-height: 70vh;
+  width: 100%;
+  overflow: hidden;
+  border-bottom: 1px solid var(--md-border-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* Quadriculated background lines */
+  background-image:
+    linear-gradient(var(--grid-dot-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-dot-color) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+}
+
+.hero-image {
+  max-width: 600px;
+  width: 90%;
+  height: auto;
+  z-index: 1;
+  /* Blueprint Sketch Filter: Turns image into a technical line drawing */
+  filter: grayscale(1) contrast(2) brightness(1.2) opacity(0.7);
+  mix-blend-mode: multiply; /* Blends sketch lines into the grid background */
+  transition: all 0.5s ease;
+  animation: sketch-flicker 4s infinite alternate ease-in-out;
+}
+
+[data-md-color-scheme="slate"] .hero-image {
+  filter: invert(1) grayscale(1) contrast(1.5) opacity(0.6);
+  mix-blend-mode: screen;
+}
+
+.hero-image:hover {
+  filter: grayscale(0) contrast(1) opacity(1);
+  transform: scale(1.02);
+}
+
+@keyframes sketch-flicker {
+  0%,
+  100% {
+    opacity: 0.6;
+    filter: contrast(2) brightness(1);
+  }
+  50% {
+    opacity: 0.8;
+    filter: contrast(1.8) brightness(1.1);
+  }
+}
+
+.hero-overlay {
+  text-align: center;
+  z-index: 2;
+  padding: 2rem;
+  margin-top: -2rem; /* Pulls text closer to image for tighter layout */
+}
+
+.hero-title {
+  font-family: "Outfit", sans-serif;
+  font-size: 4.5rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 0.5rem;
+  color: var(--md-default-fg-color);
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.hero-button {
+  background-color: var(--md-primary-fg-color) !important;
+  color: white !important;
+  border: none !important;
+  padding: 0.8rem 2rem !important;
+  font-family: "Outfit", sans-serif;
+  font-weight: 500;
+  border-radius: var(--base-radius) !important;
+  transition: transform 0.2s;
+}
+
+.hero-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(187, 90, 56, 0.3);
+}
+
+/* === HEADER, NAVBAR & CONTENT FIXES (Previous) === */
 .md-header {
   background-color: var(--md-default-bg-color) !important;
   border-bottom: 1px solid var(--md-border-color) !important;
@@ -46,34 +130,14 @@ body {
 
 .md-header__button,
 .md-header__title,
-.md-header__topic,
 .md-header__inner {
   color: var(--md-default-fg-color) !important;
 }
 
-.md-search__input::placeholder {
-  color: var(--md-default-fg-color);
-  opacity: 0.6;
-}
-.md-search__icon {
-  color: var(--md-default-fg-color) !important;
-}
-
-/* Horizontal Navbar (Tabs) */
 .md-tabs {
   background-color: var(--md-primary-fg-color) !important;
-  border-bottom: 1px solid var(--md-border-color);
-}
-.md-tabs__link {
-  color: rgba(255, 255, 255, 0.7) !important;
-  opacity: 1 !important;
-}
-.md-tabs__link--active,
-.md-tabs__link:hover {
-  color: #ffffff !important;
 }
 
-/* === SCHEMATIC CONTENT BOX === */
 .md-content__inner {
   position: relative;
   border: 1px solid var(--md-border-color);
@@ -81,7 +145,6 @@ body {
   margin-top: 2rem !important;
   padding: 2rem !important;
   border-radius: var(--base-radius);
-  box-shadow: none !important;
 }
 
 .md-content__inner::before {
@@ -92,86 +155,39 @@ body {
   font-family: "Fira Code", monospace;
   color: var(--md-primary-fg-color);
   font-weight: bold;
-  font-size: 1.2rem;
 }
 
-.md-typeset .highlight {
+/* === CODE & RESULT BLOCK SCROLLING FIXES === */
+.md-typeset .highlight,
+.md-typeset .result {
   border: 1px solid var(--md-border-color);
   background-color: var(--md-code-bg-color) !important;
   border-radius: var(--base-radius);
-  margin: 1em 0;
-}
-
-.md-typeset .highlight code {
-  font-family: "Fira Code", monospace;
-}
-
-/* === RESULT BOX SCROLLING & PADDING === */
-.md-typeset .result {
-  border: 1px solid var(--md-border-color);
-  border-radius: var(--base-radius);
-  margin: 1em 0;
+  margin: 1.5em 0;
   overflow: hidden;
 }
 
-.md-typeset .result .md-code__content {
-  padding: 0.8rem 1.2rem !important; /* Vertical and Horizontal padding */
-  overflow-x: auto; /* Enables horizontal scroll for results */
-  display: block;
-  white-space: pre; /* Ensures content doesn't wrap and cut off */
+.md-typeset .result {
+  max-height: 40rem;
+  overflow: auto;
 }
 
-/* === TYPOGRAPHY & SIDEBARS === */
+.md-typeset .result .md-code__content {
+  padding: 1rem 1.5rem !important;
+  display: block;
+  white-space: pre;
+}
+
+/* === TYPOGRAPHY & SCROLLBAR === */
 .md-content,
 .md-typeset {
   font-family: "Outfit", sans-serif;
-  color: var(--md-default-fg-color);
 }
-
-.md-typeset h1,
-.md-typeset h2,
-.md-typeset h3 {
-  font-family: "Outfit", sans-serif;
-  font-weight: var(--heading-font-weight);
-  color: var(--md-default-fg-color);
-}
-
-.md-typeset h1 {
-  font-size: 40px;
-}
-.md-typeset h2 {
-  font-size: 32px;
-}
-
-.md-sidebar--primary {
-  border-right: 1px solid var(--md-border-color);
-}
-.md-sidebar--secondary {
-  border-left: 1px solid var(--md-border-color);
-}
-.md-sidebar,
-.md-footer {
-  box-shadow: none !important;
-}
-
-/* Custom Scrollbar Style (Linear Aesthetic) */
 ::-webkit-scrollbar {
-  height: 4px;
-  width: 4px;
+  height: 6px;
+  width: 6px;
 }
 ::-webkit-scrollbar-thumb {
   background: var(--md-border-color);
   border-radius: 10px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-/* === LINKS === */
-a {
-  color: var(--md-primary-fg-color);
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
 }
