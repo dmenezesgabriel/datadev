@@ -199,3 +199,5 @@ notebooks/python/machine-learning/data/fashion-classification
 *.data-*
 *.onnx
 *.b
+
+.build/

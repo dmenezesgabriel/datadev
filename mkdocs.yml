@@ -108,6 +108,7 @@ nav:
               - MLflow: mlflow.md
               - Pipelines: ml-pipelines.md
               - Model Deployment: ml-model-deployment.md
+              - Model Monitoring: ml-monitoring.md
 
       - Generative AI:
           - Transformers: llm-transformers.md

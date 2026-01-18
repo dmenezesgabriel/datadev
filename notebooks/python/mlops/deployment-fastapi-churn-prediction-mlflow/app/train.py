@@ -16,7 +16,6 @@ sys.path.append("../../../../..")
 
 import os
 import pathlib
-import pickle
 
 import mlflow
 import pandas as pd
