@@ -61,6 +61,8 @@ def main():
                 version,
                 "--with",
                 "ipykernel",
+                "--with",
+                "ipywidgets",
                 "--no-project",
                 "--isolated",
                 "--refresh",
