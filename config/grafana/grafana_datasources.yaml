@@ -1,0 +1,15 @@
+apiVersion: 1
+
+datasources:
+  - name: Postgres-Grafana
+    type: postgres
+    access: proxy
+    isDefault: true
+    url: grafana-db:5432
+    database: grafana
+    user: grafana
+    secureJsonData:
+      password: grafana
+    jsonData:
+      sslmode: disable
+      postgresVersion: 1800

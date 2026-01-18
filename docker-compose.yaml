@@ -54,7 +54,7 @@ services:
       - AWS_SECRET_ACCESS_KEY=test
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - "./localstack/init-aws.sh:/etc/localstack/init/ready.d/init-aws.sh"
+      - "./config/localstack/init-aws.sh:/etc/localstack/init/ready.d/init-aws.sh"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:4566/health"]
       interval: 10s
@@ -102,8 +102,49 @@ services:
     networks:
       - datadev-net
 
+  grafana-db:
+    image: postgres:18-alpine3.22
+    container_name: grafana-postgres
+    environment:
+      POSTGRES_USER: grafana
+      POSTGRES_PASSWORD: grafana
+      POSTGRES_DB: grafana
+    ports:
+      - "5433:5432"
+    volumes:
+      - grafana_pgdata:/var/lib/postgresql/data
+    networks:
+      - datadev-net
+
+  grafana:
+    image: grafana/grafana:12.3.0
+    container_name: grafana
+    depends_on:
+      - grafana-db
+    ports:
+      - "3033:3000"
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
+      GF_USERS_ALLOW_SIGN_UP: "false"
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./config/grafana/grafana_datasources.yaml:/etc/grafana/provisioning/datasources/datasources.yaml:ro
+    networks:
+      - datadev-net
+
+  adminer:
+    image: adminer:5.4.1
+    container_name: adminer
+    ports:
+      - "8082:8080"
+    networks:
+      - datadev-net
+
 volumes:
   mlflow_pgdata:
+  grafana_pgdata:
+  grafana_data:
 
 networks:
   datadev-net:
