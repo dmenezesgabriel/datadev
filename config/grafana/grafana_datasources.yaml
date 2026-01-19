@@ -1,15 +1,19 @@
 apiVersion: 1
 
 datasources:
-  - name: Postgres-Grafana
+  - name: Postgres-Metrics
+    uid: postgres_metrics_001
     type: postgres
     access: proxy
     isDefault: true
-    url: grafana-db:5432
-    database: grafana
-    user: grafana
+    url: metrics-db:5432
+    user: metrics
     secureJsonData:
-      password: grafana
+      password: metrics
     jsonData:
+      database: metrics
       sslmode: disable
-      postgresVersion: 1800
+      postgresVersion: 1500
+      connMaxLifetime: 14400
+      maxIdleConns: 100
+      maxOpenConns: 100

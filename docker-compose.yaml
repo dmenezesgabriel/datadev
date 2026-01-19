@@ -102,17 +102,17 @@ services:
     networks:
       - datadev-net
 
-  grafana-db:
+  metrics-db:
     image: postgres:18-alpine3.22
-    container_name: grafana-postgres
+    container_name: metrics-postgres
     environment:
-      POSTGRES_USER: grafana
-      POSTGRES_PASSWORD: grafana
-      POSTGRES_DB: grafana
+      POSTGRES_USER: metrics
+      POSTGRES_PASSWORD: metrics
+      POSTGRES_DB: metrics
     ports:
       - "5433:5432"
     volumes:
-      - grafana_pgdata:/var/lib/postgresql/data
+      - metrics_pgdata:/var/lib/postgresql/data
     networks:
       - datadev-net
 
@@ -120,7 +120,7 @@ services:
     image: grafana/grafana:12.3.0
     container_name: grafana
     depends_on:
-      - grafana-db
+      - metrics-db
     ports:
       - "3033:3000"
     environment:
@@ -130,6 +130,8 @@ services:
     volumes:
       - grafana_data:/var/lib/grafana
       - ./config/grafana/grafana_datasources.yaml:/etc/grafana/provisioning/datasources/datasources.yaml:ro
+      - ./config/grafana/grafana_dashboards.yaml:/etc/grafana/provisioning/dashboards/dashboards.yaml:ro
+      - ./grafana/dashboards:/opt/grafana/dashboards
     networks:
       - datadev-net
 
@@ -143,7 +145,7 @@ services:
 
 volumes:
   mlflow_pgdata:
-  grafana_pgdata:
+  metrics_pgdata:
   grafana_data:
 
 networks:
