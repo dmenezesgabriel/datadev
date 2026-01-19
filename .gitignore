@@ -201,3 +201,6 @@ notebooks/python/machine-learning/data/fashion-classification
 *.b
 
 .build/
+
+# Evidently
+workspace/
