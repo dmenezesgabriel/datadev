@@ -114,6 +114,7 @@ nav:
           - Transformers: llm-transformers.md
           - Introduction: llm-basics.md
           - Embeddings: llm-embeddings.md
+          - Retrieval Augmented Generation: llm-rag.md
           - Evaluation: llm-evals.md
           - LLMOps: llm-ops.md
           - MCP: llm-mcp.md
