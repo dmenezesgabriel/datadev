@@ -119,8 +119,7 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(187, 90, 56, 0.3);
 }
-
-/* === HEADER, NAVBAR & CONTENT FIXES (Previous) === */
+/*
 .md-header {
   background-color: var(--md-default-bg-color) !important;
   border-bottom: 1px solid var(--md-border-color) !important;
@@ -157,7 +156,6 @@ body {
   font-weight: bold;
 }
 
-/* === CODE & RESULT BLOCK SCROLLING FIXES === */
 .md-typeset .highlight,
 .md-typeset .result {
   border: 1px solid var(--md-border-color);
@@ -178,7 +176,6 @@ body {
   white-space: pre;
 }
 
-/* === TYPOGRAPHY & SCROLLBAR === */
 .md-content,
 .md-typeset {
   font-family: "Outfit", sans-serif;
@@ -190,4 +187,4 @@ body {
 ::-webkit-scrollbar-thumb {
   background: var(--md-border-color);
   border-radius: 10px;
-}
+} */

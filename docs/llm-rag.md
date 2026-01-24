@@ -1,6 +1,7 @@
 # Retrieval Augmented Generation (RAG)
 
 - Retrieval: Search
+- Generation: LLMs
 
 ## Search
 

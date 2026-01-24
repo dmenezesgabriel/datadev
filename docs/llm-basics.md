@@ -1,5 +1,6 @@
 # Large Language Models
 
+- [Transformers](llm-transformers.md)
 - Stateless
 - Non deterministic, the same prompt can lead to different responses
 
@@ -11,3 +12,4 @@
 ## References
 
 - [Video - How to Build Reliable AI Agents, Dave Ebbelaar](https://www.youtube.com/watch?v=T1Lowy1mnEg&t=478s)
+- [LLM Zoomcamp 1.1 - Introduction to LLM and RAG, DataTalksClub](https://www.youtube.com/watch?v=Q75JgLEXMsM&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R)
