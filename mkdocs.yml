@@ -208,7 +208,7 @@ nav:
                   - Churn Prediction FastAPI MLflow: notebooks/python/mlops/deployment-fastapi-churn-prediction-mlflow/churn-prediction.ipynb
 
           - Generative AI:
-              - ML ZoomCamp:
+              - LLM ZoomCamp:
                   - Search Engines: notebooks/python/generative-ai/rag-search-engine.ipynb
                   - RAG - Retrieval & Search: notebooks/python/generative-ai/rag-retrieval-search/rag-retrieval-search.ipynb
               - Completion: notebooks/python/generative-ai/llm-completion.ipynb
