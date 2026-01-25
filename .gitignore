@@ -204,3 +204,6 @@ notebooks/python/machine-learning/data/fashion-classification
 
 # Evidently
 workspace/
+
+# Qdrant
+qdrant_storage
