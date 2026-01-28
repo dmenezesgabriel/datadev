@@ -174,7 +174,7 @@ services:
       resources:
         limits:
           cpus: "4.0"
-          memory: 2g
+          memory: 3g
     networks:
       - datadev-net
     command: ["serve"]
