@@ -77,6 +77,11 @@ services:
       - mlflow_pgdata:/var/lib/postgresql/data
     networks:
       - datadev-net
+    command: >
+      postgres
+      -c shared_buffers=128MB
+      -c work_mem=4MB
+      -c maintenance_work_mem=64MB
 
   mlflow:
     build:
@@ -116,6 +121,11 @@ services:
       - metrics_pgdata:/var/lib/postgresql/data
     networks:
       - datadev-net
+    command: >
+      postgres
+      -c shared_buffers=128MB
+      -c work_mem=4MB
+      -c maintenance_work_mem=64MB
 
   grafana:
     image: grafana/grafana:12.3.0
@@ -144,10 +154,36 @@ services:
     networks:
       - datadev-net
 
+  # qwen2.5:0.5b
+  # phi-3:mini
+  ollama:
+    image: ollama/ollama:0.15.1
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    environment:
+      OLLAMA_HOST: 0.0.0.0
+      OLLAMA_NUM_THREADS: 4
+      OLLAMA_CONTEXT_LENGTH: 1024
+      OLLAMA_BATCH_SIZE: 64
+      OLLAMA_MAX_LOADED_MODELS: 1
+      OLLAMA_KEEP_ALIVE: 5m
+    deploy:
+      resources:
+        limits:
+          cpus: "4.0"
+          memory: 2g
+    networks:
+      - datadev-net
+    command: ["serve"]
+
 volumes:
   mlflow_pgdata:
   metrics_pgdata:
   grafana_data:
+  ollama_data:
 
 networks:
   datadev-net:
