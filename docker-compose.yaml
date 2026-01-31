@@ -154,36 +154,36 @@ services:
     networks:
       - datadev-net
 
-  # qwen2.5:0.5b
-  # phi-3:mini
-  ollama:
-    image: ollama/ollama:0.15.1
-    container_name: ollama
-    ports:
-      - "11434:11434"
-    volumes:
-      - ollama_data:/root/.ollama
-    environment:
-      OLLAMA_HOST: 0.0.0.0
-      OLLAMA_NUM_THREADS: 4
-      OLLAMA_CONTEXT_LENGTH: 1024
-      OLLAMA_BATCH_SIZE: 64
-      OLLAMA_MAX_LOADED_MODELS: 1
-      OLLAMA_KEEP_ALIVE: 5m
-    deploy:
-      resources:
-        limits:
-          cpus: "4.0"
-          memory: 3g
-    networks:
-      - datadev-net
-    command: ["serve"]
+  # # qwen2.5:0.5b
+  # # phi-3:mini
+  # ollama:
+  #   image: ollama/ollama:0.15.1
+  #   container_name: ollama
+  #   ports:
+  #     - "11434:11434"
+  #   volumes:
+  #     - ollama_data:/root/.ollama
+  #   environment:
+  #     OLLAMA_HOST: 0.0.0.0
+  #     OLLAMA_NUM_THREADS: 4
+  #     OLLAMA_CONTEXT_LENGTH: 1024
+  #     OLLAMA_BATCH_SIZE: 64
+  #     OLLAMA_MAX_LOADED_MODELS: 1
+  #     OLLAMA_KEEP_ALIVE: 5m
+  #   deploy:
+  #     resources:
+  #       limits:
+  #         cpus: "4.0"
+  #         memory: 3g
+  #   networks:
+  #     - datadev-net
+  #   command: ["serve"]
 
 volumes:
   mlflow_pgdata:
   metrics_pgdata:
   grafana_data:
-  ollama_data:
+  # ollama_data:
 
 networks:
   datadev-net:
