@@ -15,7 +15,7 @@
 
 - Evaluate: Quality: Systematic measurement of your workflow's performance through automated tests, human evaluation, and success metrics.
 - Debug Issues: Tools to understand and diagnose failures including trace logging, data inspection and error analysis.
-- CHange behavior: Technics to improve your system based on insights from evaluation and debugging.
+- Change behavior: Technics to improve your system based on insights from evaluation and debugging.
 
 ## What is Evaluation?
 
@@ -34,9 +34,9 @@ An **Eval** is a single metric that measures a specific aspect of performance
 - Guardrails: Block bad outputs in real-time
 - Improvement Tools: Label data for fine-tunning
 
-## The three levels of Evaluation
+## Offline Evaluation Strategies
 
-### 1. Unit tests
+### Unit tests
 
 Fast, cheap assertions that runs on every code change
 
@@ -68,7 +68,11 @@ def test_ticket_categorization():
 - CI/CD workflows
 - Catching obvious failures
 
-### 2. Human & Model Evaluation
+### Cosine Similarity
+
+Comparing original answer with llm generated answer using cosine similarity
+
+### Human & Model Evaluation
 
 Systematic review and automatic critique of quality
 
@@ -106,7 +110,9 @@ Excel worksheet:
 | ----- | -------------- | ---------------------- | ------------- | -------------------- | ------------- | --------- | --------- |
 | ...   | ...            | Detailed explanation   | Good/Bad      | Detailed explanation | Good/Bad      | 0/1       | 90%       |
 
-### 3. A/B Testing
+## Online Evaluation Strategies
+
+### A/B Testing
 
 Real user experiments to measure business impact
 
@@ -180,3 +186,9 @@ Evaluate inherent properties without "**golden**" answers
 
 - [Video - Why Most AI Projects Fail and How to Fix It, Dave Ebbelaar](https://www.youtube.com/watch?v=a3SMraZWNNs&t=18s)
 - [Docs - MLFlow LLM Evaluation Examples](https://mlflow.org/docs/2.9.1/llms/llm-evaluate/notebooks/index.html)
+- [Video playlist - LLM Zoomcap, DataTalksClub](https://www.youtube.com/playlist?list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R)
+
+### Monitoring
+
+- Overall health of the system
+- How good the answer is

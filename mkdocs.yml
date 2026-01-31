@@ -212,7 +212,7 @@ nav:
                   - Search Engines: notebooks/python/generative-ai/rag-search-engine.ipynb
                   - Retrieval & Search: notebooks/python/generative-ai/rag-retrieval-search/rag-retrieval-search.ipynb
                   - Vector Search with Qdrant: notebooks/python/generative-ai/rag-vector-search-qdrant.ipynb
-                  - Retrieval Evaluation: notebooks/python/generative-ai/retrieval-evaluation/retrieval-evalutation.ipynb
+                  - Evaluation: notebooks/python/generative-ai/evaluation-rag/evaluation-rag.ipynb
               - Completion: notebooks/python/generative-ai/llm-completion.ipynb
               - Structured Output: notebooks/python/generative-ai/llm-structured-output.ipynb
               - Tools: notebooks/python/generative-ai/llm-tools.ipynb
