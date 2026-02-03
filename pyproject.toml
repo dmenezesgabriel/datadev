@@ -27,25 +27,18 @@ mkdocs-vegalite = { workspace = true }
 members = ["packages/*"]
 
 [tool.semantic_release]
+version_provider = "toml"
+
 version_toml = [
     "pyproject.toml:project.version"
 ]
 
 build_command = ""
-
 branch = "main"
 upload_to_vcs_release = true
 upload_to_pypi = false
 upload_to_repository = false
-
 changelog_file = "CHANGELOG.md"
-changelog_placeholder = "<!--next-version-placeholder-->"
-
 commit_parser = "conventional"
-
-# Allow major version bumps even when version is 0.x.x
 major_on_zero = true
 tag_format = "v{version}"
-
-# Don't track version in any Python source files
-version_variables = []
