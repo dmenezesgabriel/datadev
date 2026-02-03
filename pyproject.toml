@@ -37,7 +37,7 @@ upload_to_pypi = false
 upload_to_repository = false
 
 [tool.semantic_release.version]
-source = "tag"
+source = "toml"
 
 [tool.semantic_release.version.toml]
 path = "pyproject.toml"
