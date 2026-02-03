@@ -247,6 +247,8 @@ nav:
       - blog/index.md
 
 extra:
+  version:
+    provider: mike
   # alternate:
   #   - name: English
   #     link: /
