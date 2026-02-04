@@ -42,3 +42,6 @@ source = "toml"
 [tool.semantic_release.version.toml]
 path = "pyproject.toml"
 field = "project.version"
+
+[tool.semantic_release.changelog]
+template = "default"

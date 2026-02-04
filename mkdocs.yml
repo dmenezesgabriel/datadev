@@ -47,7 +47,7 @@ plugins:
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
   - mkdocs_jupyter:
       root_dir: .
-      template_file: templates/jupyter.md.j2
+      template_file: docs/templates/jupyter.md.j2
   - mkdocs_vegalite:
       use_data_path: True
       data_path: ""
