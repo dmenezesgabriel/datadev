@@ -28,13 +28,7 @@ members = ["packages/*"]
 
 [tool.semantic_release]
 branch = "main"
-commit_parser = "conventional"
-major_on_zero = true
-tag_format = "v{version}"
 changelog_file = "CHANGELOG.md"
-upload_to_vcs_release = true
-upload_to_pypi = false
-upload_to_repository = false
 
 [tool.semantic_release.version]
 source = "tag"
@@ -42,6 +36,3 @@ source = "tag"
 [tool.semantic_release.version.toml]
 path = "pyproject.toml"
 field = "project.version"
-
-[tool.semantic_release.changelog]
-template = "default"
