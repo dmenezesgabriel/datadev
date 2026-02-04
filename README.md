@@ -1,6 +1,6 @@
 # Data Dev
 
-This repository aims to keep learning material for data applications development.
+This repository aims to keep learning material.
 
 - [Usage](#usage)
 - [Development](#development)
