@@ -66,3 +66,7 @@ Precision-Recall Curve
 ## R² - Coefficient of Determination
 
 Squared correlation between observed and predicted values.
+
+## Cross-Entropy
+
+Is a loss function commonly used in classification problems, especially for multi-class classification. It measures the difference between the predicted probability distribution and the true distribution of the classes.
