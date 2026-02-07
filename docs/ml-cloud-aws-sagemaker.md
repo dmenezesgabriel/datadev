@@ -58,3 +58,15 @@ Is a service that allows you to create, automate, and manage end-to-end machine 
 
 - Corrupt image transform: preprocess data by simulating variations in image quality, such as blurring, noise, and compression artifacts. This can help improve the robustness of models to real-world conditions where image quality may vary
 - Balanced data: oversample minority classe to resolve class imbalance
+
+## Sagemaker Real-Time Inference
+
+### Use Cases
+
+- Low latency applications
+
+## SageMaker Batch Transform
+
+### Use Cases
+
+- Offline, large-scale batch processing

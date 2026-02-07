@@ -67,6 +67,6 @@ Examples of data augmentation include:
 
 ## Glossary
 
-- **Epoch**: One complete pass through the entire training dataset. During each epoch, the model's parameters are updated based on the loss calculated from the training data.
+- **Epoch**: One training cycle through the entire dataset. It is common to have multiple iterations per an epoch. The number of epochs you use in training is unique on your model and use case.
 - **Loss Function**: A mathematical function that measures the difference between the predicted output and the actual output. The goal of training is to minimize this loss function. Some metrics that can be used as loss functions include Mean Squared Error (MSE) for regression tasks and Cross-Entropy Loss for classification tasks.
 - **Sparse**: A dataset is considered sparse when it contains a large number of features, but only a small subset of those features are relevant or have non-zero values for each data point. In the context of regularization, L1 regularization can lead to sparse models by driving some weights to zero, effectively performing feature selection.
