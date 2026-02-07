@@ -5,8 +5,13 @@
     "notebook.codeActionsOnSave": {
         "source.organizeImports": "explicit"
     },
-    "notebook.lineNumbers": "off",
-    "python.analysis.typeCheckingMode": "strict",
+    "notebook.output.textLineLimit": 200,
+    "notebook.output.scrolling": true,
+    "notebook.compactView": true,
+    "notebook.lineNumbers": "on",
+    "notebook.diff.overviewRuler": true,
+    "jupyter.enableScrollingForCellOutputs": true,
+    "python.analysis.typeCheckingMode": "standard",
     "python.analysis.diagnosticSeverityOverrides": {
         // "reportMissingTypeStubs": "none",
         // "reportUnknownMemberType": "none",
@@ -85,6 +90,7 @@
         "strings": "on",
         "other": "on"
     },
+    "editor.smoothScrolling": false,
     "editor.autoClosingBrackets": "always",
     // Startup
     "workbench.startupEditor": "newUntitledFile",
@@ -261,7 +267,6 @@
     },
     "[typescript]": {
         "editor.detectIndentation": false,
-        // Editor
         "editor.tabSize": 2,
         "editor.insertSpaces": true,
         "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -330,8 +335,6 @@
     "git.ignoreMissingGitWarning": true,
     // Prettier
     "prettier.printWidth": 80,
-    // Notebook
-    "notebook.diff.overviewRuler": true,
     // Misc
     "git.openRepositoryInParentFolders": "never",
     "terminal.integrated.env.linux": {},
@@ -352,11 +355,6 @@
     "editor.unicodeHighlight.ambiguousCharacters": false,
     //
     "window.enableMenuBarMnemonics": false,
-    "notebook.output.textLineLimit": 200,
-    "notebook.output.scrolling": true,
-    "notebook.compactView": true,
     "notebook.experimental.fastRendering": true,
-    "editor.smoothScrolling": false,
-    "python.analysis.indexing": false,
-    "jupyter.enableScrollingForCellOutputs": true
+    "python.analysis.indexing": false
 }

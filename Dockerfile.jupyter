@@ -40,14 +40,10 @@ RUN apt-get update && \
         libpangocairo-1.0-0 \
         ffmpeg \
         git \
-        zsh \
         tmux \
         curl \
         graphviz \
     && rm -rf /var/lib/apt/lists/*
-
-# Install Oh my Zsh
-RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 # RUN pip install --no-cache-dir uv
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin

@@ -97,8 +97,10 @@ nav:
               - Recurrent Neural Networks: ml-deep-learning-rnn.md
               - Parameter Tunning: ml-deep-learning-tunning.md
           - Model Tuning:
-              - Regularization: ml-regularization.md
               - Hyperparameter Tuning: ml-hyperparameter-tuning.md
+          - Problems:
+              - Bias: ml-problems-bias.md
+              - Overfitting: ml-problems-overfitting.md
           - Evaluation:
               - Confusion Matrix: ml-confusion-matrix.md
               - Metrics: ml-metrics.md
@@ -109,6 +111,8 @@ nav:
               - Pipelines: ml-pipelines.md
               - Model Deployment: ml-model-deployment.md
               - Model Monitoring: ml-monitoring.md
+          - Cloud:
+              - AWS Sagemaker: ml-cloud-aws-sagemaker.md
 
       - Generative AI:
           - Transformers: llm-transformers.md
