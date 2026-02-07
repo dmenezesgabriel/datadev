@@ -29,7 +29,7 @@ jobs:
         uses: mamba-org/setup-micromamba@v1
         with:
           micromamba-version: "1.5.8-0"
-          environment-file: jupyterlite/build-environment.yml
+          environment-file: config/jupyterlite/build-environment.yml
           cache-environment: true
 
       # ---- Install Project Dependencies with UV ----
@@ -42,13 +42,13 @@ jobs:
 
       # ---- Build JupyterLite ----
       - name: Build JupyterLite site
-        working-directory: jupyterlite
+        working-directory: config/jupyterlite
         shell: bash -l {0}
         run: |
-          cp ../README.md ../notebooks/
+          cp ../../README.md ../../notebooks/
           jupyter lite build \
-          --contents ../notebooks \
-          --output-dir ../dist/jupyterlite
+          --contents ../../notebooks \
+          --output-dir ../../dist/jupyterlite
 
       # ---- Upload Artifact ----
       - name: Upload artifact

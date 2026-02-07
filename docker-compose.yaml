@@ -142,7 +142,7 @@ services:
       - grafana_data:/var/lib/grafana
       - ./config/grafana/grafana_datasources.yaml:/etc/grafana/provisioning/datasources/datasources.yaml:ro
       - ./config/grafana/grafana_dashboards.yaml:/etc/grafana/provisioning/dashboards/dashboards.yaml:ro
-      - ./grafana/dashboards:/opt/grafana/dashboards
+      - ./config/grafana/dashboards:/opt/grafana/dashboards
     networks:
       - datadev-net
 
