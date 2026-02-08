@@ -113,6 +113,7 @@ nav:
               - Model Monitoring: ml-monitoring.md
           - Cloud:
               - AWS Sagemaker: ml-cloud-aws-sagemaker.md
+              - AWS ML Services: ml-cloud-aws-services.md
 
       - Generative AI:
           - Transformers: llm-transformers.md

@@ -356,5 +356,8 @@
     //
     "window.enableMenuBarMnemonics": false,
     "notebook.experimental.fastRendering": true,
-    "python.analysis.indexing": false
+    "python.analysis.indexing": false,
+    "cSpell.words": [
+        "indentifiable"
+    ]
 }

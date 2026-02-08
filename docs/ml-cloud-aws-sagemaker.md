@@ -6,13 +6,14 @@ Analyze and monitor data [bias](./ml-problems-bias.md#bias) and model expandabil
 
 ### Features
 
-- Bias monitoring
+- Bias monitoring. Alerts in Cloud Watch when _bias_ is above determined thresholds
+- Continuous monitoring of _feature attribution drift_. Alerts in Cloud Watch when significant feature attribution drift is detected
 - Exportable reports and graphs detailing bias in Sagemaker Studio
-- Alerts in Cloud Watch when bias is above determined thresholds
 
 ### Use Cases
 
 - Analyze bias in the input and output data captured from SageMaker real-time endpoints
+- Detect changes in how model attributes importance to features (Ex: Model starts relying more on zipcode than before)
 
 ### Requirements
 
@@ -58,6 +59,15 @@ Is a service that allows you to create, automate, and manage end-to-end machine 
 
 - Corrupt image transform: preprocess data by simulating variations in image quality, such as blurring, noise, and compression artifacts. This can help improve the robustness of models to real-world conditions where image quality may vary
 - Balanced data: oversample minority classe to resolve class imbalance
+
+## Sagemaker Canvas
+
+## Sagemaker Endpoints
+
+### Features
+
+- multi-model endpoints: host multiple models on a single endpoint and route inference requests to the appropriate model based on the request content or other criteria. This can help reduce costs and improve resource utilization by sharing infrastructure across multiple models
+- Auto-scaling: automatically adjust the number of instances serving the endpoint based on the incoming traffic. This can help ensure that the endpoint can handle varying workloads while optimizing costs by scaling down during periods of low demand.
 
 ## Sagemaker Real-Time Inference
 
