@@ -6,7 +6,12 @@ $$ Recall = \frac{TruePositives}{TruePositives + FalseNegatives} $$
 
 - Also known as Sensitivity or True Positive Rate (TPR)
 - Percent of positives rightly predicted
-- Good choice when _False Negatives_ are very important. Ex: Fraud detection
+- Good choice when _False Negatives_ are very important.
+
+### Examples
+
+- On predicting diseases, _false negatives_ could result in a failure to provide critical treatment
+- Fraud detection
 
 ## Precision
 

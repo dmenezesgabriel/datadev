@@ -5,6 +5,7 @@
 ### Use Cases
 
 - Find meaningful insights and relationships in text
+- Generate summaries of text documents
 
 ### Features
 
@@ -38,3 +39,21 @@
 ### Features
 
 - Detect objects, scenes, and faces in images and videos
+
+## Amazon Transcribe
+
+### Features
+
+- Converts video/audio into text
+
+## Amazon Translate
+
+### Features
+
+- Translate text into different languages
+
+## Amazon Augmented AI (Amazon A2I)
+
+### Use Cases
+
+- Human review workflows for machine learning predictions

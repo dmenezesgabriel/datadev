@@ -90,6 +90,7 @@ nav:
               - KNN: ml-algorithms-knn.md
               - K-Means: ml-algorithms-k-means.md
               - TD-IDF: ml-algorithms-tf-idf.md
+              - Factorization Machines: ml-algorithms-factorization-machines.md
           - Ensembles:
               - Ensemble methods: ml-ensemble-methods.md
               - XGBoost: ml-algorithms-xgboost.md
@@ -107,6 +108,7 @@ nav:
           - Evaluation:
               - Confusion Matrix: ml-confusion-matrix.md
               - Metrics: ml-metrics.md
+          - Optimization: ml-optimization.md
           - MLOps:
               - Lifecycle: ml-ops.md
               # - Maturity:
@@ -127,6 +129,8 @@ nav:
           - LLMOps: llm-ops.md
           - MCP: llm-mcp.md
           - AI Agents: ai-agents.md
+
+      # - Software Engineering:
 
       - Professions: ai-professions.md
 

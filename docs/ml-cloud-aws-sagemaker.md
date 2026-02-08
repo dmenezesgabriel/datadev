@@ -98,3 +98,25 @@ Is a service that allows you to create, automate, and manage end-to-end machine 
 ### Use Cases
 
 - Offline, large-scale batch processing
+
+## Sagemaker Feature Store
+
+### Features
+
+- Fully managed repository for storing, updating and retrieving machine learning features
+
+## Sagemaker Ground Truth
+
+### Features
+
+- Human annotators for labeling data
+
+## Sagemaker Debugger
+
+### Use Cases
+
+- Monitor training jobs in real time, detect issues, and automatically trigger actions such as stopping training or generating alerts.
+
+### Features
+
+- Detect vanishing gradients, GPU underutilization, overfitting, and other common training issues. Provides real-time insights into the training process, allowing users to identify and address issues quickly.
