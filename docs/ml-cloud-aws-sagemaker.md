@@ -49,10 +49,6 @@ Purpose built for storing, versioning and managing Machine Learning models. Allo
 - Share models with others
 - Organize model groups into collections
 
-## Sagemaker Pipelines
-
-Is a service that allows you to create, automate, and manage end-to-end machine learning workflows. It provides a way to define and orchestrate the various steps involved in the machine learning process, such as data preprocessing, model training, and deployment.
-
 ## Sagemaker Data Wrangler
 
 ### Features
@@ -63,6 +59,16 @@ Is a service that allows you to create, automate, and manage end-to-end machine 
 ## Sagemaker Canvas
 
 ## Sagemaker JumpStart
+
+## Sagemaker Auto Model Tuning (AMT)
+
+### Use Cases
+
+- Hyperparameter tunning
+
+## Sagemaker Pipelines
+
+Is a service that allows you to create, automate, and manage end-to-end machine learning workflows. It provides a way to define and orchestrate the various steps involved in the machine learning process, such as data preprocessing, model training, and deployment.
 
 ## Sagemaker Endpoints
 
@@ -76,6 +82,16 @@ Is a service that allows you to create, automate, and manage end-to-end machine 
 ### Use Cases
 
 - Low latency applications
+
+## Sagemaker Shadow Testing
+
+### Use Cases
+
+- Test new models in production without impacting end-users
+
+### Features
+
+- Route a copy of live customer data to the new model for evaluation while maintaining the production model's operation. Compare predictions of both models to assess performance
 
 ## SageMaker Batch Transform
 
