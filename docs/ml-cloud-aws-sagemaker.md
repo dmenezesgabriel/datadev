@@ -62,6 +62,8 @@ Is a service that allows you to create, automate, and manage end-to-end machine 
 
 ## Sagemaker Canvas
 
+## Sagemaker JumpStart
+
 ## Sagemaker Endpoints
 
 ### Features
