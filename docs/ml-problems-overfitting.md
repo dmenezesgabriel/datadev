@@ -20,15 +20,15 @@ Regularization is a set of training techniques that reduce overfitting by penali
 
 Less important features don’t naturally have large weights—they only get them when the model overfits, and regularization exists to prevent exactly that.
 
-#### L1 Regularization
+#### L1 Regularization (Lasso)
 
 L1 is the sum of weights
 
-- Performs feature selection by driving some weights to zero.
+- Remove less important features performing feature selection, by driving some weights to zero.
 - Computationally inefficient
 - Sparse output
 
-#### l2 Regularization
+#### l2 Regularization (Ridge)
 
 L2 is the sum of squared weights
 

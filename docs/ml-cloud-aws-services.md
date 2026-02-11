@@ -57,3 +57,23 @@
 ### Use Cases
 
 - Human review workflows for machine learning predictions
+
+## AWS Trainium (EC2 Hardware)
+
+### Use cases
+
+- Deep learning training of 100B+ parameter models
+
+### Features
+
+- Trn1 instances deliver high performance and low cost for deep learning training in the cloud
+
+## AWS Inferentia (EC2 Hardware)
+
+### Use Cases
+
+- High performance at lowest costs EC2 hardware for deep learning (DL) and generative AI inference applications
+
+### Features
+
+- Inf1 instances deliver 2.3x higher throughput and 70% lower cost per inference compared to Amazon EC2 instances
