@@ -21,7 +21,7 @@ sequenceDiagram
 
 ## REST (Representational State Transfer)
 
-Is a set of rules and recommendations so the api is not too complex and follow a standard.
+Is a set of guidelines so the api is not too complex and follow a standard.
 
 Basically we ask to an API which is it's _state_ and it _returns_ a _representation_ of it in a data _transfer_.
 
@@ -31,11 +31,12 @@ The transfer is made usings _HTTP ( Hyper Text Transfer Protocol)_
 
 ### Constraints
 
-- **Client-Server**: Separation between client and server, so our system is portable to use different technologies for Web and mobile.
-- **Stateless**: Each request made to the server should contain all information so the server can understand and respond the request. The server does not remember that the client was authenticated on previous session, is necessary to send also the session to the next request.
-- **Cacheable**:
-- **Layered System**:
-- **Code on demand (optiona)**:
+- **Client-Server**: Separation between client and server.
+- **Stateless**: Each request must be independent and treat as if was the first request ever seen from the client. The server does not remember that the client was authenticated on previous session, is necessary to send also the session to the next request, tokens can be used for that.
+- **Cacheable**: Response messages from the server to the client are explicitly labeled as cacheable or not cacheable.
+- **Uniform Interface**: Must have a uniform interface between all clients and servers (web, mobile, ...)
+- **Layered System**: A client have access to an endpoint that rely on other endpoints without have to know all underling implementations.
+- **Code on demand (optiona)**: Code to be sent to the sever to the client to allow it's execution, like javascript.
 
 ### Verbs
 
