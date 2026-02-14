@@ -130,7 +130,8 @@ nav:
           - MCP: llm-mcp.md
           - AI Agents: ai-agents.md
 
-      # - Software Engineering:
+      - WEB:
+          - API REST: api-rest.md
 
       - Professions: ai-professions.md
 
