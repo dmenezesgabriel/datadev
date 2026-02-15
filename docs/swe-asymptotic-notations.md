@@ -43,9 +43,11 @@ If array is sorted, usually we can use binary search to find an element in O(log
 
 Logarithms ask us a question: "To what power must we raise a certain base to get a certain number?" For example, log2(8) asks "To what power must we raise 2 to get 8?" The answer is 3, because 2^3 = 8.
 
+On computing science, we often use logarithms with base 2 ($\log_{2}$).
 $$\log_2(8) = 2^? = 8$$
 $$\log_2(8) = 3$$
 
+On calculus, we often use logarithms with base 10 ($\log_{10}$).
 $$\log_{10}(100) = 10^? = 100$$
 $$\log_{10}(100) = 2$$
 
