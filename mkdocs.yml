@@ -130,8 +130,9 @@ nav:
           - MCP: llm-mcp.md
           - AI Agents: ai-agents.md
 
-      - WEB:
-          - API REST: api-rest.md
+      - Software Engineering:
+          - Asymptotic Notations: swe-asymptotic-notations.md
+          - API REST: swe-api-rest.md
 
       - Professions: ai-professions.md
 
