@@ -146,6 +146,7 @@ nav:
               - Tuples: notebooks/python/essentials/tuples.ipynb
               - Iterators: notebooks/python/essentials/iterators.ipynb
               - Generators: notebooks/python/essentials/generators.ipynb
+              - Strings: notebooks/python/essentials/strings.ipynb
               - Is: notebooks/python/essentials/is.ipynb
               - Functions: notebooks/python/essentials/functions.ipynb
               - Decorators: notebooks/python/essentials/decorators.ipynb
