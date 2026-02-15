@@ -10,6 +10,10 @@ On very large inputs, the differences in performance between algorithms become m
 - Big Omega: Lower bound (Best case)
 - Big Theta: Both upper and lower bound
 
+## Time Complexity
+
+## Space Complexity
+
 ## Big O Notation
 
 - O(1): Constant time complexity
@@ -21,7 +25,7 @@ On very large inputs, the differences in performance between algorithms become m
 - O(2^n): Exponential time complexity
 - O(n!): Factorial time complexity
 
-### O(1) - Constant Time/Space Complexity
+### O(1) - Constant Time Complexity
 
 Example:
 
@@ -35,7 +39,7 @@ def example(n: int) -> None:
 
 - No matter how large n is, the loop will always run 10 times, so the time complexity is O(1).
 
-### O(log n) - Logarithmic Time/Space Complexity
+### O(log n) - Logarithmic Time Complexity
 
 If array is sorted, usually we can use binary search to find an element in O(log n) time. This is because with each comparison, we can eliminate half of the remaining elements.
 
@@ -68,7 +72,7 @@ graph TD
 
 $$log_2(8) = 3$$
 
-### O(n) - Linear Time/Space Complexity
+### O(n) - Linear Time Complexity
 
 Examples:
 
@@ -92,14 +96,14 @@ def example(n: int) -> None:
 
 - The loop runs n times, so the time complexity is O(n).
 
-### O(n log n) - Linearithmic Time/Space Complexity
+### O(n log n) - Linearithmic Time Complexity
 
-### O(n^2) - Quadratic Time/Space Complexity
+### O(n^2) - Quadratic Time Complexity
 
-### O(n^3) - Cubic Time/Space Complexity
+### O(n^3) - Cubic Time Complexity
 
-### O(2^n) - Exponential Time/Space Complexity
+### O(2^n) - Exponential Time Complexity
 
 If time complexity is exponential, usually it is used recursion or backtracking..
 
-### O(n!) - Factorial Time/Space Complexity
+### O(n!) - Factorial Time Complexity
