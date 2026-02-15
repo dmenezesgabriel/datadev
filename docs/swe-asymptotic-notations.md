@@ -51,6 +51,23 @@ On calculus, we often use logarithms with base 10 ($\log_{10}$).
 $$\log_{10}(100) = 10^? = 100$$
 $$\log_{10}(100) = 2$$
 
+Binary search example:
+
+$$ [1, 2, 3, 4, 5, 6, 7, 8] $$
+$$ n = 8 $$
+
+```mermaid
+graph TD
+    A[1, 2, 3, 4, 5, 6, 7, 8] --> B[1, 2, 3, 4]
+    A[1, 2, 3, 4, 5, 6, 7, 8] --> C[5, 6, 7, 8]
+    B[1, 2, 3, 4] --> D[1, 2]
+    B[1, 2, 3, 4] --> E[3, 4]
+    C[5, 6, 7, 8] --> F[5, 6]
+    C[5, 6, 7, 8] --> G[7, 8]
+```
+
+$$log_2(8) = 3$$
+
 ### O(n) - Linear Time/Space Complexity
 
 Examples:
