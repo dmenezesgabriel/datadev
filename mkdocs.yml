@@ -144,6 +144,7 @@ nav:
               - Dictionaries: notebooks/python/data-structures/dictionaries.ipynb
               - Sets: notebooks/python/data-structures/sets.ipynb
               - Tuples: notebooks/python/data-structures/tuples.ipynb
+              - Singly Linked Lists: notebooks/python/data-structures/singly-linked-lists.ipynb
 
           - Essentials:
               - Math: notebooks/python/essentials/math.ipynb
