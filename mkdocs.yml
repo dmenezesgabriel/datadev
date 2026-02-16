@@ -141,10 +141,11 @@ nav:
           - Data Structures:
               - Lists: notebooks/python/data-structures/lists.ipynb
               - Strings: notebooks/python/data-structures/strings.ipynb
-              - Dictionaries: notebooks/python/data-structures/dictionaries.ipynb
-              - Sets: notebooks/python/data-structures/sets.ipynb
               - Tuples: notebooks/python/data-structures/tuples.ipynb
+              - Sets & Hashsets: notebooks/python/data-structures/sets-hashsets.ipynb
+              - Dictionaries & Hasmaps: notebooks/python/data-structures/dictionaries-hashmaps.ipynb
               - Singly Linked Lists: notebooks/python/data-structures/singly-linked-lists.ipynb
+              - Doubly Linked Lists: notebooks/python/data-structures/doubly-linked-lists.ipynb
 
           - Essentials:
               - Math: notebooks/python/essentials/math.ipynb
