@@ -146,6 +146,8 @@ nav:
               - Dictionaries & Hasmaps: notebooks/python/data-structures-algorithms/dictionaries-hashmaps.ipynb
               - Singly Linked Lists: notebooks/python/data-structures-algorithms/singly-linked-lists.ipynb
               - Doubly Linked Lists: notebooks/python/data-structures-algorithms/doubly-linked-lists.ipynb
+              - Queue: notebooks/python/data-structures-algorithms/queues.ipynb
+              - Recursion: notebooks/python/data-structures-algorithms/recursion.ipynb
 
           - Essentials:
               - Math: notebooks/python/essentials/math.ipynb
