@@ -138,28 +138,24 @@ nav:
 
   - Cookbook:
       - Python:
+          - Data Structures:
+              - Lists: notebooks/python/data-structures/lists.ipynb
+              - Strings: notebooks/python/data-structures/strings.ipynb
+              - Dictionaries: notebooks/python/data-structures/dictionaries.ipynb
+              - Sets: notebooks/python/data-structures/sets.ipynb
+              - Tuples: notebooks/python/data-structures/tuples.ipynb
+
           - Essentials:
               - Math: notebooks/python/essentials/math.ipynb
-              - Lists: notebooks/python/essentials/lists.ipynb
-              - Dictionaries: notebooks/python/essentials/dictionaries.ipynb
-              - Sets: notebooks/python/essentials/sets.ipynb
-              - Tuples: notebooks/python/essentials/tuples.ipynb
+              - Is: notebooks/python/essentials/is.ipynb
               - Iterators: notebooks/python/essentials/iterators.ipynb
               - Generators: notebooks/python/essentials/generators.ipynb
-              - Strings: notebooks/python/essentials/strings.ipynb
-              - Is: notebooks/python/essentials/is.ipynb
               - Functions: notebooks/python/essentials/functions.ipynb
               - Decorators: notebooks/python/essentials/decorators.ipynb
               - Classes: notebooks/python/essentials/classes_and_objects.ipynb
               - Logging: notebooks/python/essentials/logging.ipynb
               - Process & Threads: notebooks/python/essentials/process-threads.ipynb
               - Memory Management: notebooks/python/essentials/memory-management.ipynb
-
-          - Data Structures:
-              - Singly Linked List: notebooks/python/data-structures/singly-linked-list.ipynb
-              - Doubly Linked List: notebooks/python/data-structures/doubly-linked-list.ipynb
-              - Queue: notebooks/python/data-structures/queue.ipynb
-              - Stack: notebooks/python/data-structures/stack.ipynb
 
           - Design Patters:
               - Singleton: notebooks/python/design-patterns/singleton.ipynb
