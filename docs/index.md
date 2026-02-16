@@ -12,9 +12,6 @@ hide:
     <p style="font-size: 1.2rem; opacity: 0.7; margin-bottom: 2rem;">
       A learning journey.
     </p>
-    <a href="notebooks/python/data-structures/lists/" class="md-button hero-button">
-      Open Cookbook
-    </a>
   </div>
 </div>
 
