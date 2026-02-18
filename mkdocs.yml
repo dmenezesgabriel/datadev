@@ -152,6 +152,7 @@ nav:
               - Binary Tree: notebooks/python/data-structures-algorithms/binary-tree.ipynb
               - Binary Search Tree: notebooks/python/data-structures-algorithms/binary-search-tree.ipynb
               - Heaps & Priority Queues: notebooks/python/data-structures-algorithms/heaps-priority-queues.ipynb
+              - Sorting: notebooks/python/data-structures-algorithms/sorting.ipynb
 
           - Essentials:
               - Math: notebooks/python/essentials/math.ipynb
