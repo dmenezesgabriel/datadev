@@ -1,4 +1,4 @@
-# Feature Engineering – Handling Missing Data
+# Handling Missing Data
 
 - **MCAR** – Missing Completely At Random
 - **MAR** – Missing At Random (depends on observed variables)
