@@ -42,25 +42,25 @@ flowchart
 
 - Stablish Machine Learning roles and responsibilities
 - Prepare an profile template
-  - Document resources required
+    - Document resources required
 - Establish model improvement strategies
-  - Experiments
-  - Hyper-parameter optimization
+    - Experiments
+    - Hyper-parameter optimization
 - Establish a lineage tracker system
-  - Pipelines
-  - Feature Store
-  - Model Registry
+    - Pipelines
+    - Feature Store
+    - Model Registry
 - Establish feedback loops across ML lifecycle phases
-  - Model monitoring
+    - Model monitoring
 - Review fairness and expandability
 - Design data encryption and obfuscation
-  - PII
-  - Masking
+    - PII
+    - Masking
 - Use APIs to abstract changes from model breaking application consumption
-  - API Gateway
+    - API Gateway
 - Adopt a machine learning microservice strategy
-  - Serverless functions
-  - Serverless containers
+    - Serverless functions
+    - Serverless containers
 - Define relevant evaluation metrics
 - Identify if machine learning is the right solution
 - Consider AI services and pre-trained models
@@ -113,18 +113,18 @@ K --> |Fetch Features|D
 ### Data Processing
 
 - Profile data to improve quality
-  - Data wrangling
-  - Data exploration
+    - Data wrangling
+    - Data exploration
 - Create tracking and version control mechanisms
-  - Model Registry
-  - Experiments
-  - Code versioning on Git
+    - Model Registry
+    - Experiments
+    - Code versioning on Git
 - Ensure least privilege access
 - Secure data and modeling environment
 - Protect sensitive data
 - Enforce data lineage
 - Keep relevant data
-  - Remove PII
+    - Remove PII
 - Use a data Catalogue
 - Use a data pipeline
 - Automate managing data changes (MLOps)
@@ -132,7 +132,7 @@ K --> |Fetch Features|D
 - Use managed data labeling
 - Use data wrangler tools for interactive analysis
 - Enable feature reusability
-  - Feature Store
+    - Feature Store
 - Minimize Idle resources
 - Implement data lifecycle policies
 
@@ -163,7 +163,7 @@ K --> |Fetch Features|D
 
 - Automate operations through MLOps and CI/CD
 - Establish reliable packaging patterns to access approved public libraries
-  - Container registry
+    - Container registry
 - Secured governed Machine Learning environment
 - Encrypted service communications
 - Protect against data poisoning threats
@@ -172,15 +172,15 @@ K --> |Fetch Features|D
 - Establish data bias detection and mitigation
 - Optimize training and inference instance types
 - Establish a model performance evaluation pipeline
-  - Model Registry
+    - Model Registry
 - Establish feature statistics
-  - Model monitoring
-  - Experiments
+    - Model monitoring
+    - Experiments
 - Perform a performance trade-off analysis
-  - Accuracy vs complexity
-  - Bias vs variance
-  - Precision vs recall
-  - Tests with experiments
+    - Accuracy vs complexity
+    - Bias vs variance
+    - Precision vs recall
+    - Tests with experiments
 - Detect performance issues hen using transfer learning
 - Select optimal computing instance size
 - Use managed build environments
@@ -195,52 +195,52 @@ K --> |Fetch Features|D
 - Select energy-efficient algorithms
 - Archive or delete unnecessary training artifacts
 - Use efficient model tuning methods
-  - Bayesian or hyperband, not random or grid search
-  - Limit concurrent training jobs
-  - Tune only most important hyperparameters
+    - Bayesian or hyperband, not random or grid search
+    - Limit concurrent training jobs
+    - Tune only most important hyperparameters
 
 ### Deployment
 
 - Establish deployment environment metrics
-  - Event buses
-  - Topics
-  - Monitoring tools
+    - Event buses
+    - Topics
+    - Monitoring tools
 - Protect against adversarial and malicious activities
 - Use an appropriate deployment and testing strategy
-  - Blue/Green deployments
-  - Canary deployments
-  - linear deployments
-  - A/B Testing
+    - Blue/Green deployments
+    - Canary deployments
+    - linear deployments
+    - A/B Testing
 - Evaluate cloud vs edge options
 - Choose an optimal deployment in the cloud
-  - Real-time, serverless, asynchronous, batch
+    - Real-time, serverless, asynchronous, batch
 - Right-size model hosting instance
 - ALign SLAs
-  - Latency vs serverless/batch/asynchronous deployments
+    - Latency vs serverless/batch/asynchronous deployments
 
 ### Monitoring
 
 - Enable model observability and tracking
 - Synchronize architecture and configuration, and check for skew across environments
 - Restrict access to intended legitimate consumers
-  - Secure inference endpoints
+    - Secure inference endpoints
 - Monitor human interactions with data for anomalous activity
 - Allow for automatic scaling of the model endpoint
 - Ensure a recoverable endpoint with a managed version control
-  - Git
-  - Container Registry
+    - Git
+    - Container Registry
 - Evaluate model explainability
 - Evaluate data drift
 - Monitor, detect and handler model performance degradation
 - Establish an automated re-training framework
-  - jenkins
-  - github actions
-  - aws step functions
+    - jenkins
+    - github actions
+    - aws step functions
 - Review updated data/features for retraining
 - Include human-in-the-loop monitoring
 - Monitor usage and costs by ML activity
 - Monitor return on investment for ML models
 - Monitor endpoint usage and right-size the instance
 - Measure material efficiency
-  - Measure provisioned resources / business outcome
+    - Measure provisioned resources / business outcome
 - Retrain only when necessary
