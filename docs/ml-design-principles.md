@@ -40,32 +40,30 @@ flowchart
 
 ### Machine Learning Problem Framing
 
-1. Stablish Machine Learning roles and responsibilities
-2. Prepare an profile template
-   - Document resources required
-3. Establish model improvement strategies
-   - Experiments
-   - Hyper-parameter optimization
-4. Establish a lineage tracker system
-   - Pipelines
-   - Feature Store
-   - Model Registry
-5. Establish feedback loops across ML lifecycle phases
-   - Model monitoring
-6. Review fairness and explicably
-7. Design data encryption and obfuscation
-   - PII
-   - Masking
-8. Use APIs to abstract changes from model breaking application consumption
-   - API Gateway (Versioning)
-9. Adopt a machine learning microservice strategy
-   - Serverless functions
-   - Serverless containers
-10. Define relevant evaluation metrics
-    - Business metrics
-    - Model performance metrics
-11. Identify if machine learning is the right solution
-12. Consider AI services and pre-trained models
+- Stablish Machine Learning roles and responsibilities
+- Prepare an profile template
+  - Document resources required
+- Establish model improvement strategies
+  - Experiments
+  - Hyper-parameter optimization
+- Establish a lineage tracker system
+  - Pipelines
+  - Feature Store
+  - Model Registry
+- Establish feedback loops across ML lifecycle phases
+  - Model monitoring
+- Review fairness and expandability
+- Design data encryption and obfuscation
+  - PII
+  - Masking
+- Use APIs to abstract changes from model breaking application consumption
+  - API Gateway
+- Adopt a machine learning microservice strategy
+  - Serverless functions
+  - Serverless containers
+- Define relevant evaluation metrics
+- Identify if machine learning is the right solution
+- Consider AI services and pre-trained models
 
 **Architecture**:
 

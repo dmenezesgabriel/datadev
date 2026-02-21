@@ -319,6 +319,7 @@ markdown_extensions:
   - pymdownx.keys # Add support for keyboard key representation with the ++key++ syntax
   - pymdownx.snippets # Add support for including snippets of content from other files
   - pymdownx.superfences # Enhanced fenced code blocks
+  - sane_lists # Add support for more consistent list behavior across different Markdown implementations
   - pymdownx.tabbed:
       alternate_style: true
       combine_header_slug: true

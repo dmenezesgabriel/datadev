@@ -348,7 +348,8 @@
         "scminput": false,
         "typescriptreact": true,
         "python": false,
-        "typescript": false
+        "typescript": false,
+        "yaml": true
     },
     "workbench.iconTheme": "catppuccin-macchiato",
     "workbench.colorTheme": "Catppuccin Macchiato",
