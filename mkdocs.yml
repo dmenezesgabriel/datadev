@@ -60,14 +60,14 @@ nav:
       - Data Engineering:
           - Types of data: data-engineering-types-of-data.md
           - Properties of data: data-engineering-properties-of-data.md
+          - Data Layers: data-engineering-data-layers.md
           - Storage Solutions: data-engineering-data-storage-solutions.md
+          - ACID: docs/data-engineering-acid.md
           - ETL: data-engineering-etl.md
-          - Sources: data-engineering-data-sources.md
+          - Data Sources: data-engineering-data-sources.md
           - Relational Databases:
               - Databases: data-engineering-relational-databases.md
               - SQL Commands: data-engineering-sql-coomands.md
-          - Data Lake:
-              - Layers: data-engineering-data-lake-layers.md
 
       - Machine Learning:
           - CRISP-DM: crisp-dm.md

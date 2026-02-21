@@ -8,28 +8,3 @@ The Cross-Industry Standard Process for Data Mining (CRISP-DM) is a widely used 
 4. **Modeling**: In this phase, various modeling techniques are selected and applied to the prepared data. It involves selecting modeling algorithms, building models, and evaluating their performance.
 5. **Evaluation**: This phase focuses on assessing the models to ensure they meet the business objectives. It involves evaluating the model results, reviewing the process, and determining the next steps.
 6. **Deployment**: The final phase involves deploying the model into a production environment. It includes activities such as planning deployment, monitoring the model, and maintaining the model over time.
-
-```mermaid
-flowchart TD
-    A[Business Understanding]
-    B[Data Understanding]
-    C[Data Preparation]
-    D[Modeling]
-    E[Evaluation]
-    F[Deployment]
-
-    %% Forward core flow
-    A --> B
-    B --> C
-    C --> D
-    D --> E
-    E --> F
-
-    %% Iterations / backward loops
-    B --> A
-    D --> C
-
-
-    %% High-level feedback loop
-    E --> A
-```

@@ -10,7 +10,7 @@ Characteristics:
 - Supports complex queries and reporting
 - Usually employs a snowflake or star schema
 - Schema-on-write approach
-- ETL (Extract, Transform, Load) processes
+- [ETL](./data-engineering-etl.md) (Extract, Transform, Load) processes
 
 Examples:
 
@@ -20,7 +20,7 @@ Examples:
 
 ## Data Lake
 
-A data lake is a storage repository that holds a vast amount of raw data in its native format until it is needed. It can store structured, semi-structured, and unstructured data.
+A data lake is a storage repository that holds a vast amount of raw data in its native format until it is needed. It can store [structured](./data-engineering-types-of-data.md#structured-data), [semi-structured](./data-engineering-types-of-data.md#semi-structured-data), and [unstructured](./data-engineering-types-of-data.md#unstructured-data) data.
 
 Characteristics:
 
@@ -38,18 +38,18 @@ Examples:
 
 ## Lakehouse
 
-A lakehouse combines the features of data lakes and data warehouses, providing a unified platform for storing both raw and structured data. It allows for efficient data management and analytics.
+A lakehouse is a data architecture concept that combines the features of data lakes and data warehouses, providing a unified platform for storing both raw and structured data. It allows for efficient data management and analytics.
 
 Characteristics:
 
 - Combines data lake and data warehouse features
-- Supports ACID transactions
+- Supports [ACID](./data-engineering-acid.md) transactions
 - Enables BI and machine learning workloads
 - Schema-on-read and schema-on-write capabilities
 
 Examples:
 
-- AWS Lake Formation (s3 and Redshift Spectrum)
+- AWS Lake Formation combined with Apache Iceberg and Athena/Redshift Spectrum
 - Databricks Lakehouse
 - Apache Hudi
 - Delta Lake

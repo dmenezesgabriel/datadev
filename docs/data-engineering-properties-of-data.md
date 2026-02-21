@@ -23,7 +23,7 @@ Example:
 
 ## Variety
 
-Different types and formats of data, including structured, semi-structured, and unstructured data.
+Different types and formats of data, including [structured](./data-engineering-types-of-data.md#structured-data), [semi-structured](./data-engineering-types-of-data.md#semi-structured-data), and [unstructured](./data-engineering-types-of-data.md#unstructured-data) data.
 
 Example:
 
