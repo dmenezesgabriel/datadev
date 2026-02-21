@@ -4,7 +4,7 @@
 - **MAR** – Missing At Random (depends on observed variables)
 - **MNAR** – Missing Not At Random (depends on unobserved value itself)
 
-# Mean Replacement
+## Mean Replacement
 
 **Definition**
 Replace missing numerical values with the column mean.
@@ -33,7 +33,7 @@ Replace missing numerical values with the column mean.
 
     Avoid when distribution is skewed or when missingness is not random.
 
-# Median Replacement
+## Median Replacement
 
 **Definition**
 Replace missing values with the column median.
@@ -60,7 +60,7 @@ Replace missing values with the column median.
 
     Often better default than mean in real-world tabular datasets.
 
-# Mode Replacement
+## Mode Replacement
 
 **Definition**
 Fill missing values with the most frequent value.
@@ -81,7 +81,7 @@ Fill missing values with the most frequent value.
 - Can distort class distribution
 - Adds bias toward dominant category
 
-# Dropping Rows (Listwise Deletion)
+## Dropping Rows (Listwise Deletion)
 
 **Definition**
 Remove rows containing missing values.
@@ -103,7 +103,7 @@ Remove rows containing missing values.
 - Risk of bias if missingness is not random
 - Dangerous for small datasets
 
-# KNN Imputation
+## KNN Imputation
 
 **Definition**
 Use k-nearest neighbors to estimate missing values from similar samples.
@@ -131,7 +131,7 @@ Use k-nearest neighbors to estimate missing values from similar samples.
 
     Requires scaling (e.g., StandardScaler) before applying.
 
-# Regression Imputation
+## Regression Imputation
 
 **Definition**
 Predict missing values using regression models trained on other features.
@@ -156,9 +156,7 @@ Advanced approach: MICE (Multiple Imputation by Chained Equations).
 - Risk of data leakage if not careful
 - Computationally heavier
 
----
-
-# Deep Learning Imputation
+## Deep Learning Imputation
 
 **Definition**
 Use neural networks (e.g., autoencoders) to reconstruct missing values.
@@ -187,7 +185,7 @@ Use neural networks (e.g., autoencoders) to reconstruct missing values.
 
     More common in research or high-scale ML systems.
 
-# Get More Data
+## Get More Data
 
 **Definition**
 Acquire missing values from external systems, users, logs, or other sources.
