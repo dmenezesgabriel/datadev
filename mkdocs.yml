@@ -132,6 +132,11 @@ nav:
 
       - Software Engineering:
           - Asymptotic Notations: swe-asymptotic-notations.md
+          # - SOLID:
+          # - Architecture:
+          #     - Ports & Adapters:
+          #     - Clean Architecture:
+          #     - Domain Driven Design:
           - API REST: swe-api-rest.md
 
       - Professions: ai-professions.md
