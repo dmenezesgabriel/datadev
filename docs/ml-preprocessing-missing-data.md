@@ -6,7 +6,8 @@
 
 ## Mean Replacement
 
-**Definition**
+**Definition**:
+
 Replace missing numerical values with the column mean.
 
 **When to Use**:
@@ -16,13 +17,13 @@ Replace missing numerical values with the column mean.
 - Low percentage of missing values
 - Baseline / quick prototype
 
-**Pros**
+**Pros**:
 
 - Very simple and fast
 - Keeps dataset size unchanged
 - Easy to implement in pipelines
 
-**Cons**
+**Cons**:
 
 - Reduces variance
 - Distorts distribution
@@ -35,7 +36,8 @@ Replace missing numerical values with the column mean.
 
 ## Median Replacement
 
-**Definition**
+**Definition**:
+
 Replace missing values with the column median.
 
 **When to Use**:
@@ -45,13 +47,13 @@ Replace missing values with the column median.
 - Presence of outliers
 - Robust baseline
 
-**Pros**
+**Pros**:
 
 - Robust to outliers
 - Simple
 - Maintains dataset size
 
-**Cons**
+**Cons**:
 
 - Still reduces variance
 - Ignores relationships between features
@@ -62,7 +64,8 @@ Replace missing values with the column median.
 
 ## Mode Replacement
 
-**Definition**
+**Definition**:
+
 Fill missing values with the most frequent value.
 
 **When to Use**:
@@ -70,20 +73,21 @@ Fill missing values with the most frequent value.
 - Categorical features
 - Low missing percentage
 
-**Pros**
+**Pros**:
 
 - Very simple
 - Preserves dataset size
 - Works well for low-cardinality categorical features
 
-**Cons**
+**Cons**:
 
 - Can distort class distribution
 - Adds bias toward dominant category
 
 ## Dropping Rows (Listwise Deletion)
 
-**Definition**
+**Definition**:
+
 Remove rows containing missing values.
 
 **When to Use**:
@@ -92,12 +96,12 @@ Remove rows containing missing values.
 - Large dataset
 - Missingness is completely random (MCAR)
 
-**Pros**
+**Pros**:
 
 - No artificial data introduced
 - Statistically clean if MCAR
 
-**Cons**
+**Cons**:
 
 - Reduces dataset size
 - Risk of bias if missingness is not random
@@ -105,7 +109,8 @@ Remove rows containing missing values.
 
 ## KNN Imputation
 
-**Definition**
+**Definition**:
+
 Use k-nearest neighbors to estimate missing values from similar samples.
 
 **When to Use**:
@@ -115,13 +120,13 @@ Use k-nearest neighbors to estimate missing values from similar samples.
 - Features correlated
 - Non-linear relationships
 
-**Pros**
+**Pros**:
 
 - Uses multivariate information
 - More accurate than mean/median
 - Works for complex patterns
 
-**Cons**
+**Cons**:
 
 - Computationally expensive
 - Sensitive to feature scaling
@@ -133,7 +138,8 @@ Use k-nearest neighbors to estimate missing values from similar samples.
 
 ## Regression Imputation
 
-**Definition**
+**Definition**:
+
 Predict missing values using regression models trained on other features.
 
 Advanced approach: MICE (Multiple Imputation by Chained Equations).
@@ -144,13 +150,13 @@ Advanced approach: MICE (Multiple Imputation by Chained Equations).
 - Strong relationships between variables
 - Medium to large datasets
 
-**Pros**
+**Pros**:
 
 - Preserves relationships between features
 - More statistically sound
 - MICE handles uncertainty via multiple imputations
 
-**Cons**
+**Cons**:
 
 - Assumes model is correct
 - Risk of data leakage if not careful
@@ -158,7 +164,8 @@ Advanced approach: MICE (Multiple Imputation by Chained Equations).
 
 ## Deep Learning Imputation
 
-**Definition**
+**Definition**:
+
 Use neural networks (e.g., autoencoders) to reconstruct missing values.
 
 **When to Use**:
@@ -168,13 +175,13 @@ Use neural networks (e.g., autoencoders) to reconstruct missing values.
 - Complex nonlinear dependencies
 - Image, text, or complex structured data
 
-**Pros**
+**Pros**:
 
 - Captures complex nonlinear patterns
 - Works well in high-dimensional spaces
 - Powerful for large-scale data
 
-**Cons**
+**Cons**:
 
 - Requires large data
 - Harder to interpret
@@ -187,7 +194,8 @@ Use neural networks (e.g., autoencoders) to reconstruct missing values.
 
 ## Get More Data
 
-**Definition**
+**Definition**:
+
 Acquire missing values from external systems, users, logs, or other sources.
 
 **When to Use**:
@@ -196,13 +204,13 @@ Acquire missing values from external systems, users, logs, or other sources.
 - Missingness is systematic
 - High ROI feature
 
-**Pros**
+**Pros**:
 
 - Most accurate solution
 - Improves overall data quality
 - No statistical distortion
 
-**Cons**
+**Cons**:
 
 - Costly
 - Time-consuming
