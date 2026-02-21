@@ -54,3 +54,41 @@ class PaymentProcessor:
         elif payment_type == 'paypal':
             ...
 ```
+
+To add a new payment type, we need to modify the `process` method, which can introduce bugs.
+
+**Good**:
+
+```python
+from typing import Protocol
+
+
+class Payment(Protocol):
+    def process(self) -> None:
+        ...
+
+
+class CreditCardPayment:
+    def process(self) -> None:
+        print("Processing credit card")
+
+
+class PayPalPayment:
+    def process(self) -> None:
+        print("Processing PayPal")
+
+
+class PaymentProcessor:
+    def process(self, payment: Payment) -> None:
+        payment.process()
+```
+
+Now the behavior can be extended by creating new payment classes without modifying existing code. In the example above we use polymorphism to achieve this. The `PaymentProcessor` can process any payment type that implements the `Payment` interface, adhering to the OCP.
+
+Other patterns also present are strategy where `Payment` is the strategy interface and `CreditCardPayment` and `PayPalPayment` are concrete strategies. The `PaymentProcessor` is the context that uses the strategy to process payments.
+
+Also `Dependency Injection` is used to inject the `Payment` dependency into the `PaymentProcessor`, allowing for loose coupling and adherence to the OCP. So it receives the dependency from the outside rather than creating it internally, making it easier to extend and maintain.
+
+`Dependency Inversion Principle` is also present as the `PaymentProcessor` depends on the abstraction (`Payment`) rather than concrete implementations, as high-level modules should not depend on low-level modules, but both should depend on abstractions. This allows for flexibility and extensibility in the design.
+
+Using `Protocol`instead of Inheritance is more _pythonic_ because enforces static type checking (with mypy), has no forced inheritance, better decoupling and follows the duck typing philosophy of Python "If it quacks like a duck, it is a duck".
