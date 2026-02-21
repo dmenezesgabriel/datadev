@@ -140,8 +140,8 @@ nav:
 
       - Software Engineering:
           - Asymptotic Notations: swe-asymptotic-notations.md
-          # - Software Design Principles:
-          #     - SOLID: swe-solid.md
+          - Software Design Principles:
+              - SOLID: swe-design-principles-solid.md
           #     - DRY: swe-dry.md
           #     - KISS: swe-kiss.md
           #     - YAGNI: swe-yagni.md
