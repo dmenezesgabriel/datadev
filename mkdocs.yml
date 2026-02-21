@@ -81,6 +81,8 @@ nav:
           - Feature Engineering:
               - Features: ml-features.md
               - Feature Engineering Types: ml-feature-engineering-types.md
+              # - Feature Selection:
+              # - Feature Transformation:
               - Feature Creation:
                   - Encoding: ml-feature-engineering-encoding.md
                   - Binning: ml-feature-engineering-binning.md
@@ -100,11 +102,17 @@ nav:
               - Convolutional Neural Networks: ml-deep-learning-cnn.md
               - Recurrent Neural Networks: ml-deep-learning-rnn.md
               - Parameter Tunning: ml-deep-learning-tunning.md
+          - Model Training:
+              - Experiments: ml-model-training-experiments.md
+              - Problems:
+                  - Bias: ml-problems-bias.md
+                  - Overfitting: ml-problems-overfitting.md
+              # - Tradeoffs:
+              #     - Bias-Variance Tradeoff: ml-model-training-bias-variance-tradeoff.md
+              #     - Accuracy vs Interpretability: ml-model-training-accuracy-interpretability-tradeoff.md
+              #     - Precision vs Recall: ml-model-training-precision-recall-tradeoff.md
           - Model Tuning:
               - Hyperparameter Tuning: ml-hyperparameter-tuning.md
-          - Problems:
-              - Bias: ml-problems-bias.md
-              - Overfitting: ml-problems-overfitting.md
           - Evaluation:
               - Confusion Matrix: ml-confusion-matrix.md
               - Metrics: ml-metrics.md
@@ -161,7 +169,10 @@ nav:
           #     - Clean Architecture: swe-clean-architecture.md
           # - Domain Modeling Strategy:
           #     - Domain Driven Design: swe-domain-driven-design.md
-
+          # - Deployment Strategies:
+          #     - Blue-Green Deployment: swe-blue-green.md
+          #     - Canary Deployment: swe-canary.md
+          #     - A/B Testing Deployment: swe-ab-testing.md
       - Professions: ai-professions.md
 
   - Cookbook:
