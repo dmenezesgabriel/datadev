@@ -1,7 +1,7 @@
 # Handling Missing Data
 
-- **MCAR** – Missing Completely At Random
-- **MAR** – Missing At Random (depends on observed variables)
+- **MCAR** – Missing Completely At Random (Independent of any variables)
+- **MAR** – Missing At Random (depends on observed variables, explainable by other features)
 - **MNAR** – Missing Not At Random (depends on unobserved value itself)
 
 ## Mean Replacement
@@ -159,7 +159,7 @@ Advanced approach: MICE (Multiple Imputation by Chained Equations).
 **Cons**:
 
 - Assumes model is correct
-- Risk of data leakage if not careful
+- Risk of data leakage if not careful (use only training data for imputation, else you may leak test data information into training)
 - Computationally heavier
 
 ## Deep Learning Imputation
