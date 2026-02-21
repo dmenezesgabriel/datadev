@@ -125,7 +125,7 @@ K --> |Fetch Features|D
 - Enforce data lineage
 - Keep relevant data
     - Remove PII
-- Use a data Catalogue
+- Use a data catalogue
 - Use a data pipeline
 - Automate managing data changes (MLOps)
 - Use a modern data architecture (data lake)
@@ -139,7 +139,7 @@ K --> |Fetch Features|D
 #### Data Collection
 
 - Label: Set target variable values
-- Ingest: Can be stream, batch or other methods
+- Ingest: Can be stream, batch, micro-batch, cdc, event-driven, api-based, log-based, manual or other methods
 - Aggregate: Data can come from multiple sources
 
 #### Data Preparation

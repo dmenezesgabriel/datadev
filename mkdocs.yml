@@ -132,12 +132,35 @@ nav:
 
       - Software Engineering:
           - Asymptotic Notations: swe-asymptotic-notations.md
-          # - SOLID:
-          # - Architecture:
-          #     - Ports & Adapters:
-          #     - Clean Architecture:
-          #     - Domain Driven Design:
-          - API REST: swe-api-rest.md
+          # - Software Design Principles:
+          #     - SOLID: swe-solid.md
+          #     - DRY: swe-dry.md
+          #     - KISS: swe-kiss.md
+          #     - YAGNI: swe-yagni.md
+          # - Infrastructure:
+          #    - CDN: swe-cdn.md
+          #    - API Gateway: swe-api-gateway.md
+          #    - Reverse Proxy: swe-reverse-proxy.md
+          #    - Load Balancer: swe-load-balancer.md
+          #    - Service Mesh: swe-service-mesh.md
+          # - System Architecture:
+          #    - Microservices: swe-microservices.md
+          #    - Monolith: swe-monolith.md
+          - Communication Styles:
+              - REST: swe-rest.md
+          #   - Event-Driven: swe-event-driven.md
+          # - Observability:
+          #     - Logging: swe-logging.md
+          #     - Tracing: swe-tracing.md
+          #     - Metrics: swe-metrics.md
+          #     - Monitoring: swe-monitoring.md
+          #     - Alerting: swe-alerting.md
+          # - Application architecture:
+          #     - Model-View-Controller (MVC): swe-mvc.md
+          #     - Hexagonal Architecture: swe-hexagonal-architecture.md
+          #     - Clean Architecture: swe-clean-architecture.md
+          # - Domain Modeling Strategy:
+          #     - Domain Driven Design: swe-domain-driven-design.md
 
       - Professions: ai-professions.md
 
