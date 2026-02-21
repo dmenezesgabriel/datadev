@@ -215,7 +215,7 @@ K --> |Fetch Features|D
 - Choose an optimal deployment in the cloud
     - Real-time, serverless, asynchronous, batch
 - Right-size model hosting instance
-- ALign SLAs
+- Align SLAs
     - Latency vs serverless/batch/asynchronous deployments
 
 ### Monitoring

@@ -62,7 +62,7 @@ nav:
           - Properties of data: data-engineering-properties-of-data.md
           - Data Layers: data-engineering-data-layers.md
           - Storage Solutions: data-engineering-data-storage-solutions.md
-          - ACID: docs/data-engineering-acid.md
+          - ACID: data-engineering-acid.md
           - ETL: data-engineering-etl.md
           - Data Sources: data-engineering-data-sources.md
           - Relational Databases:
@@ -156,7 +156,11 @@ nav:
           #    - Monolith: swe-monolith.md
           - Communication Styles:
               - REST: swe-rest.md
-          #   - Event-Driven: swe-event-driven.md
+          #   - Event-Driven:
+          # - Queue (Point-to-Point): swe-queue.md
+          # - Pub/Sub (Topics): swe-pub-sub.md
+          # - Event Bus: swe-event-bus.md
+          # - Event Streaming: swe-event-streaming.md
           # - Observability:
           #     - Logging: swe-logging.md
           #     - Tracing: swe-tracing.md
