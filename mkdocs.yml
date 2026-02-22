@@ -142,9 +142,11 @@ nav:
           - Asymptotic Notations: swe-asymptotic-notations.md
           - Software Design Principles:
               - SOLID: swe-design-principles-solid.md
-          #     - DRY: swe-design-principles-dry.md
-          #     - KISS: swe-design-principles-kiss.md
-          #     - YAGNI: swe-design-principles-yagni.md
+          # - Tests:
+          #     - Unit Testing: swe-tests-unit-testing.md
+          #     - Integration Testing: swe-tests-integration-testing.md
+          #     - End-to-End Testing: swe-tests-end-to-end-testing.md
+          #     - Performance Testing: swe-tests-performance-testing.md
           - Infrastructure:
               - API Gateway: swe-infrastructure-api-gateway.md
               - Reverse Proxy: swe-infrastructure-reverse-proxy.md
@@ -152,7 +154,6 @@ nav:
               - Service Mesh: swe-infrastructure-service-mesh.md
               - Kubernetes: swe-infrastructure-kubernetes.md
               - AWS ECS: swe-infrastructure-aws-ecs.md
-          #    - CDN: swe-infrastructure-cdn.md
           - System Architecture:
               - Monolith: swe-system-architecture-monolith.md
               - Microservices: swe-system-architecture-microservices.md
@@ -175,10 +176,10 @@ nav:
           #     - Clean Architecture: swe-application-architecture-clean-architecture.md
           # - Domain Modeling Strategy:
           #     - Domain Driven Design: swe-domain-modeling-domain-driven-design.md
-          # - Deployment Strategies:
+          - Deployment Strategies:
+              - Rolling Deployment: swe-deployment-strategies-rolling.md
           #     - Blue-Green Deployment: swe-deployment-strategies-blue-green.md
           #     - Canary Deployment: swe-deployment-strategies-canary.md
-          #     - Rolling Deployment: swe-deployment-strategies-rolling.md
           #     - A/B Testing Deployment: swe-deployment-strategies-ab-testing.md
           # - Software Vulnerabilities:
           #     - SQL Injection: swe-software-vulnerabilities-sql-injection.md
