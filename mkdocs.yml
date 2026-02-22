@@ -145,12 +145,12 @@ nav:
           #     - DRY: swe-design-principles-dry.md
           #     - KISS: swe-design-principles-kiss.md
           #     - YAGNI: swe-design-principles-yagni.md
-          # - Infrastructure:
+          - Infrastructure:
+              - API Gateway: swe-infrastructure-api-gateway.md
+              - Reverse Proxy: swe-infrastructure-reverse-proxy.md
+              - Load Balancer: swe-infrastructure-load-balancer.md
+              - Service Mesh: swe-infrastructure-service-mesh.md
           #    - CDN: swe-infrastructure-cdn.md
-          #    - API Gateway: swe-infrastructure-api-gateway.md
-          #    - Reverse Proxy: swe-infrastructure-reverse-proxy.md
-          #    - Load Balancer: swe-infrastructure-load-balancer.md
-          #    - Service Mesh: swe-infrastructure-service-mesh.md
           - System Architecture:
               - Monolith: swe-system-architecture-monolith.md
               - Microservices: swe-system-architecture-microservices.md
@@ -177,6 +177,18 @@ nav:
           #     - Blue-Green Deployment: swe-deployment-strategies-blue-green.md
           #     - Canary Deployment: swe-deployment-strategies-canary.md
           #     - A/B Testing Deployment: swe-deployment-strategies-ab-testing.md
+          # - Software Vulnerabilities:
+          #     - SQL Injection: swe-software-vulnerabilities-sql-injection.md
+          #     - Cross-Site Scripting (XSS): swe-software-vulnerabilities-xss.md
+          #     - Cross-Site Request Forgery (CSRF): swe-software-vulnerabilities-csrf
+          # - Authentication & Authorization:
+          #     - Authentication: swe-authentication-authorization-authentication.md
+          #     - Authorization: swe-authentication-authorization-authorization.md
+          #     - JWT: swe-authentication-authorization-jwt.md
+          #     - OAuth: swe-authentication-authorization-oauth.md
+          #     - OpenID Connect: swe-authentication-authorization-openid-connect.md
+          #     - SSO: swe-authentication-authorization-sso.md
+          #     - RBAC: swe-authentication-authorization-rbac.md
 
   - Cookbook:
       - Python:
