@@ -142,41 +142,41 @@ nav:
           - Asymptotic Notations: swe-asymptotic-notations.md
           - Software Design Principles:
               - SOLID: swe-design-principles-solid.md
-          #     - DRY: swe-dry.md
-          #     - KISS: swe-kiss.md
-          #     - YAGNI: swe-yagni.md
+          #     - DRY: swe-design-principles-dry.md
+          #     - KISS: swe-design-principles-kiss.md
+          #     - YAGNI: swe-design-principles-yagni.md
           # - Infrastructure:
-          #    - CDN: swe-cdn.md
-          #    - API Gateway: swe-api-gateway.md
-          #    - Reverse Proxy: swe-reverse-proxy.md
-          #    - Load Balancer: swe-load-balancer.md
-          #    - Service Mesh: swe-service-mesh.md
+          #    - CDN: swe-infrastructure-cdn.md
+          #    - API Gateway: swe-infrastructure-api-gateway.md
+          #    - Reverse Proxy: swe-infrastructure-reverse-proxy.md
+          #    - Load Balancer: swe-infrastructure-load-balancer.md
+          #    - Service Mesh: swe-infrastructure-service-mesh.md
           - System Architecture:
               - Monolith: swe-system-architecture-monolith.md
               - Microservices: swe-system-architecture-microservices.md
           - Communication Styles:
               - REST: swe-communication-styles-rest.md
           #   - Event-Driven:
-          # - Queue (Point-to-Point): swe-queue.md
-          # - Pub/Sub (Topics): swe-pub-sub.md
-          # - Event Bus: swe-event-bus.md
-          # - Event Streaming: swe-event-streaming.md
+          # - Queue (Point-to-Point): swe-communication-styles-queue.md
+          # - Pub/Sub (Topics): swe-communication-styles-pub-sub.md
+          # - Event Bus: swe-communication-styles-event-bus.md
+          # - Event Streaming: swe-communication-styles-event-streaming.md
           # - Observability:
-          #     - Logging: swe-logging.md
-          #     - Tracing: swe-tracing.md
-          #     - Metrics: swe-metrics.md
-          #     - Monitoring: swe-monitoring.md
-          #     - Alerting: swe-alerting.md
-          # - Application architecture:
-          #     - Model-View-Controller (MVC): swe-mvc.md
-          #     - Hexagonal Architecture: swe-hexagonal-architecture.md
-          #     - Clean Architecture: swe-clean-architecture.md
+          #     - Logging: swe-observability-logging.md
+          #     - Tracing: swe-observability-tracing.md
+          #     - Metrics: swe-observability-metrics.md
+          #     - Monitoring: swe-observability-monitoring.md
+          #     - Alerting: swe-observability-alerting.md
+          - Application architecture:
+              - Hexagonal Architecture: swe-application-architecture-hexagonal-architecture.md
+              #     - Model-View-Controller (MVC): swe-application-architecture-mvc.md
+          #     - Clean Architecture: swe-application-architecture-clean-architecture.md
           # - Domain Modeling Strategy:
-          #     - Domain Driven Design: swe-domain-driven-design.md
+          #     - Domain Driven Design: swe-domain-modeling-domain-driven-design.md
           # - Deployment Strategies:
-          #     - Blue-Green Deployment: swe-blue-green.md
-          #     - Canary Deployment: swe-canary.md
-          #     - A/B Testing Deployment: swe-ab-testing.md
+          #     - Blue-Green Deployment: swe-deployment-strategies-blue-green.md
+          #     - Canary Deployment: swe-deployment-strategies-canary.md
+          #     - A/B Testing Deployment: swe-deployment-strategies-ab-testing.md
 
   - Cookbook:
       - Python:

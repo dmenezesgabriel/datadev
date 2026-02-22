@@ -1,4 +1,4 @@
-# Design Principles: SOLID
+# Design Principles - SOLID
 
 S.O.L.I.D is an acronym for five design principles that help software developers create maintainable, flexible, and scalable software. These principles are widely used in object-oriented programming.
 
