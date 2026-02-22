@@ -151,11 +151,11 @@ nav:
           #    - Reverse Proxy: swe-reverse-proxy.md
           #    - Load Balancer: swe-load-balancer.md
           #    - Service Mesh: swe-service-mesh.md
-          # - System Architecture:
-          #    - Microservices: swe-microservices.md
-          #    - Monolith: swe-monolith.md
+          - System Architecture:
+              - Monolith: swe-system-architecture-monolith.md
+              - Microservices: swe-system-architecture-microservices.md
           - Communication Styles:
-              - REST: swe-rest.md
+              - REST: swe-communication-styles-rest.md
           #   - Event-Driven:
           # - Queue (Point-to-Point): swe-queue.md
           # - Pub/Sub (Topics): swe-pub-sub.md
@@ -177,7 +177,6 @@ nav:
           #     - Blue-Green Deployment: swe-blue-green.md
           #     - Canary Deployment: swe-canary.md
           #     - A/B Testing Deployment: swe-ab-testing.md
-      - Professions: ai-professions.md
 
   - Cookbook:
       - Python:
