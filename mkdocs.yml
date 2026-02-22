@@ -150,6 +150,8 @@ nav:
               - Reverse Proxy: swe-infrastructure-reverse-proxy.md
               - Load Balancer: swe-infrastructure-load-balancer.md
               - Service Mesh: swe-infrastructure-service-mesh.md
+              - Kubernetes: swe-infrastructure-kubernetes.md
+              - AWS ECS: swe-infrastructure-aws-ecs.md
           #    - CDN: swe-infrastructure-cdn.md
           - System Architecture:
               - Monolith: swe-system-architecture-monolith.md
@@ -176,6 +178,7 @@ nav:
           # - Deployment Strategies:
           #     - Blue-Green Deployment: swe-deployment-strategies-blue-green.md
           #     - Canary Deployment: swe-deployment-strategies-canary.md
+          #     - Rolling Deployment: swe-deployment-strategies-rolling.md
           #     - A/B Testing Deployment: swe-deployment-strategies-ab-testing.md
           # - Software Vulnerabilities:
           #     - SQL Injection: swe-software-vulnerabilities-sql-injection.md
