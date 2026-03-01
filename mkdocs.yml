@@ -196,6 +196,11 @@ nav:
           #     - OpenID Connect: swe-authentication-authorization-openid-connect.md
           #     - SSO: swe-authentication-authorization-sso.md
           #     - RBAC: swe-authentication-authorization-rbac.md
+          - LeetCode:
+              - HashMap:
+                  - Two Sum: notebooks/python/leetcode/hashmap-two-sum.ipynb
+                  - Valid Anagram: notebooks/python/leetcode/hash-map-valid-anagram.ipynb
+                  - Group Anagrams: notebooks/python/leetcode/hashmap-two-sum.ipynb
 
   - Cookbook:
       - Python:
