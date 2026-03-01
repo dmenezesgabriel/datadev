@@ -124,6 +124,9 @@ nav:
               - Pipelines: ml-pipelines.md
               - Model Deployment: ml-model-deployment.md
               - Model Monitoring: ml-monitoring.md
+              - Model Monitoring:
+                  - Data Drift: ml-monitoring-data-drift.md
+                  # - Concept Drift: ml-monitoring-concept-drift.md
           - Cloud:
               - AWS Sagemaker: ml-cloud-aws-sagemaker.md
               - AWS ML Services: ml-cloud-aws-services.md

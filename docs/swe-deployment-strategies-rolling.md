@@ -39,3 +39,7 @@ A rolling update is a deployment strategy where a new version of an application 
     - **Canary**: Users are “weighted” by traffic percentages. E.g., 10% of requests go to the new version first.
     - **Rolling**: Users may hit mixed versions during rollout; your app must handle backward compatibility.
     - **A/B**: Only used for experiments, not for production version upgrade; traffic split is deterministic per user/session.
+
+## References
+
+- [machine-learning-lens/deployment](https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/deployment.html)
