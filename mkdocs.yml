@@ -196,13 +196,6 @@ nav:
           #     - OpenID Connect: swe-authentication-authorization-openid-connect.md
           #     - SSO: swe-authentication-authorization-sso.md
           #     - RBAC: swe-authentication-authorization-rbac.md
-          - LeetCode:
-              - HashMap:
-                  - Two Sum: notebooks/python/leetcode/hashmap-two-sum.ipynb
-                  - Valid Anagram: notebooks/python/leetcode/hash-map-valid-anagram.ipynb
-                  - Contains Duplicate: notebooks/python/leetcode/hash-map-contains-duplicate.ipynb
-                  - Group Anagrams: notebooks/python/leetcode/hashmap-two-sum.ipynb
-                  - Top K Frequent Elements: notebooks/python/leetcode/hash-map-top-k-frequent-elements.ipynb
 
   - Cookbook:
       - Python:
@@ -221,6 +214,14 @@ nav:
               - Binary Search Tree: notebooks/python/data-structures-algorithms/binary-search-tree.ipynb
               - Heaps & Priority Queues: notebooks/python/data-structures-algorithms/heaps-priority-queues.ipynb
               - Sorting: notebooks/python/data-structures-algorithms/sorting.ipynb
+
+          - LeetCode:
+              - HashMap:
+                  - Two Sum: notebooks/python/leetcode/hashmap-two-sum.ipynb
+                  - Valid Anagram: notebooks/python/leetcode/hash-map-valid-anagram.ipynb
+                  - Contains Duplicate: notebooks/python/leetcode/hash-map-contains-duplicate.ipynb
+                  - Group Anagrams: notebooks/python/leetcode/hashmap-two-sum.ipynb
+                  - Top K Frequent Elements: notebooks/python/leetcode/hash-map-top-k-frequent-elements.ipynb
 
           - Essentials:
               - Math: notebooks/python/essentials/math.ipynb
