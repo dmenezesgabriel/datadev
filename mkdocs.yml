@@ -200,7 +200,9 @@ nav:
               - HashMap:
                   - Two Sum: notebooks/python/leetcode/hashmap-two-sum.ipynb
                   - Valid Anagram: notebooks/python/leetcode/hash-map-valid-anagram.ipynb
+                  - Contains Duplicate: notebooks/python/leetcode/hash-map-contains-duplicate.ipynb
                   - Group Anagrams: notebooks/python/leetcode/hashmap-two-sum.ipynb
+                  - Top K Frequent Elements: notebooks/python/leetcode/hash-map-top-k-frequent-elements.ipynb
 
   - Cookbook:
       - Python:
