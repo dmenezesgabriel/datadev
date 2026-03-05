@@ -222,6 +222,12 @@ nav:
                   - Contains Duplicate: notebooks/python/leetcode/hash-map-contains-duplicate.ipynb
                   - Group Anagrams: notebooks/python/leetcode/hashmap-two-sum.ipynb
                   - Top K Frequent Elements: notebooks/python/leetcode/hash-map-top-k-frequent-elements.ipynb
+              - Two Pointers:
+                  - Valid Palindrome: notebooks/python/leetcode/two-pointers-valid-palindrome.ipynb
+                  - Two Sum 2: notebooks/python/leetcode/two-pointers-two-sum-2.ipynb
+                  - Container With Most Water: notebooks/python/leetcode/two-pointers-container-with-most-water.ipynb
+              - Sliding Window:
+                  - Best Time to Buy and Sell: notebooks/python/leetcode/sliding-window-best-time-to-buy-and-sell.ipynb
 
           - Essentials:
               - Math: notebooks/python/essentials/math.ipynb
