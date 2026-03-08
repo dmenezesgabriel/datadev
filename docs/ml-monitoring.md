@@ -1,6 +1,8 @@
 # Machine Learning Monitoring
 
-## Attributes
+First requirement: log everything needed for monitoring.
+
+At inference time capture:
 
 - timestamp
 - model_version
@@ -8,6 +10,42 @@
 - input_features
 - prediction
 - prediction_probability
+
+Example:
+
+```json
+{
+    "timestamp": "2026-03-07T10:22:11",
+    "model_version": "fraud_model_v3",
+    "features": {
+        "amount": 350.2,
+        "country": "BR",
+        "device_type": "mobile"
+    },
+    "prediction": 1,
+    "probability": 0.87
+}
+```
+
+Example:
+
+```py
+def predict(features):
+
+    pred, prob = model.predict(features)
+
+    log_event = {
+        "timestamp": now(),
+        "model_version": MODEL_VERSION,
+        "features": features,
+        "prediction": pred,
+        "probability": prob
+    }
+
+    kafka_producer.send("model_inference_logs", log_event)
+
+    return pred
+```
 
 ## Data/Feature Quality
 
@@ -18,6 +56,15 @@ Catch data pipeline bugs.
 | missing values  | feature suddenly null |
 | range violation | age < 0               |
 | category shift  | new country appears   |
+
+Pseudo code:
+
+```py
+missing_rate = df["amount"].isnull().mean()
+
+if missing_rate > 0.05:
+    alert("feature amount missing")
+```
 
 ## Performance
 
@@ -34,13 +81,23 @@ Example:
 | credit default  | months      |
 | recommendation  | minutes     |
 
-1. Join prediction_logs + ground_truth_labels
+1. Join prediction_logs + **ground_truth_labels**
 2. Compute metrics:
     - accuracy
     - precision
     - recall
     - auc
     - f1
+
+Pseudo code:
+
+```py
+df = join(predictions, labels)
+
+precision = precision_score(df.y_true, df.y_pred)
+recall = recall_score(df.y_true, df.y_pred)
+auc = roc_auc_score(df.y_true, df.y_prob)
+```
 
 ## Drift
 
@@ -119,3 +176,28 @@ Statistical tests on a continuous data stream:
 | data warehouse | Snowflake, BigQuery |
 | alerts         | PagerDuty           |
 | dashboards     | Grafana             |
+
+## Retraining
+
+Pseudo code:
+
+```py
+if drift_detected OR performance_drop:
+    trigger_retraining_pipeline
+```
+
+Pipeline:
+
+```mermaid
+flowchart LR
+    A([New Data]) e1@ --> B[Feature Engineering]
+    B e2@ --> C[Training]
+    C e3@ --> D[Validation]
+    D e4@ --> E[[Redeploy]]
+
+    %% Animation definitions
+    e1@{ animate: true }
+    e2@{ animate: true }
+    e3@{ animate: true }
+    e4@{ animate: true }
+```
