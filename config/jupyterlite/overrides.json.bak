@@ -25,7 +25,7 @@
     "@jupyterlite/ai:provider-registry": {
         "AIprovider": {
             "provider": "WebLLM",
-            "model": "Qwen2.5-0.5B-Instruct-q4f32_1-MLC"
+            "model": "Qwen3-0.6B-q4f32_1-MLC"
         }
     }
 }
