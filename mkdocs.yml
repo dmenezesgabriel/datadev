@@ -155,6 +155,7 @@ nav:
               - Service Mesh: swe-infrastructure-service-mesh.md
               - Kubernetes: swe-infrastructure-kubernetes.md
               - AWS ECS: swe-infrastructure-aws-ecs.md
+              - Side Car: swe-infrastructure-sidecar.md
           - System Architecture:
               - Monolith: swe-system-architecture-monolith.md
               - Microservices: swe-system-architecture-microservices.md

@@ -95,3 +95,26 @@ If one task crashes, ecs will automatically start a new one to maintain the desi
 
     Services are used for stateless applications. For batch jobs, you can run standalone tasks without a service.
     They are similar to Deployments in Kubernetes.
+
+## AWS Batch
+
+AWS Batch uses an ecs task, but is meant to heavy and long workloads, not simple inferences.
+
+Examples:
+
+- Model training
+- ETL pipelines
+
+```mermaid
+flowchart LR
+    A[Job] e1@ --> B[(Queue)]
+    B e2@ --> C[Scheduler]
+    C e3@ --> D[Compute Environment]
+    D e4@ --> E[ECS]
+
+    %% Animation
+    e1@{ animate: true }
+    e2@{ animate: true }
+    e3@{ animate: true }
+    e4@{ animate: true }
+```

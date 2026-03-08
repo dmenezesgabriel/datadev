@@ -1,4 +1,4 @@
-# Infrastructure API Gateway
+# Infrastructure - API Gateway
 
 ## Description
 
