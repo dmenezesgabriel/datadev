@@ -23,6 +23,7 @@ dependencies:
   - pip
   - pip:
       - jupyterlite-ai==0.7.0
+      - jupyter_scheduler
       # - jupyterlab-night
       # - jupyterlab_miami_nights
       # - catppuccin-jupyterlab
