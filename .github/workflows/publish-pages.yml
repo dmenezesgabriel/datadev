@@ -46,6 +46,12 @@ jobs:
         shell: bash -l {0}
         run: |
           cp ../../README.md ../../notebooks/
+
+          pip install jupyterlab-catppuccin
+
+          # Verify it's installed
+          jupyter labextension list
+
           jupyter lite build \
           --contents ../../notebooks \
           --output-dir ../../dist/jupyterlite

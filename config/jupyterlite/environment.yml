@@ -1,3 +1,4 @@
+# environment.yml
 name: xeus-kernels
 channels:
   - https://repo.mamba.pm/emscripten-forge
@@ -23,7 +24,3 @@ dependencies:
   - pip
   - pip:
       - jupyterlite-ai==0.7.0
-      - jupyter_scheduler
-      # - jupyterlab-night
-      # - jupyterlab_miami_nights
-      # - catppuccin-jupyterlab

@@ -1,3 +1,4 @@
+# build-environment.yml
 name: build-env
 channels:
   - conda-forge
@@ -9,4 +10,5 @@ dependencies:
   - jupyterlite-xeus >=0.4
   - jupyterlite-javascript-kernel=0.3.0
   - jupyterlite-pyodide-kernel=0.6.1
-  - jupyter_scheduler
+  - pip:
+      - jupyterlab-catppuccin
