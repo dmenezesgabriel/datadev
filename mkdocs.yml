@@ -242,9 +242,15 @@ nav:
           - Design Patters:
               - Singleton: notebooks/python/design-patterns/singleton.ipynb
               - Multiton: notebooks/python/design-patterns/multiton.ipynb
+              - Strategy: notebooks/python/design-patterns/strategy.ipynb
+              # - Factory: notebooks/python/design-patterns/factory.ipynb
+              # - Adapter: notebooks/python/design-patterns/adapter.ipynb
+              # - Observer: notebooks/python/design-patterns/observer.ipynb
 
           - Databases:
               - SQLite: notebooks/python/database/sqlite.ipynb
+              # - PostgreSQL: notebooks/python/database/postgresql.ipynb
+              # - DynamoDB: notebooks/python/database/dynamodb.ipynb
 
           - Data Engineering:
               - Spark: notebooks/python/data-engineering/spark.ipynb

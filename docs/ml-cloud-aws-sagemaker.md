@@ -120,3 +120,7 @@ Is a service that allows you to create, automate, and manage end-to-end machine 
 ### Features
 
 - Detect vanishing gradients, GPU underutilization, overfitting, and other common training issues. Provides real-time insights into the training process, allowing users to identify and address issues quickly.
+
+## References
+
+- [Video - Deliver high-performance ML models faster with MLOps tools, AWS Developers](https://www.youtube.com/watch?v=T9llSCYJXxc)
