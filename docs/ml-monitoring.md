@@ -1,5 +1,12 @@
 # Machine Learning Monitoring
 
+Core checks:
+
+1. Data Drift
+2. Prediction Drift
+3. Performance Drop
+4. Data Quality Issues
+
 First requirement: log everything needed for monitoring.
 
 At inference time capture:
@@ -139,7 +146,7 @@ Example:
 
 ## Explainability
 
-- SHAP
+- SHAP: Feature importance
 - LIME
 
 ## Bias & Fairness
