@@ -116,6 +116,7 @@ nav:
           - Evaluation:
               - Confusion Matrix: ml-confusion-matrix.md
               - Metrics: ml-metrics.md
+              - K-Fold Cross Validation: ml-cross-validation-kfold.md
           - Optimization: ml-optimization.md
           - MLOps:
               - Lifecycle: ml-ops.md
@@ -124,9 +125,6 @@ nav:
               - Pipelines: ml-pipelines.md
               - Model Deployment: ml-model-deployment.md
               - Model Monitoring: ml-monitoring.md
-              - Model Monitoring:
-                  - Data Drift: ml-monitoring-data-drift.md
-                  # - Concept Drift: ml-monitoring-concept-drift.md
           - Cloud:
               - AWS Sagemaker: ml-cloud-aws-sagemaker.md
               - AWS ML Services: ml-cloud-aws-services.md

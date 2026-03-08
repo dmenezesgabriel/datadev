@@ -47,3 +47,5 @@ $$
 Removing outliers from the dataset can help improve model performance. However, this approach should be used cautiously, as it may lead to loss of valuable information.
 
 We can filter values between two standard deviations from the mean for example.
+
+Ex: cap salary at P99

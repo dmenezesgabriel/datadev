@@ -359,6 +359,7 @@
     "notebook.experimental.fastRendering": true,
     "python.analysis.indexing": false,
     "cSpell.words": [
+        "Explainability",
         "indentifiable"
     ]
 }

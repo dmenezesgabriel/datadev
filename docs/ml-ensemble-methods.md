@@ -14,10 +14,12 @@ Assign weights to each training instance. Train models sequentially, with each m
 
 - Better accuracy
 
-## Stacking
+## Other
+
+### Stacking
 
 Often uses heterogeneous models (different algorithms). Train multiple base models on the training data, then use their predictions as input features for a meta-model that makes the final prediction.
 
-## Hybrid
+### Hybrid
 
 Combines the predictions of different models using a weighted average based on each model's performance.

@@ -11,9 +11,7 @@ Examples:
 - splitting
 - calculated features
 
-## Feature Transformation and imputation
-
-Include steps for replacing missing features or features that are not valid.
+## Feature Transformation
 
 ## Feature Extraction (PCA, LDA)
 
