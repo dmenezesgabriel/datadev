@@ -15,7 +15,7 @@
         "showHiddenFiles": true
     },
     "@jupyterlab/apputils-extension:themes": {
-        "theme": "JupyterLab Dark"
+        "theme": "Catppuccin Frappé"
     },
     "@jupyterlab/notebook-extension:tracker": {
         "codeCellConfig": {

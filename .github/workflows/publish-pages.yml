@@ -47,7 +47,7 @@ jobs:
         run: |
           cp ../../README.md ../../notebooks/
 
-          pip install catppuccin-jupyterlab
+          pip install catppuccin-jupyterlab==0.2.4
 
           # Verify it's installed
           jupyter labextension list
