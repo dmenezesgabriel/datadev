@@ -418,3 +418,4 @@ extra_javascript:
 
 extra_css:
   - css/styles.css
+  - css/catppuccin.css
