@@ -227,6 +227,9 @@ nav:
                   - Container With Most Water: notebooks/python/leetcode/two-pointers-container-with-most-water.ipynb
               - Sliding Window:
                   - Best Time to Buy and Sell: notebooks/python/leetcode/sliding-window-best-time-to-buy-and-sell.ipynb
+                  - Length of Longest Substring: notebooks/python/leetcode/sliding-window-length-longest-substring.ipynb
+              - Stack:
+                  - Valid parenthesis: notebooks/python/leetcode/stack-valid-parenthesis.ipynb
 
           - Essentials:
               - Math: notebooks/python/essentials/math.ipynb
