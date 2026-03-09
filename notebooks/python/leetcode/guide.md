@@ -1,61 +1,25 @@
 # LeetCode Practice Guide
 
-- Pattern recognition
-- Practice problems
-
-## Pattern recognition
-
-```mermaid
-flowchart TD
-
-A[Start: Read Problem] --> B{Is it a Tree or Graph?}
-
-B -->|Yes| C[DFS or BFS]
-B -->|No| D{Is the array/string sorted?}
-
-D -->|Yes| E{Searching for element/index?}
-E -->|Yes| F[Binary Search]
-E -->|No| G[Two Pointers]
-
-D -->|No| H{Substring / Subarray / Contiguous?}
-
-H -->|Yes| I[Sliding Window]
-H -->|No| J{Frequency / Duplicates / Counting?}
-
-J -->|Yes| K[HashMap]
-J -->|No| L{Top K / Kth Largest?}
-
-L -->|Yes| M[Heap / Priority Queue]
-L -->|No| N{Nested / Parentheses / Next Greater Element?}
-
-N -->|Yes| O[Stack]
-N -->|No| P{Overlapping Intervals / Scheduling?}
-
-P -->|Yes| Q[Sort + Merge Intervals]
-P -->|No| R{Grid traversal / islands / components?}
-
-R -->|Yes| S[Graph DFS/BFS]
-R -->|No| T[Consider Backtracking or DP]
-```
-
 ## Practice problems
 
-| Category        | Problem                                        | Difficulty | Link                                                                          |
-| --------------- | ---------------------------------------------- | ---------- | ----------------------------------------------------------------------------- |
-| HashMap         | Two Sum                                        | Easy       | https://leetcode.com/problems/two-sum/                                        |
-| HashMap         | Valid Anagram                                  | Easy       | https://leetcode.com/problems/valid-anagram/                                  |
-| HashMap         | Group Anagrams                                 | Medium     | https://leetcode.com/problems/group-anagrams/                                 |
-| Two Pointers    | Valid Palindrome                               | Easy       | https://leetcode.com/problems/valid-palindrome/                               |
-| Two Pointers    | Container With Most Water                      | Medium     | https://leetcode.com/problems/container-with-most-water/                      |
-| Two Pointers    | 3Sum                                           | Medium     | https://leetcode.com/problems/3sum/                                           |
-| Sliding Window  | Best Time to Buy and Sell Stock                | Easy       | https://leetcode.com/problems/best-time-to-buy-and-sell-stock/                |
-| Sliding Window  | Longest Substring Without Repeating Characters | Medium     | https://leetcode.com/problems/longest-substring-without-repeating-characters/ |
-| Sliding Window  | Longest Repeating Character Replacement        | Medium     | https://leetcode.com/problems/longest-repeating-character-replacement/        |
-| Stack           | Valid Parentheses                              | Easy       | https://leetcode.com/problems/valid-parentheses/                              |
-| Stack           | Daily Temperatures                             | Medium     | https://leetcode.com/problems/daily-temperatures/                             |
-| Binary Search   | Binary Search                                  | Easy       | https://leetcode.com/problems/binary-search/                                  |
-| Binary Search   | Search in Rotated Sorted Array                 | Medium     | https://leetcode.com/problems/search-in-rotated-sorted-array/                 |
-| Trees (DFS/BFS) | Maximum Depth of Binary Tree                   | Easy       | https://leetcode.com/problems/maximum-depth-of-binary-tree/                   |
-| Heap            | Kth Largest Element in an Array                | Medium     | https://leetcode.com/problems/kth-largest-element-in-an-array/                |
-| Graph (DFS/BFS) | Number of Islands                              | Medium     | https://leetcode.com/problems/number-of-islands/                              |
-| Intervals       | Merge Intervals                                | Medium     | https://leetcode.com/problems/merge-intervals/                                |
+### 🚀 The Ultimate LeetCode Pattern Recognition Table
+
+| Category            | Key Indicators / Keywords                           | Problem                                        | Difficulty | Complexity            | Link                                                                                  |
+| :------------------ | :-------------------------------------------------- | :--------------------------------------------- | :--------- | :-------------------- | :------------------------------------------------------------------------------------ |
+| **HashMap**         | Unique; Frequency; Check duplicates; Find sum pair  | Two Sum                                        | Easy       | $O(N)$                | [Link](https://leetcode.com/problems/two-sum/)                                        |
+| **HashMap**         | Anagram; Frequency count; Group by common trait     | Valid Anagram                                  | Easy       | $O(N)$                | [Link](https://leetcode.com/problems/valid-anagram/)                                  |
+| **HashMap**         | Categorize; String manipulation; Hashable key       | Group Anagrams                                 | Medium     | $O(N \cdot K \log K)$ | [Link](https://leetcode.com/problems/group-anagrams/)                                 |
+| **Two Pointers**    | Palindrome; Sorted array; In-place swap; Pairs      | Valid Palindrome                               | Easy       | $O(N)$                | [Link](https://leetcode.com/problems/valid-palindrome/)                               |
+| **Two Pointers**    | Maximize area; Move inward based on condition       | Container With Most Water                      | Medium     | $O(N)$                | [Link](https://leetcode.com/problems/container-with-most-water/)                      |
+| **Two Pointers**    | Sum of three; Sorted input; Skip duplicates         | 3Sum                                           | Medium     | $O(N^2)$              | [Link](https://leetcode.com/problems/3sum/)                                           |
+| **Sliding Window**  | Best time; Profit; Max/Min in single pass           | Best Time to Buy and Sell Stock                | Easy       | $O(N)$                | [Link](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)                |
+| **Sliding Window**  | Contiguous; Longest/Shortest; Distinct characters   | Longest Substring Without Repeating Characters | Medium     | $O(N)$                | [Link](https://leetcode.com/problems/longest-substring-without-repeating-characters/) |
+| **Sliding Window**  | K replacements; Frequency within window             | Longest Repeating Character Replacement        | Medium     | $O(N)$                | [Link](https://leetcode.com/problems/longest-repeating-character-replacement/)        |
+| **Stack**           | Parentheses; Nesting; Validating order; LIFO        | Valid Parentheses                              | Easy       | $O(N)$                | [Link](https://leetcode.com/problems/valid-parentheses/)                              |
+| **Stack**           | Next greater element; Waiting days; Monotonic trend | Daily Temperatures                             | Medium     | $O(N)$                | [Link](https://leetcode.com/problems/daily-temperatures/)                             |
+| **Binary Search**   | Sorted array; Logarithmic time; Find target         | Binary Search                                  | Easy       | $O(\log N)$           | [Link](https://leetcode.com/problems/binary-search/)                                  |
+| **Binary Search**   | Rotated sorted array; Modified search; Pivot point  | Search in Rotated Sorted Array                 | Medium     | $O(\log N)$           | [Link](https://leetcode.com/problems/search-in-rotated-sorted-array/)                 |
+| **Trees (DFS/BFS)** | Root to leaf; Height; Depth-first search            | Maximum Depth of Binary Tree                   | Easy       | $O(N)$                | [Link](https://leetcode.com/problems/maximum-depth-of-binary-tree/)                   |
+| **Heap**            | Top K; Kth largest/smallest; Priority Queue         | Kth Largest Element in an Array                | Medium     | $O(N \log K)$         | [Link](https://leetcode.com/problems/kth-largest-element-in-an-array/)                |
+| **Graph (DFS/BFS)** | Islands; Connected components; Grid traversal       | Number of Islands                              | Medium     | $O(M \cdot N)$        | [Link](https://leetcode.com/problems/number-of-islands/)                              |
+| **Intervals**       | Overlapping; Merge ranges; Meetings; Sorting        | Merge Intervals                                | Medium     | $O(N \log N)$         | [Link](https://leetcode.com/problems/merge-intervals/)                                |
