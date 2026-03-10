@@ -26,7 +26,6 @@ theme:
     text: Outfit
     code: Fira Code
   palette:
-    # Dark Mode
     - scheme: default
       toggle:
         icon: material/weather-night
@@ -41,7 +40,6 @@ theme:
 plugins:
   - blog
   - search:
-      # Enable language support for Portuguese
       lang: en
       # Use a custom separator to better handle special characters and camelCase
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
@@ -65,9 +63,11 @@ nav:
           - ACID: data-engineering-acid.md
           - ETL: data-engineering-etl.md
           - Data Sources: data-engineering-data-sources.md
-          - Relational Databases:
+          - SQL Databases:
               - Databases: data-engineering-relational-databases.md
               - SQL Commands: data-engineering-sql-coomands.md
+          # - NoSQl Databases:
+          # - Dynamodb: data-engineering-dynamodb.md
 
       - Machine Learning:
           - CRISP-DM: crisp-dm.md
@@ -355,13 +355,6 @@ nav:
 extra:
   version:
     provider: mike
-  # alternate:
-  #   - name: English
-  #     link: /
-  #     lang: en
-  #   - name: Portuguese
-  #     link: /pt-BR/
-  #     lang: pt
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/dmenezesgabriel
