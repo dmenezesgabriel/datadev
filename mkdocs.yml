@@ -87,22 +87,22 @@ nav:
               - Feature Extraction:
                   - PCA: ml-feature-engineering-pca.md
           - Feature Store: ml-feature-store.md
-          - Algorithms:
-              - KNN: ml-algorithms-knn.md
-              - K-Means: ml-algorithms-k-means.md
-              - TD-IDF: ml-algorithms-tf-idf.md
-              - Factorization Machines: ml-algorithms-factorization-machines.md
-          - Ensembles:
-              - Ensemble methods: ml-ensemble-methods.md
-              - XGBoost: ml-algorithms-xgboost.md
-              - LightGBM: ml-algorithms-lightgbm.md
-          - Deep Learning:
-              - Activation Functions: ml-deep-learning-activation-functions.md
-              - Convolutional Neural Networks: ml-deep-learning-cnn.md
-              - Recurrent Neural Networks: ml-deep-learning-rnn.md
-              - Parameter Tunning: ml-deep-learning-tunning.md
           - Model Training:
-              - Experiments: ml-model-training-experiments.md
+              - Algorithms:
+                  - KNN: ml-algorithms-knn.md
+                  - K-Means: ml-algorithms-k-means.md
+                  - TD-IDF: ml-algorithms-tf-idf.md
+                  - Factorization Machines: ml-algorithms-factorization-machines.md
+              - Ensembles:
+                  - Ensemble methods: ml-ensemble-methods.md
+                  # - Random Forest: ml-random-forest.md
+                  - XGBoost: ml-algorithms-xgboost.md
+                  - LightGBM: ml-algorithms-lightgbm.md
+              - Deep Learning:
+                  - Activation Functions: ml-deep-learning-activation-functions.md
+                  - Convolutional Neural Networks: ml-deep-learning-cnn.md
+                  - Recurrent Neural Networks: ml-deep-learning-rnn.md
+                  - Parameter Tunning: ml-deep-learning-tunning.md
               - Problems:
                   - Bias: ml-problems-bias.md
                   - Overfitting: ml-problems-overfitting.md
@@ -112,7 +112,7 @@ nav:
               #     - Precision vs Recall: ml-model-training-precision-recall-tradeoff.md
           - Model Tuning:
               - Hyperparameter Tuning: ml-hyperparameter-tuning.md
-          - Evaluation:
+          - Model Evaluation:
               - Confusion Matrix: ml-confusion-matrix.md
               - Metrics: ml-metrics.md
               - K-Fold Cross Validation: ml-cross-validation-kfold.md
