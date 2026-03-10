@@ -88,6 +88,7 @@ nav:
                   - PCA: ml-feature-engineering-pca.md
           - Feature Store: ml-feature-store.md
           - Model Training:
+              - Training: ml-model-training.md
               - Algorithms:
                   - KNN: ml-algorithms-knn.md
                   - K-Means: ml-algorithms-k-means.md
@@ -116,6 +117,7 @@ nav:
               - Confusion Matrix: ml-confusion-matrix.md
               - Metrics: ml-metrics.md
               - K-Fold Cross Validation: ml-cross-validation-kfold.md
+          # - Model Registry: ml-model-registry.md
           - Optimization: ml-optimization.md
           - MLOps:
               - Lifecycle: ml-ops.md
