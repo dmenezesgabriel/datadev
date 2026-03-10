@@ -72,7 +72,7 @@ nav:
       - Machine Learning:
           - CRISP-DM: crisp-dm.md
           - Design Principles: ml-design-principles.md
-          - Data Preprocessing:
+          - Data Preprocessing / EDA:
               - Missing data: ml-preprocessing-missing-data.md
               - Handling outliers: ml-preprocessing-handling-outliers.md
               - Normalization & Scaling: ml-preprocessing-normalization-scaling.md
@@ -81,13 +81,12 @@ nav:
           - Feature Engineering:
               - Features: ml-features.md
               - Feature Engineering Types: ml-feature-engineering-types.md
-              # - Feature Selection:
-              # - Feature Transformation:
               - Feature Creation:
                   - Encoding: ml-feature-engineering-encoding.md
                   - Binning: ml-feature-engineering-binning.md
               - Feature Extraction:
                   - PCA: ml-feature-engineering-pca.md
+          - Feature Store: ml-feature-store.md
           - Algorithms:
               - KNN: ml-algorithms-knn.md
               - K-Means: ml-algorithms-k-means.md
