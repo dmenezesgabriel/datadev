@@ -230,6 +230,8 @@ nav:
                   - Length of Longest Substring: notebooks/python/leetcode/sliding-window-length-longest-substring.ipynb
               - Stack:
                   - Valid parenthesis: notebooks/python/leetcode/stack-valid-parenthesis.ipynb
+              - Binary search:
+                  - Binary Search: notebooks/python/leetcode/binary-search.ipynb
 
           - Essentials:
               - Math: notebooks/python/essentials/math.ipynb
