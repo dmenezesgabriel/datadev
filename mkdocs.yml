@@ -111,8 +111,7 @@ nav:
               #     - Bias-Variance Tradeoff: ml-model-training-bias-variance-tradeoff.md
               #     - Accuracy vs Interpretability: ml-model-training-accuracy-interpretability-tradeoff.md
               #     - Precision vs Recall: ml-model-training-precision-recall-tradeoff.md
-          - Model Tuning:
-              - Hyperparameter Tuning: ml-hyperparameter-tuning.md
+          - Model Tuning: ml-hyperparameter-tuning.md
           - Model Evaluation:
               - Confusion Matrix: ml-confusion-matrix.md
               - Metrics: ml-metrics.md
@@ -136,7 +135,6 @@ nav:
           - Embeddings: llm-embeddings.md
           - Retrieval Augmented Generation: llm-rag.md
           - Evaluation: llm-evals.md
-          - LLMOps: llm-ops.md
           - MCP: llm-mcp.md
           - AI Agents: ai-agents.md
 
