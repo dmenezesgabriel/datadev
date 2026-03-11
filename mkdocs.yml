@@ -65,7 +65,7 @@ nav:
           - Data Sources: data-engineering-data-sources.md
           - SQL Databases:
               - Databases: data-engineering-relational-databases.md
-              - SQL Commands: data-engineering-sql-coomands.md
+              - SQL Commands: data-engineering-sql-comands.md
           # - NoSQl Databases:
           # - Dynamodb: data-engineering-dynamodb.md
 
