@@ -191,15 +191,6 @@ Example:
 
 Gradient Descent is the algorithm used to **train** many ML models by **minimizing** prediction **error** (loss).
 
-The idea is simple: move the model parameters in the direction that reduces the error.
-
-At each iteration the model:
-
-1. Makes a prediction
-2. Computes the **loss** (error)
-3. Calculates the **gradient** (slope of the loss)
-4. Updates the weights slightly **downhill**
-
 ## Evaluating the Model
 
 After training, the model is evaluated using metrics that match the business problem.
