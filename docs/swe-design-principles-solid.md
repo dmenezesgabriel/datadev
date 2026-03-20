@@ -47,51 +47,62 @@ Software entities (classes, modules, functions) should be open for extension but
 **Bad**:
 
 ```python
-class PaymentProcessor:
-    def process(self, payment_type):
-        if payment_type == 'credit_card':
-            ...
-        elif payment_type == 'paypal':
-            ...
+class OrderService:
+    def calculate_discount(self, order: Order) -> float:
+        if order.customer_type == "regular":
+            return order.total * 0.05
+        elif order.customer_type == "premium":
+            return order.total * 0.15
+        elif order.customer_type == "employee":
+            return order.total * 0.30
+        # adding "partner" means touching this method again and again
 ```
 
-To add a new payment type, we need to modify the `process` method, which can introduce bugs.
+Business rules buried in conditionals. Every new customer type is a modification, not an extension.
 
 **Good**:
 
 ```python
 from typing import Protocol
 
+class DiscountPolicy(Protocol):
+    def calculate(self, order: Order) -> float: ...
 
-class Payment(Protocol):
-    def process(self) -> None:
-        ...
+# ---
 
+class RegularDiscount:
+    def calculate(self, order: Order) -> float:
+        return order.total * 0.05
 
-class CreditCardPayment:
-    def process(self) -> None:
-        print("Processing credit card")
+# ---
 
+class PremiumDiscount:
+    def calculate(self, order: Order) -> float:
+        return order.total * 0.15
 
-class PayPalPayment:
-    def process(self) -> None:
-        print("Processing PayPal")
+# ---
 
+class EmployeeDiscount:
+    def calculate(self, order: Order) -> float:
+        return order.total * 0.30
 
-class PaymentProcessor:
-    def process(self, payment: Payment) -> None:
-        payment.process()
+# ---
+
+class PartnerDiscount: # new behavior: zero existing code touched
+    def calculate(self, order: Order) -> float:
+        return order.total * 0.40
+
+# ---
+
+class OrderService:
+    def __init__(self, discount_policy: DiscountPolicy):
+        self.discount_policy = discount_policy
+
+    def calculate_discount(self, order: Order) -> float:
+        return self.discount_policy.calculate(order)
 ```
 
-Now the behavior can be extended by creating new payment classes without modifying existing code. In the example above we use polymorphism that is the same interface but with a different behavior. The `PaymentProcessor` can process any payment type that implements the `Payment` interface.
-
-Other patterns also present are strategy where `Payment` is the strategy interface and `CreditCardPayment` and `PayPalPayment` are concrete strategies. The `PaymentProcessor` is the context that uses the strategy to process payments.
-
-Also `Dependency Injection` is used to inject the `Payment` dependency into the `PaymentProcessor`, allowing for loose coupling and adherence to the OCP. So it receives the dependency from the outside rather than creating it internally, making it easier to extend and maintain.
-
-`Dependency Inversion Principle` is also present as the `PaymentProcessor` depends on the abstraction (`Payment`) rather than concrete implementations, as high-level modules should not depend on low-level modules, but both should depend on abstractions. This allows for flexibility and extensibility in the design.
-
-Using `Protocol`instead of Inheritance is more _pythonic_ because enforces static type checking (with mypy), has no forced inheritance, better decoupling and follows the duck typing philosophy of Python "If it quacks like a duck, it is a duck".
+Adding `PartnerDiscount` required writing a new class and nothing else `OrderService` never changed. That's the open/closed principle: _extend by adding, never by editing_.
 
 ## Liskov Substitution Principle (LSP)
 
