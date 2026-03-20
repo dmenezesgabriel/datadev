@@ -148,56 +148,118 @@ class SMSNotificationService:
 
 ## Interface Segregation Principle (ISP)
 
-Clients should not be forced to depend on interfaces they do not use. This means that it's better to have many specific interfaces rather than a single general-purpose interface.
+- Classes should not be forced to depend on methods they do not use. This means that it's better to have many specific interfaces rather than a single general-purpose interface.
+
+### Why
+
+- Improve class cohesion
+- Reduce coupling
+- Improves code reusability
+- Improves software maintenance
 
 **Bad**:
 
 ```python
-class Vehicle:
-    def drive(self): ...
-    def fly(self): ...
+class PaymentProcessor(Protocol):
+    def charge(self, amount: float) -> Receipt: ...
+    def refund(self, receipt: Receipt) -> None: ...
+    def save_card(self, card: CardDetails) -> Token: ...
+    def get_installments(self, amount: float) -> list[Installment]: ...
 
-class Car(Vehicle):
-    def drive(self): ...
-    def fly(self):
+class PayPalProcessor:          # PayPal supports everything
+    def charge(self, amount: float) -> Receipt: ...
+    def refund(self, receipt: Receipt) -> None: ...
+    def save_card(self, card: CardDetails) -> Token: ...
+    def get_installments(self, amount: float) -> list[Installment]: ...
 
-class Airplane(Vehicle):
-    def drive(self):
-    def fly(self): ...
+# --
+
+class BoletoProcessor:          # Boleto has no card vault or installments natively
+    def charge(self, amount: float) -> Receipt: ...
+    def refund(self, receipt: Receipt) -> None: raise NotImplementedError
+    def save_card(self, card: CardDetails) -> Token: raise NotImplementedError
+    def get_installments(self, amount: float) -> list[Installment]: raise NotImplementedError
+
+# --
+
+class PixProcessor:             # Pix is instant payment only
+    def charge(self, amount: float) -> Receipt: ...
+    def refund(self, receipt: Receipt) -> None: ...
+    def save_card(self, card: CardDetails) -> Token: raise NotImplementedError
+    def get_installments(self, amount: float) -> list[Installment]: raise NotImplementedError
 ```
 
-Here `Car` is forced to implement `fly` which it cannot do, and `Airplane` is forced to implement `drive` which it cannot do. This creates a bloated interface and violates ISP.
+All three processors are forced to acknowledge methods they'll never support, turning the interface into a contract nobody fully honors.
 
 **Good**:
 
 ```python
 from typing import Protocol
 
-class Drivable(Protocol):
-    def drive(self) -> None:
-        ...
+class Chargeable(Protocol):
+    def charge(self, amount: float) -> Receipt: ...
 
-class Flyable(Protocol):
-    def fly(self) -> None:
+# --
 
-class Car(Drivable):
-    def drive(self) -> None: ...
+class Refundable(Protocol):
+    def refund(self, receipt: Receipt) -> None: ...
 
-class Airplane(Flyable):
-    def fly(self) -> None: ...
+# --
+
+class CardVaultable(Protocol):
+    def save_card(self, card: CardDetails) -> Token: ...
+
+# --
+
+class Installable(Protocol):
+    def get_installments(self, amount: float) -> list[Installment]: ...
+
+# --
+
+class PayPalProcessor(Chargeable, Refundable, CardVaultable, Installable):
+    def charge(self, amount: float) -> Receipt: ...
+    def refund(self, receipt: Receipt) -> None: ...
+    def save_card(self, card: CardDetails) -> Token: ...
+    def get_installments(self, amount: float) -> list[Installment]: ...
+
+# --
+
+class BoletoProcessor(Chargeable):         # Boleto is charge-only, no refund or vault
+    def charge(self, amount: float) -> Receipt: ...
+
+# --
+
+class PixProcessor(Chargeable, Refundable):  # Pix supports refund, but no cards or installments
+    def charge(self, amount: float) -> Receipt: ...
+    def refund(self, receipt: Receipt) -> None: ...
 ```
 
-Now we have two separate interfaces, `Drivable` and `Flyable`, and each class implements only the interface relevant to its behavior, adhering to the Interface Segregation Principle.
+Each processor implements exactly what its payment method supports by design. `save_card_for_later(p: CardVaultable)` statically rejects `BoletoProcessor` and `PixProcessor` no runtime surprises, no dead stubs, and adding a new processor like a crypto gateway never touches existing code.
+
+Also instead of protocols _multiple inheritance_ could be used
 
 ## Dependency Inversion Principle (DIP)
 
-High-level modules should not depend on low-level modules. Both should depend on abstractions. This means that we should depend on interfaces or abstract classes rather than concrete implementations.
+Is the base principle for layered software architectures like _Ports and Adapters_.
+
+- High-level modules should not depend on low-level modules. Both should depend on abstractions.
+- Abstractions should not depend on details, details should depend on abstractions.
+- Modules should not depend on external dependencies.
+- We should depend on interfaces or abstract classes rather than concrete implementations.
+
+### Why
+
+- Improve flexibility: The software should grow healthy in a simple way, changing components without breaking what already exists.
+- Improve maintenance: Follow the Open-Closed Principle.
+- Improve testability: Be able to mock dependencies easily
 
 **Bad**:
 
 ```python
 class MySQLDatabase:
     def connect(self): ...
+
+# ---
 
 class UserRepository:
     def __init__(self):
@@ -212,15 +274,24 @@ Here `UserRepository` is tightly coupled to `MySQLDatabase`, making it hard to c
 ```python
 from typing import Protocol
 
-class Database(Protocol):
-    def connect(self) -> None:
-        ...
+class DatabasePort(Protocol):
+    def query(self, sql: str) -> list[dict]: ...
 
-class MySQLDatabase:
-    def connect(self) -> None: ...
+# ---
+
+class MySQLAdapter:
+    def query(self, sql: str) -> list[dict]: ...
+
+# ---
+
+# For unit testing purposes
+class InMemoryAdapter:
+    def query(self, sql: str) -> list[dict]: ...
+
+# ---
 
 class UserRepository:
-    def __init__(self, db: Database):
+    def __init__(self, db: DatabasePort):
         self.db = db  # depends on abstraction
     def get_user(self, user_id): ...
 ```
