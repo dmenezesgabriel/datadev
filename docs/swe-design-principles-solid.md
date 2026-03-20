@@ -9,36 +9,79 @@ A class should have only one reason to change, meaning it should have only one r
 **Bad**:
 
 ```python
-class User:
-    def create_user(self, user_data): ...
-    def validate_user(self, user_data): ...
-    def send_email(self, email_data): ...
-    def save_to_database(self, user_data): ...
+class OrderService:
+    def place_order(self, order: Order) -> None:
+        # validates the order
+        if not order.items:
+            raise ValueError("Order has no items")
+        if order.total <= 0:
+            raise ValueError("Order total must be positive")
+
+        # applies discount
+        if order.customer_type == "premium":
+            order.total *= 0.85
+
+        # persists to database
+        db.execute("INSERT INTO orders ...", order)
+
+        # notifies the customer
+        smtp.send(order.customer.email, f"Order {order.id} confirmed")
 ```
 
-This class handles:
-
-- business logic
-- persistence
-- email sending
-
-Too many responsibilities, making it tightly coupled and hard to test.
+One method, four reasons to change: validation rules tighten, discount logic evolves, the database migrates, the email provider switches. Any of those changes forces you back into the same class.
 
 **Good**:
 
 ```python
-class UserValidator: ...
-class UserRepository: ...
-class EmailService: ...
-class UserService: ...
+class OrderValidator:
+    def validate(self, order: Order) -> None:
+        if not order.items:
+            raise ValueError("Order has no items")
+        if order.total <= 0:
+            raise ValueError("Order total must be positive")
+
+# ---
+
+class DiscountService:
+    def apply(self, order: Order) -> None:
+        if order.customer_type == "premium":
+            order.total *= 0.85
+
+# ---
+
+class OrderRepository:
+    def save(self, order: Order) -> None:
+        db.execute("INSERT INTO orders ...", order)
+
+# ---
+
+class NotificationService:
+    def notify(self, order: Order) -> None:
+        smtp.send(order.customer.email, f"Order {order.id} confirmed")
+
+# ---
+
+class OrderService:
+    def __init__(
+        self,
+        validator: OrderValidator,
+        discount: DiscountService,
+        repository: OrderRepository,
+        notifier: NotificationService,
+    ):
+        self.validator = validator
+        self.discount = discount
+        self.repository = repository
+        self.notifier = notifier
+
+    def place_order(self, order: Order) -> None:
+        self.validator.validate(order)
+        self.discount.apply(order)
+        self.repository.save(order)
+        self.notifier.notify(order)
 ```
 
-Each class has only one reason to change:
-
-- `UserRepository`: change if we change the database
-- `EmailService`: change if we change the email provider
-- `UserValidator`: change if we change validation rules
-- `UserService`: change if we change business logic
+Each class now has exactly one reason to change. `OrderService` is reduced to an orchestrator — it owns the sequence, not the logic. Notice also that this naturally sets up **DIP**: each dependency could be swapped for a different implementation without touching OrderService at all.
 
 ## Open/Closed Principle (OCP)
 
