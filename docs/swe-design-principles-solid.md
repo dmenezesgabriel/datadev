@@ -70,25 +70,26 @@ class DiscountPolicy(Protocol):
 
 # ---
 
-class RegularDiscount:
+class RegularDiscountStrategy:
     def calculate(self, order: Order) -> float:
         return order.total * 0.05
 
 # ---
 
-class PremiumDiscount:
+class PremiumDiscountStrategy:
     def calculate(self, order: Order) -> float:
         return order.total * 0.15
 
 # ---
 
-class EmployeeDiscount:
+class EmployeeDiscountStrategy:
     def calculate(self, order: Order) -> float:
         return order.total * 0.30
 
 # ---
 
-class PartnerDiscount: # new behavior: zero existing code touched
+# new behavior: zero existing code touched
+class PartnerDiscountStrategy:
     def calculate(self, order: Order) -> float:
         return order.total * 0.40
 
@@ -99,7 +100,7 @@ class OrderService:
         self.discount_policy = discount_policy
 
     def calculate_discount(self, order: Order) -> float:
-        return self.discount_policy.calculate(order)
+        return self.discount_policy.calculate(order) # Polymorphism
 ```
 
 Adding `PartnerDiscount` required writing a new class and nothing else `OrderService` never changed. That's the open/closed principle: _extend by adding, never by editing_.
@@ -149,7 +150,8 @@ class Account(ABC):
 
 # ---
 
-class CurrentAccount(Account): # no minimum deposit restriction
+# no minimum deposit restriction
+class CurrentAccount(Account):
     def deposit(self, amount: float) -> None:
         if amount <= 0:
             raise ValueError("Amount must be positive")
@@ -162,7 +164,8 @@ class CurrentAccount(Account): # no minimum deposit restriction
 
 # ---
 
-class SavingsAccount(Account): # honest about its own rules
+# honest about its own rules
+class SavingsAccount(Account):
     MINIMUM_DEPOSIT = 50.0
 
     def deposit(self, amount: float) -> None:
@@ -179,7 +182,7 @@ class SavingsAccount(Account): # honest about its own rules
 
 
 def process_deposit(account: Account, amount: float) -> None:
-    account.deposit(amount) # each account enforces its own rules honestly
+    account.deposit(amount) # Polymorphism
 ```
 
 - The contract stays the same
@@ -210,7 +213,8 @@ class PaymentProcessor(Protocol):
 
 # ---
 
-class PayPalProcessor:          # PayPal supports everything
+# PayPal supports everything
+class PayPalProcessor:
     def charge(self, amount: float) -> Receipt: ...
     def refund(self, receipt: Receipt) -> None: ...
     def save_card(self, card: CardDetails) -> Token: ...
@@ -218,7 +222,8 @@ class PayPalProcessor:          # PayPal supports everything
 
 # ---
 
-class BoletoProcessor:          # Boleto has no card vault or installments natively
+# Boleto has no card vault or installments natively
+class BoletoProcessor:
     def charge(self, amount: float) -> Receipt: ...
     def refund(self, receipt: Receipt) -> None: raise NotImplementedError
     def save_card(self, card: CardDetails) -> Token: raise NotImplementedError
@@ -226,7 +231,8 @@ class BoletoProcessor:          # Boleto has no card vault or installments nativ
 
 # ---
 
-class PixProcessor:             # Pix is instant payment only
+# Pix is instant payment only
+class PixProcessor:
     def charge(self, amount: float) -> Receipt: ...
     def refund(self, receipt: Receipt) -> None: ...
     def save_card(self, card: CardDetails) -> Token: raise NotImplementedError
@@ -268,12 +274,14 @@ class PayPalProcessor(Chargeable, Refundable, CardVaultable, Installable):
 
 # ---
 
-class BoletoProcessor(Chargeable):         # Boleto is charge-only, no refund or vault
+# Boleto is charge-only, no refund or vault
+class BoletoProcessor(Chargeable):
     def charge(self, amount: float) -> Receipt: ...
 
 # ---
 
-class PixProcessor(Chargeable, Refundable):  # Pix supports refund, but no cards or installments
+# Pix supports refund, but no cards or installments
+class PixProcessor(Chargeable, Refundable):
     def charge(self, amount: float) -> Receipt: ...
     def refund(self, receipt: Receipt) -> None: ...
 ```
