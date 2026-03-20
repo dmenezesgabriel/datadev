@@ -166,13 +166,15 @@ class PaymentProcessor(Protocol):
     def save_card(self, card: CardDetails) -> Token: ...
     def get_installments(self, amount: float) -> list[Installment]: ...
 
+# ---
+
 class PayPalProcessor:          # PayPal supports everything
     def charge(self, amount: float) -> Receipt: ...
     def refund(self, receipt: Receipt) -> None: ...
     def save_card(self, card: CardDetails) -> Token: ...
     def get_installments(self, amount: float) -> list[Installment]: ...
 
-# --
+# ---
 
 class BoletoProcessor:          # Boleto has no card vault or installments natively
     def charge(self, amount: float) -> Receipt: ...
@@ -180,7 +182,7 @@ class BoletoProcessor:          # Boleto has no card vault or installments nativ
     def save_card(self, card: CardDetails) -> Token: raise NotImplementedError
     def get_installments(self, amount: float) -> list[Installment]: raise NotImplementedError
 
-# --
+# ---
 
 class PixProcessor:             # Pix is instant payment only
     def charge(self, amount: float) -> Receipt: ...
@@ -199,22 +201,22 @@ from typing import Protocol
 class Chargeable(Protocol):
     def charge(self, amount: float) -> Receipt: ...
 
-# --
+# ---
 
 class Refundable(Protocol):
     def refund(self, receipt: Receipt) -> None: ...
 
-# --
+# ---
 
 class CardVaultable(Protocol):
     def save_card(self, card: CardDetails) -> Token: ...
 
-# --
+# ---
 
 class Installable(Protocol):
     def get_installments(self, amount: float) -> list[Installment]: ...
 
-# --
+# ---
 
 class PayPalProcessor(Chargeable, Refundable, CardVaultable, Installable):
     def charge(self, amount: float) -> Receipt: ...
@@ -222,12 +224,12 @@ class PayPalProcessor(Chargeable, Refundable, CardVaultable, Installable):
     def save_card(self, card: CardDetails) -> Token: ...
     def get_installments(self, amount: float) -> list[Installment]: ...
 
-# --
+# ---
 
 class BoletoProcessor(Chargeable):         # Boleto is charge-only, no refund or vault
     def charge(self, amount: float) -> Receipt: ...
 
-# --
+# ---
 
 class PixProcessor(Chargeable, Refundable):  # Pix supports refund, but no cards or installments
     def charge(self, amount: float) -> Receipt: ...
