@@ -97,54 +97,85 @@ Using `Protocol`instead of Inheritance is more _pythonic_ because enforces stati
 
 Subtypes must be substitutable for their base types without altering the correctness of the program. This means that derived classes should be able to replace their base classes without affecting the functionality.
 
+- A subclass cannot demand more than the base class
+- The subclass cannot reduce the garantes provided by the base class after the method execution
+- The subclass cannot alter intern conditions maintained as constants by the base class
+
 **Bad**:
 
 ```python
-class NotificationService:
-    def send(self, user: str, message: str) -> None:
-        print(f"Sending '{message}' to {user}")
+class BankAccount:
+    def deposit(self, amount: float) -> None:
+        if amount <= 0:
+            raise ValueError("Amount must be positive")
+        self.balance += amount
 
-class SMSNotificationService(NotificationService):
-    def send(self, user: str, message: str) -> None:
-        if len(message) > 160:
-            raise ValueError("SMS cannot exceed 160 characters")
-        print(f"Sending SMS '{message}' to {user}")
+# ---
 
-# Client code
-def notify(service: NotificationService):
-    service.send("gabriel", "A" * 500)
+class SavingsAccount(BankAccount):
+    def deposit(self, amount: float) -> None:
+        if amount < 50: # strengthens the precondition — LSP violation
+            raise ValueError("Minimum deposit is $50")
+        self.balance += amount
 ```
 
-Here subclass changes the behavior of the base class, only works for short messages, violating LSP. Now client code must check that means substitution is broken.
-
-```python
-if isinstance(service, SMSNotificationService): ...
-```
+`BankAccount` promises that any positive amount is valid. `SavingsAccount` silently tightens that rule to $50, so any code that holds a `BankAccount` and deposits $10 will crash unexpectedly if it receives a `SavingsAccount`. The subclass broke the parent's contract.
 
 **Good**:
 
 ```python
-from typing import Protocol
+from abc import ABC, abstractmethod
+
+class Account(ABC):
+    def __init__(self):
+        self.balance: float = 0.0
+
+    @abstractmethod
+    def deposit(self, amount: float) -> None: ...
+
+    @abstractmethod
+    def withdraw(self, amount: float) -> None: ...
+
+# ---
+
+class CurrentAccount(Account): # no minimum deposit restriction
+    def deposit(self, amount: float) -> None:
+        if amount <= 0:
+            raise ValueError("Amount must be positive")
+        self.balance += amount
+
+    def withdraw(self, amount: float) -> None:
+        if amount > self.balance:
+            raise ValueError("Insufficient funds")
+        self.balance -= amount
+
+# ---
+
+class SavingsAccount(Account): # honest about its own rules
+    MINIMUM_DEPOSIT = 50.0
+
+    def deposit(self, amount: float) -> None:
+        if amount < self.MINIMUM_DEPOSIT:
+            raise ValueError(f"Minimum deposit is ${self.MINIMUM_DEPOSIT}")
+        self.balance += amount
+
+    def withdraw(self, amount: float) -> None:
+        if amount > self.balance:
+            raise ValueError("Insufficient funds")
+        self.balance -= amount
+
+# ---
 
 
-class NotificationService(Protocol):
-    def send(self, user: str, message: str) -> None:
-        ...
-
-class EmailNotificationService:
-    def send(self, user: str, message: str) -> None:
-        print(f"Sending email '{message}' to {user}")
-
-class SMSNotificationService:
-    def send(self, user: str, message: str) -> None:
-        if len(message) > 160:
-            message = message[:160]  # adapt internally
-        print(f"Sending SMS '{message}' to {user}")
+def process_deposit(account: Account, amount: float) -> None:
+    account.deposit(amount) # each account enforces its own rules honestly
 ```
 
 - The contract stays the same
 - No unexpected errors
 - Each implementation handles its own constraints internally, so client code can use any notification service without worrying about specific limitations.
+
+`process_deposit` doesn't know — and doesn't care whether it received a `CurrentAccount` or a `SavingsAccount`. It calls `.deposit()` and each object responds according to its own rules. That's **polymorphism**: one interface, multiple behaviors.
 
 ## Interface Segregation Principle (ISP)
 
