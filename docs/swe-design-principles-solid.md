@@ -74,6 +74,7 @@ class OrderService:
         self.repository = repository
         self.notifier = notifier
 
+    # Facade design pattern
     def place_order(self, order: Order) -> None:
         self.validator.validate(order)
         self.discount.apply(order)
