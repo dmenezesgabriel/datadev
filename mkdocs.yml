@@ -72,6 +72,7 @@ nav:
       - Machine Learning:
           - CRISP-DM: crisp-dm.md
           - Design Principles: ml-design-principles.md
+          - Requirements Gathering: ml-requirements-gathering.md
           - Data Preprocessing / EDA:
               - Missing data: ml-preprocessing-missing-data.md
               - Handling outliers: ml-preprocessing-handling-outliers.md

@@ -25,6 +25,8 @@ Different ways models serve predictions.
 - Credit card payment: approve or deny transaction instantly to prevent **fraud**
 - Pix transfer: block suspicious transfers before money leaves the account
 - Mobile banking app: show **personalized offers** such as credit limit or loans
+    - batch: precomputed eligible offers
+    - real-time: adjust based on recent user behavior
 - Login attempt: detect suspicious device or location and trigger _MFA_
 - E-commerce checkout: real-time **risk scoring** before approving purchase
 
