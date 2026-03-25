@@ -2,7 +2,7 @@
 
 ## 1. Process Data (Collect → Preprocess → Feature Engineering)
 
-### 💼 Business
+- **💼 Business**
 
 - [ ] What decision will this model support?
 - [ ] What is the cost of false positives vs false negatives?
@@ -21,7 +21,7 @@
 
 ## 2. Feature Store (Online / Offline)
 
-### 💼 Business
+- **💼 Business**
 
 - [ ] Is real-time prediction required?
 - [ ] What is the acceptable latency SLA?
@@ -35,7 +35,7 @@
 
 ## 3. Develop Model (Train, Tune, Evaluate)
 
-### 💼 Business
+- **💼 Business**
 
 - [ ] What is the minimum acceptable performance?
 - [ ] What is the current baseline (rules or human)?
@@ -51,7 +51,7 @@
 
 ## 4. Deploy (Batch / Real-Time Inference)
 
-### 💼 Business
+- **💼 Business**
 
 - [ ] What latency is required (ms, seconds, hours)?
 - [ ] What is expected traffic volume?
@@ -66,7 +66,7 @@
 
 ## 5. Monitor (Model + Data + System)
 
-### 💼 Business
+- **💼 Business**
 
 - [ ] What signals indicate business impact degradation?
 - [ ] How quickly must issues be detected and resolved?
@@ -82,7 +82,7 @@
 
 ## 6. Feedback Loop (Retraining / Continuous Learning)
 
-### 💼 Business
+- **💼 Business**
 
 - [ ] How often should the model be updated?
 - [ ] What is the cost vs benefit of retraining?
@@ -97,7 +97,7 @@
 
 ## 7. Governance (Registry, Lineage, Compliance)
 
-### 💼 Business
+- **💼 Business**
 
 - [ ] Are there auditability requirements?
 - [ ] Who owns and is accountable for the model?
