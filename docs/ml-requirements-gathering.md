@@ -2,7 +2,7 @@
 
 ## 1. Process Data (Collect → Preprocess → Feature Engineering)
 
-- **💼 Business**
+- **💼 Business**:
 
 - [ ] What decision will this model support?
 - [ ] What is the cost of false positives vs false negatives?
@@ -10,7 +10,7 @@
 - [ ] How often are predictions needed (real-time vs batch)?
 - [ ] Are there regulatory or compliance constraints?
 
-### 🧠 Data Science
+- **🧠 Data Science**:
 
 - [ ] What data sources are available? Are they reliable?
 - [ ] How is the label defined? Is it noisy or delayed?
@@ -21,12 +21,12 @@
 
 ## 2. Feature Store (Online / Offline)
 
-- **💼 Business**
+- **💼 Business**:
 
 - [ ] Is real-time prediction required?
 - [ ] What is the acceptable latency SLA?
 
-### 🧠 Data Science
+- **🧠 Data Science**:
 
 - [ ] Which features are needed online vs offline?
 - [ ] Are features point-in-time correct (no leakage)?
@@ -35,13 +35,13 @@
 
 ## 3. Develop Model (Train, Tune, Evaluate)
 
-- **💼 Business**
+- **💼 Business**:
 
 - [ ] What is the minimum acceptable performance?
 - [ ] What is the current baseline (rules or human)?
 - [ ] How do model metrics map to business KPIs?
 
-### 🧠 Data Science
+- **🧠 Data Science**:
 
 - [ ] What evaluation metrics best reflect business impact?
 - [ ] How do we handle class imbalance?
@@ -51,13 +51,13 @@
 
 ## 4. Deploy (Batch / Real-Time Inference)
 
-- **💼 Business**
+- **💼 Business**:
 
 - [ ] What latency is required (ms, seconds, hours)?
 - [ ] What is expected traffic volume?
 - [ ] What happens if the model fails?
 
-### 🧠 Data Science
+- **🧠 Data Science**:
 
 - [ ] Are training and inference features consistent?
 - [ ] Batch or real-time inference?
@@ -66,12 +66,12 @@
 
 ## 5. Monitor (Model + Data + System)
 
-- **💼 Business**
+- **💼 Business**:
 
 - [ ] What signals indicate business impact degradation?
 - [ ] How quickly must issues be detected and resolved?
 
-### 🧠 Data Science
+- **🧠 Data Science**:
 
 - [ ] How do we detect data drift?
 - [ ] How do we detect concept drift?
@@ -82,13 +82,13 @@
 
 ## 6. Feedback Loop (Retraining / Continuous Learning)
 
-- **💼 Business**
+- **💼 Business**:
 
 - [ ] How often should the model be updated?
 - [ ] What is the cost vs benefit of retraining?
 - [ ] Can users provide feedback?
 
-### 🧠 Data Science
+- **🧠 Data Science**:
 
 - [ ] How do we collect new labeled data?
 - [ ] Is retraining scheduled or triggered?
@@ -97,21 +97,13 @@
 
 ## 7. Governance (Registry, Lineage, Compliance)
 
-- **💼 Business**
+- **💼 Business**:
 
 - [ ] Are there auditability requirements?
 - [ ] Who owns and is accountable for the model?
 
-### 🧠 Data Science
+- **🧠 Data Science**:
 
 - [ ] Can we trace model → data → code → features?
 - [ ] Are models versioned and reproducible?
 - [ ] Are training artifacts and metadata stored?
-
-## 🧠 Final Alignment Check
-
-- [ ] Business Goal is clearly defined
-- [ ] Decision supported by the model is clear
-- [ ] Prediction output is well specified
-- [ ] Data required is available and reliable
-- [ ] System constraints (latency, scale, cost) are defined
