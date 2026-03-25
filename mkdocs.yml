@@ -292,6 +292,7 @@ nav:
               - P Value: notebooks/python/inferential-statistic/p-value.ipynb
 
           - Machine Learning:
+              - Feature engineering: /home/gabrieldmenezes/Documents/repos/datadev/notebooks/python/machine-learning/california-housing-feature-engineering.ipynb
               - ML ZoomCamp:
                   - Car price prediction: notebooks/python/machine-learning/predicting-car-price.ipynb
                   - Churn prediction: notebooks/python/machine-learning/churn-prediction.ipynb
