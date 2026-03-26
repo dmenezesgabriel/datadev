@@ -63,6 +63,8 @@ def main():
                 "ipykernel",
                 "--with",
                 "ipywidgets",
+                "--with",
+                "nbformat==4.2.0",
                 "--no-project",
                 "--isolated",
                 "--refresh",
